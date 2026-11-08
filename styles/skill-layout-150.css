@@ -1,0 +1,100 @@
+/* Load after hud-147.css / hud-150.css. All lengths are CSS pixels. */
+#dsh-bg3-hud {
+  --bg3-rows: 3;
+  --bg3-row-h: 57px;
+  --bg3-row-gap: 5px;
+  --bg3-grid-pad: 2px;
+  --bg3-deck-h: calc(var(--bg3-rows) * var(--bg3-row-h) + (var(--bg3-rows) - 1) * var(--bg3-row-gap) + 2 * var(--bg3-grid-pad));
+  min-width: 0;
+}
+@media (height < 720px) { #dsh-bg3-hud { --bg3-rows: 2; } }
+@media (min-height: 1100px) { #dsh-bg3-hud { --bg3-rows: 4; } }
+@media (max-height: 800px) { #dsh-bg3-hud { --bg3-row-h: 54px; } }
+@media (max-height: 700px) { #dsh-bg3-hud { --bg3-row-h: 50px; } }
+@media (max-height: 640px) { #dsh-bg3-hud { --bg3-row-h: 46px; } }
+
+#dsh-bg3-hud .bg3-center { min-width: 0; container: bg3-center / inline-size; }
+#dsh-bg3-hud .bg3-zones { min-width: 0; grid-template-columns: minmax(0, 2fr) minmax(0, 3fr) minmax(0, 5fr); }
+#dsh-bg3-hud .bg3-zone { min-width: 0; overflow: hidden; }
+
+/* Extra .bg3-zone specificity beats legacy 150/140/130px and
+   .zone-equipment.has-attacks 109/101/92px at every width. */
+#dsh-bg3-hud .bg3-zone .bg3-deck,
+#dsh-bg3-hud .bg3-zone .bg3-grid,
+#dsh-bg3-hud .bg3-zone.zone-equipment.has-attacks .bg3-deck,
+#dsh-bg3-hud .bg3-zone.zone-equipment.has-attacks .bg3-grid {
+  box-sizing: border-box;
+  height: var(--bg3-deck-h);
+  min-height: 0;
+  max-height: var(--bg3-deck-h);
+}
+#dsh-bg3-hud .bg3-zone .bg3-deck { overflow: hidden; }
+#dsh-bg3-hud .bg3-zone .bg3-grid {
+  display: grid;
+  /* The minimum can shrink to the container width, including below 46px.
+     Integrators may supply repeat(N,minmax(0,1fr)) via --bg3-grid-columns. */
+  grid-template-columns: var(--bg3-grid-columns, repeat(auto-fill, minmax(min(46px, 100%), 1fr)));
+  grid-auto-rows: var(--bg3-row-h);
+  gap: var(--bg3-row-gap);
+  padding: var(--bg3-grid-pad);
+  border: 0;
+  min-width: 0;
+  align-content: start;
+  overflow-x: hidden;
+  overflow-y: auto;
+  scroll-snap-type: y mandatory;
+  scroll-padding-block: var(--bg3-grid-pad);
+  overscroll-behavior: contain;
+  scrollbar-width: thin;
+  scrollbar-color: #8e7446 #13171a;
+  scrollbar-gutter: stable;
+}
+#dsh-bg3-hud .bg3-grid .bg3-skill {
+  height: var(--bg3-row-h) !important;
+  min-height: 0 !important;
+  min-width: 0;
+  max-width: none;
+  aspect-ratio: auto;
+  scroll-snap-align: start;
+  scroll-margin: 0;
+}
+#dsh-bg3-hud .bg3-grid .bg3-skill:hover { transform: none; }
+#dsh-bg3-hud .bg3-grid > .bg3-empty { margin: 0; padding: 0; align-self: center; min-width: 0; }
+#dsh-bg3-hud .bg3-grid::-webkit-scrollbar { width: 6px; }
+#dsh-bg3-hud .bg3-grid::-webkit-scrollbar-track { background: #13171a; }
+#dsh-bg3-hud .bg3-grid::-webkit-scrollbar-thumb { background: #8e7446; border-radius: 3px; }
+
+/* In normal navigation flow, never positioned over skills. */
+#dsh-bg3-hud .bg3-pager {
+  display: inline-flex;
+  align-items: center;
+  flex: 0 0 auto;
+  gap: 3px;
+  height: 20px;
+  max-height: 20px;
+  font-size: 10px;
+  line-height: 16px;
+  white-space: nowrap;
+  color: #e9e0cb;
+}
+#dsh-bg3-hud .bg3-pager button {
+  flex: 0 0 18px;
+  width: 18px;
+  height: 18px;
+  min-height: 0;
+  max-height: 20px;
+  padding: 0;
+  margin: 0;
+  border: 1px solid #796845;
+  font-size: 10px;
+  line-height: 16px;
+}
+#dsh-bg3-hud .bg3-pager-label { font-variant-numeric: tabular-nums; }
+#dsh-bg3-hud .bg3-pager-more { color: #c7b380; }
+#dsh-bg3-hud .bg3-pager[data-state="none"] { display: none; }
+@container bg3-center (max-width: 620px) {
+  #dsh-bg3-hud .bg3-pager-more { display: none; }
+}
+@media (max-width: 620px) {
+  #dsh-bg3-hud .bg3-pager-more { display: none; }
+}
