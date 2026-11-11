@@ -23,3 +23,15 @@ BG3 图标 © Larian Studios，来源与文件哈希见 assets/classes/sources.j
 咒唤微元素群按施法环位和距离加伤，保留每次命中的元素类型选择。魂灵环绕在施法时选择伤害类型，之后随合格命中结算。猎人印记和脆弱诅咒按受标记或诅咒的目标结算。
 
 魔能爆可在面板中选候选目标，再由 CPR 分配光束。只有一个目标时，全部光束依次攻击该目标。
+
+## 安装与更新
+
+在 Foundry 设置页打开「附加模组 → 安装模组」，将下面的地址粘贴到 Manifest URL 并安装。
+
+```text
+https://github.com/K1eersyKora/fvtt-combat-panel/releases/latest/download/module.json
+```
+
+安装后在世界的「管理模组」中启用战斗面板。后续在设置页点击模组的更新按钮检查新版本。
+
+发布新版时递增 `module.json` 的 `version`，将 `download` 中的版本标签改成对应的新标签，并在该标签的 GitHub Release 中上传 `module.json` 和 `fvtt-combat-panel.zip`。正式版本设为 Latest，`manifest` 地址持续使用上面的固定链接。
