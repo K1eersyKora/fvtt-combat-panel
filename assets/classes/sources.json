@@ -1,0 +1,90 @@
+{
+  "copyright": "Baldur’s Gate 3 class artwork © Larian Studios. Original PNGs from bg3.wiki; see source pages for fan content terms.",
+  "downloaded": "2026-11-10T15:49:29.203Z",
+  "images": [
+    {
+      "class": "Barbarian",
+      "page": "https://bg3.wiki/wiki/File:Class_Barbarian_Badge_Icon.png",
+      "url": "https://bg3.wiki/w/images/4/41/Class_Barbarian_Badge_Icon.png",
+      "bytes": 19619,
+      "sha256": "2f4173d47563441a2df32b2b956d82679fba5f76bc8c6328d6f545d4b5ebd799"
+    },
+    {
+      "class": "Bard",
+      "page": "https://bg3.wiki/wiki/File:Class_Bard_Badge_Icon.png",
+      "url": "https://bg3.wiki/w/images/3/38/Class_Bard_Badge_Icon.png",
+      "bytes": 25101,
+      "sha256": "42b0692eeb209f3faaabd9c133bf14a9db080ce343c879dad88e205afa93d3a3"
+    },
+    {
+      "class": "Cleric",
+      "page": "https://bg3.wiki/wiki/File:Class_Cleric_Badge_Icon.png",
+      "url": "https://bg3.wiki/w/images/a/ac/Class_Cleric_Badge_Icon.png",
+      "bytes": 23837,
+      "sha256": "c4e2a316177a4e22514d3bd808ac57d4e3938bee82884da45500df06dc36e6db"
+    },
+    {
+      "class": "Druid",
+      "page": "https://bg3.wiki/wiki/File:Class_Druid_Badge_Icon.png",
+      "url": "https://bg3.wiki/w/images/c/c9/Class_Druid_Badge_Icon.png",
+      "bytes": 27265,
+      "sha256": "f7dd2300f7d32bccc8beb4752942be2463f24bce1b93316aa1feb0cc42b98ca4"
+    },
+    {
+      "class": "Fighter",
+      "page": "https://bg3.wiki/wiki/File:Class_Fighter_Badge_Icon.png",
+      "url": "https://bg3.wiki/w/images/2/21/Class_Fighter_Badge_Icon.png",
+      "bytes": 21204,
+      "sha256": "cb773efb7fb5a1707c17484cdc2ad7f3423edb3f6a10d9d35509a86032339047"
+    },
+    {
+      "class": "Monk",
+      "page": "https://bg3.wiki/wiki/File:Class_Monk_Badge_Icon.png",
+      "url": "https://bg3.wiki/w/images/9/93/Class_Monk_Badge_Icon.png",
+      "bytes": 22986,
+      "sha256": "622caad590507caecf849afa3c5378e916f50a0ed77b4902300648ffbd456653"
+    },
+    {
+      "class": "Paladin",
+      "page": "https://bg3.wiki/wiki/File:Class_Paladin_Badge_Icon.png",
+      "url": "https://bg3.wiki/w/images/e/ea/Class_Paladin_Badge_Icon.png",
+      "bytes": 30728,
+      "sha256": "554413fcb8a03021fcec609421181ddfcd66d0856ec4ce7866027b8cfe96de30"
+    },
+    {
+      "class": "Ranger",
+      "page": "https://bg3.wiki/wiki/File:Class_Ranger_Badge_Icon.png",
+      "url": "https://bg3.wiki/w/images/f/f5/Class_Ranger_Badge_Icon.png",
+      "bytes": 28011,
+      "sha256": "c304b6c7382c5829c55fe9ae5981ece3014942dde05dbcd1ed98361dff9da016"
+    },
+    {
+      "class": "Rogue",
+      "page": "https://bg3.wiki/wiki/File:Class_Rogue_Badge_Icon.png",
+      "url": "https://bg3.wiki/w/images/d/da/Class_Rogue_Badge_Icon.png",
+      "bytes": 96366,
+      "sha256": "f132109c0156e1316e36cc2712595a751be48b0f41bc26f4000855c2a292f70d"
+    },
+    {
+      "class": "Sorcerer",
+      "page": "https://bg3.wiki/wiki/File:Class_Sorcerer_Badge_Icon.png",
+      "url": "https://bg3.wiki/w/images/a/a8/Class_Sorcerer_Badge_Icon.png",
+      "bytes": 24737,
+      "sha256": "bb14449accfa00c8f546729a84bcc7e2e27ff0cc625c5e39e4bb6314950a8689"
+    },
+    {
+      "class": "Warlock",
+      "page": "https://bg3.wiki/wiki/File:Class_Warlock_Badge_Icon.png",
+      "url": "https://bg3.wiki/w/images/6/66/Class_Warlock_Badge_Icon.png",
+      "bytes": 23130,
+      "sha256": "69efa26608fa528adb5081c40cec0ef1ba43f75e0179bd5d12cfb9c733df950c"
+    },
+    {
+      "class": "Wizard",
+      "page": "https://bg3.wiki/wiki/File:Class_Wizard_Badge_Icon.png",
+      "url": "https://bg3.wiki/w/images/d/d9/Class_Wizard_Badge_Icon.png",
+      "bytes": 23677,
+      "sha256": "6b791d7e3dbb8d64fb9435f7f4494d475b9bc8c19d6eaa2b1b72eb57ff8bc72f"
+    }
+  ]
+}

@@ -1,5 +1,7 @@
-import "./reaction-156.js";
-import { BottomHUD } from "./hud-156.js";
+import { tacticsView, tacticsTokenAt, tacticsBounds } from './targeting-view-165.js';
+import "./reaction-163.js";
+import { ActionState } from "./action-state-162.js";
+import { BottomHUD } from "./hud-171.js";
 import { getPredictionPolicy, registerPredictionSettings, refreshPredictionPolicy } from './prediction-policy-156.js';
 Hooks.once('init',registerPredictionSettings);
 Hooks.once('ready',refreshPredictionPolicy);
@@ -7,8 +9,9 @@ import { workflowAttackPreview } from "./workflow-preview-147.js";
 import { computePreview, formulaDistribution, discoverPredictionRules, predictionModuleInventory } from "./prediction-147.js";
 import { resourceMeta, usesLeft, isTransferActivity } from "./feature-core-147.js";
 import { registerFeatureHooks } from "./feature-hooks-147.js";
+import { matchAttackSpells } from "./attack-spell-automation-170.js";
 
-/* fvtt-combat-panel v0.12.0
+/* fvtt-combat-panel v0.12.14
  * Token 旁战斗面板：
  *   右侧：动作/附赠/反应/专注图标（BG3 HUD 风格，尺寸收紧、贴 token 右缘）
  *   左侧：装备/特性/法术菜单，从右向左展开；法术先分环位（戏法/1 环/…），再列条目
@@ -16,7 +19,8 @@ import { registerFeatureHooks } from "./feature-hooks-147.js";
  * 屏幕空间固定尺寸，不随地图缩放；连线指向所属 Token。
  */
 const MODULE_ID = "fvtt-combat-panel";
-const VERSION = "0.12.0";
+const VERSION = "0.12.14";
+const HUD_TOOL = `${MODULE_ID}-hud`;
 
 const CATEGORIES = [
   { id: "equipment", label: "装备", types: ["weapon", "equipment", "consumable", "loot", "container"] },
@@ -96,7 +100,7 @@ class CombatPanel {
     this.actor = null;
     this.state = { category: null, spellLevel: null, equipSub: null, itemId: null, editMode: false, editSelected: null, menuManual: null };
     this._dirty = false;
-    this._used = { action: false, bonus: false, reaction: false };
+    this._actionState = new ActionState(() => { this._dirty = true; });
     this._timers = {};
     this._combatRound = null;
     this._drag = null;
@@ -224,59 +228,35 @@ class CombatPanel {
     });
     Hooks.on("updateUser", () => this.refresh());
     Hooks.on("midi-qol.RollComplete", (workflow) => this._onRollComplete(workflow));
+    Hooks.on("dnd5e.postUseActivity", (activity, usage) => {
+      this._actionState.mark(activity.actor ?? activity.item?.actor, activity.activation?.type, usage);
+    });
+    for (const hook of ["createActiveEffect", "updateActiveEffect", "deleteActiveEffect"]) {
+      Hooks.on(hook, () => this.refresh());
+    }
+    // Usage cards are broadcast to other clients, unlike the local Midi workflow hooks.
+    Hooks.on("createChatMessage", message => {
+      const flags = message.flags?.dnd5e;
+      if (flags?.messageType !== "usage" || !flags.activity?.uuid) return;
+      const activity = fromUuidSync(flags.activity.uuid);
+      if (activity) this._actionState.mark(activity.actor ?? activity.item?.actor, activity.activation?.type);
+    });
+    Hooks.on("deleteCombat", () => { this._resetUsed(); this.refresh(); });
   }
 
   /* ---------------- 资源使用状态（midi-qol 联动） ---------------- */
 
-  _readMidiUsed(actor) {
-    let a = {};
-    try { a = actor?.getFlag?.("midi-qol", "actions") ?? {}; } catch (err) { a = {}; }
-    const bonusMax = Number(a.bonusActionsMax ?? 1);
-    const reactionMax = Number(a.reactionsMax ?? 1);
-    return {
-      action: !!a.action,
-      bonus: Number(a.bonusActionsUsed ?? 0) >= bonusMax,
-      reaction: Number(a.reactionsUsed ?? 0) >= reactionMax
-    };
-  }
-
   _onRollComplete(workflow) {
-    if (!this.actor || !workflow?.actor) return;
-    if (workflow.actor.id !== this.actor.id) return;
-    const type = String(workflow?.activity?.activation?.type ?? "");
-    if (type.startsWith("reaction")) this._markUsed("reaction");
-    else if (type === "bonus") this._markUsed("bonus");
-    else if (type === "action") this._markUsed("action");
+    if (!workflow || workflow.aborted || (workflow.WorkflowState_Abort && workflow.currentAction === workflow.WorkflowState_Abort)) return;
+    this._actionState.mark(workflow.actor, workflow.activity?.activation?.type, workflow.config);
   }
 
   _onCombatUpdate(combat) {
-    if (!combat || combat !== game.combat) return;
-    const round = Number(combat.round ?? 0);
-    if (this._combatRound === round) return;
-    // 进入新的一轮：所有资源图标重新亮起
-    this._combatRound = round;
-    this._resetUsed();
+    if (combat === game.combat) this._actionState.syncCombat();
   }
 
-  _markUsed(key) {
-    if (!this._used) this._used = { action: false, bonus: false, reaction: false };
-    this._used[key] = true;
-    clearTimeout(this._timers?.[key]);
-    if (!game.combat?.started) {
-      // 非战斗：6 秒后自动恢复亮起
-      this._timers[key] = setTimeout(() => {
-        if (this._used) this._used[key] = false;
-        this._dirty = true;
-      }, 6000);
-    }
-    this._dirty = true;
-  }
-
-  _resetUsed() {
-    this._used = { action: false, bonus: false, reaction: false };
-    for (const key of ["action", "bonus", "reaction"]) clearTimeout(this._timers?.[key]);
-    this._dirty = true;
-  }
+  _markUsed(key) { this._actionState.mark(this.actor, key); }
+  _resetUsed() { this._actionState.reset(); }
 
   /* ---------------- 刷新 ---------------- */
 
@@ -294,7 +274,7 @@ class CombatPanel {
     if (token !== this.token) {
       this.token = token;
       this.state = { category: null, spellLevel: null, equipSub: null, itemId: null, editMode: false, editSelected: null, menuManual: null };
-      this._used = this._readMidiUsed(token.actor);
+      this._actionState.syncCombat();
       this._combatRound = Number(game.combat?.round ?? 0);
       this._cancelDrag();
     }
@@ -696,9 +676,8 @@ class CombatPanel {
   /* ---------------- 状态读取 ---------------- */
 
   _resources(actor) {
-    void actor;
     const midiActive = !!game.modules.get("midi-qol")?.active;
-    const used = this._used ?? { action: false, bonus: false, reaction: false };
+    const used = this._actionState.read(actor);
     return {
       midiActive,
       action: { used: !!used.action },
@@ -951,10 +930,12 @@ class CombatPanel {
 
   _syncAttackChain(drag) {
     if (!this.$chain || !this.token || !drag.started) return;
-    const source = this._screenOf(this.token.center.x, this.token.center.y);
+    const projected=tacticsBounds(this.token);
+    if(projected===null){this.$chain.style.display='none';return;}
+    const source = projected ?? this._screenOf(this.token.center.x, this.token.center.y);
     const dx = drag.clientX - source.x, dy = drag.clientY - source.y;
     const length = Math.hypot(dx,dy);
-    const radius = Math.max(8, Math.min(this.token.w,this.token.h) * Math.abs(canvas.stage.worldTransform.a || 1) / 2);
+    const radius = projected ? 10 : Math.max(8, Math.min(this.token.w,this.token.h) * Math.abs(canvas.stage.worldTransform.a || 1) / 2);
     const from = Math.min(radius, length / 3);
     const usable = Math.max(0, length - from - 27);
     const count = Math.min(180, Math.floor(usable / 10));
@@ -1042,6 +1023,8 @@ class CombatPanel {
   }
 
   _tokenAtClient(clientX, clientY) {
+    const projected=tacticsTokenAt(clientX,clientY);
+    if(projected!==undefined)return projected;
     const view = canvas.app?.view;
     if (!view) return null;
     const rect = view.getBoundingClientRect();
@@ -1085,10 +1068,12 @@ class CombatPanel {
 
   _positionTargetOverlay(token) {
     if (!this.$lock || !token || token.destroyed) return;
-    const topLeft = this._screenOf(token.x, token.y);
+    const projected=tacticsBounds(token);
+    if(projected===null){this._hideTargetOverlay();return;}
+    const topLeft = projected ? {x:projected.left,y:projected.top} : this._screenOf(token.x, token.y);
     const wt = canvas.stage.worldTransform;
-    const width = Number(token.w ?? 0) * Math.abs(wt.a || 1);
-    const height = Number(token.h ?? 0) * Math.abs(wt.d || 1);
+    const width = projected?.width ?? Number(token.w ?? 0) * Math.abs(wt.a || 1);
+    const height = projected?.height ?? Number(token.h ?? 0) * Math.abs(wt.d || 1);
     Object.assign(this.$lock.style, {left:(topLeft.x-4)+"px",top:(topLeft.y-4)+"px",width:(width+8)+"px",height:(height+8)+"px"});
     if (!this.$hit || this.$hit.classList.contains("dsh-cp-hidden")) return;
     const cardW=this.$hit.offsetWidth||180, cardH=this.$hit.offsetHeight||70;
@@ -1128,7 +1113,7 @@ class CombatPanel {
     this.$hit.title=auditText;
     this.$hit.setAttribute('aria-label',auditText);
     const mode = preview.mode ?? "normal";
-    const modeText=(preview.complete===false?"条件未完整 · ":"")+(preview.kind==="save"?"目标豁免：":"")+(mode==="adv"?"▲ 优势":mode==="dis"?"▼ 劣势":"普通投掷");
+    const modeText=mode==="adv"?"优势":mode==="dis"?"劣势":"均势";
     const favorableMode=preview.kind==="save"?(mode==="adv"?"dis":mode==="dis"?"adv":"normal"):mode;
     const label=preview.kind==="save"?"目标豁免失败率 · 估算":"命中率 · 估算";
     const chance=Number.isFinite(preview.chance)?Math.round(preview.chance*100)+"%":"—";
@@ -1158,6 +1143,12 @@ class CombatPanel {
 
   /* ---------------- 屏幕定位 ---------------- */
 
+  _tokenScreenPoint(token,corner=false) {
+    const b=tacticsBounds(token);
+    if(b===null)return null;
+    return b ? {x:corner?b.left+b.width:b.x,y:b.top} : this._screenOf(token.x+(corner?token.w:token.w/2),token.y);
+  }
+
   _screenOf(worldX, worldY) {
     const wt = canvas.stage.worldTransform;
     const view = canvas.app.view;
@@ -1175,9 +1166,10 @@ class CombatPanel {
     const wt = canvas.stage.worldTransform;
     const zoom = wt.a || 1;
     const center = token.center ?? { x: 0, y: 0 };
-    const screen = this._screenOf(center.x, center.y);
-    const tokenW = Number(token.w ?? 100) * zoom;
-    const tokenH = Number(token.h ?? 100) * zoom;
+    const projected=tacticsBounds(token);
+    const screen = projected ?? this._screenOf(center.x, center.y);
+    const tokenW = projected?.width ?? Number(token.w ?? 100) * zoom;
+    const tokenH = projected?.height ?? Number(token.h ?? 100) * zoom;
     const topY = screen.y - tokenH / 2;
     const leftX = screen.x - tokenW / 2;
     const rightX = screen.x + tokenW / 2;
@@ -1239,6 +1231,20 @@ Hooks.once("init", () => {
   console.log(`[${MODULE_ID}] init v${VERSION}`);
 });
 
+Hooks.on("getSceneControlButtons", (controls) => {
+  const tools = controls.tokens?.tools;
+  if (!tools) return;
+  tools[HUD_TOOL] = {
+    name: HUD_TOOL,
+    title: "显示／隐藏战斗 HUD",
+    icon: "fas fa-table-columns",
+    order: 100,
+    toggle: true,
+    active: globalThis.__dshCombatPanel?.hud.enabled ?? true,
+    onChange: (_event, active) => globalThis.__dshCombatPanel?.hud.setEnabled(active)
+  };
+});
+
 Hooks.once("ready", () => {
   ensureStyles();
   registerFeatureHooks();
@@ -1249,4 +1255,4 @@ Hooks.once("ready", () => {
   new CombatPanel();
 });
 
-Hooks.once('ready',()=>{const module=game.modules.get(MODULE_ID);if(module)module.api={...module.api,discoverPredictionRules,predictionModuleInventory};});
+Hooks.once('ready',()=>{const module=game.modules.get(MODULE_ID);if(module)module.api={...module.api,discoverPredictionRules,predictionModuleInventory,matchAttackSpells};});

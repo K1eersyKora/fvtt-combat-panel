@@ -2,7 +2,7 @@
   "id": "fvtt-combat-panel",
   "title": "战斗面板 · Combat Panel",
   "description": "BG3 式底部战斗 HUD：无整块底板、动作/附赠/反应/法术位资源条、技能与施放环位、免费施法次数、指向目标预测与点击施放。",
-  "version": "0.12.0",
+  "version": "0.12.14",
   "compatibility": {
     "minimum": "13",
     "verified": "13.351",
@@ -14,11 +14,11 @@
     }
   ],
   "esmodules": [
-    "scripts/main-156.js"
+    "scripts/main-171.js"
   ],
   "styles": [
     "styles/panel-150.css",
-    "styles/hud-159.css",
+    "styles/hud-168.css",
     "styles/skill-layout-150.css",
     "styles/tooltip-150.css"
   ],
