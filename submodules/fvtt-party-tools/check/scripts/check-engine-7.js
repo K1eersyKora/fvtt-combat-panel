@@ -10,7 +10,7 @@ import { playerContent, renderPlayer, bindGlassEffects } from "./player-ui-2.js"
  * Socket 不提供可信的发送者身份；fromUserId 是路由校验，不是安全认证。
  */
 const MODULE_ID = "fvtt-party-tools";
-const VERSION = "0.2.4";
+const VERSION = "0.2.5";
 const tokenIndicators = new CheckTokenIndicators();
 const CHANNEL = `module.${MODULE_ID}`;
 const RESULT_SOUNDS = Object.freeze({

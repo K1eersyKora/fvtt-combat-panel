@@ -1,6 +1,6 @@
 import {isStoryActive,readStoryState} from './story-state-2.js';
-import {toggleStoryMode} from './story-mode-6.js';
-import { openSkillChecks } from '../check/scripts/check-integration-6.js';
+import {toggleStoryMode} from './story-mode-7.js';
+import { openSkillChecks } from '../check/scripts/check-integration-7.js';
 import { isPlayerRestricted, registerRestrictionSetting, setRestrictedPlayers, setRestrictionMode, InteractionLock } from './interaction-lock-2.js';
 
 const ID = 'fvtt-party-tools';

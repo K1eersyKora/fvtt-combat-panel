@@ -91,6 +91,9 @@ export class StoryInput {
  }
  handle(event){
   if(!isStoryPlayer()){if(this.pan||this.measure)this.reset();return;}
+  // Canvas.pan emits an untrusted hover-only PointerEvent, without buttons.
+  // It must not update the physical gesture or masquerade as a button release.
+  if(event.type==='pointermove'&&event.isTrusted===false){this.stop(event);return;}
   if(event.type==='pointermove')Hooks.callAll('combatPanelStoryPointerMove',event);
   if(event.type==='pointerdown')Hooks.callAll('combatPanelStoryPointerDown',event);
   const ui=event.target?.closest?.('#cp-story-ui .cp-story-interactive');

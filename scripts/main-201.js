@@ -20,9 +20,9 @@ import { resourceMeta, usesLeft, resolveConsumptionItem } from "./feature-core-1
 import { registerFeatureHooks } from "./feature-hooks-173.js";
 import { matchAttackSpells } from "./attack-spell-automation-170.js";
 
-/* fvtt-combat-panel v0.15.3 — bottom HUD, targeting and automation. */
+/* fvtt-combat-panel v0.15.4 — bottom HUD, targeting and automation. */
 const MODULE_ID = "fvtt-combat-panel";
-const VERSION = "0.15.3";
+const VERSION = "0.15.4";
 const HUD_TOOL = `${MODULE_ID}-hud`;
 
 function asArray(value) {

@@ -1,4 +1,4 @@
-import {registerCheckSettings,registerCheckControl,startCheckEngine,openCheckDialog} from './check-engine-6.js';
+import {registerCheckSettings,registerCheckControl,startCheckEngine,openCheckDialog} from './check-engine-7.js';
 
 const ID='fvtt-party-tools', LEGACY='fvtt-bg3-check';
 const mapping=Object.freeze([

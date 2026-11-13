@@ -24,7 +24,7 @@ body.cp-initiative-active #combat-dock{display:none!important;}
 #cp-initiative-bar .cp-init-card.is-defeated{filter:grayscale(1);opacity:.5;}
 #cp-initiative-bar .cp-init-card.is-controlled::after{border-color:var(--cp-edge-b,#bd9ee8);}
 #cp-initiative-bar .cp-init-card.is-current.is-controlled::after{border-color:var(--cp-accent,#f0d69b);}
-#cp-initiative-bar .cp-init-round{display:flex;flex-direction:column;align-items:center;gap:2px;align-self:center;min-width:23px;margin-top:-18px;color:var(--cp-accent,#f0d69b);text-shadow:0 2px 4px #000b;}
+#cp-initiative-bar .cp-init-round{display:flex;flex:0 0 23px;flex-direction:column;align-items:center;justify-content:center;gap:2px;align-self:flex-start;min-width:23px;height:calc(var(--initiative-size)*1.5);margin:0;color:var(--cp-accent,#f0d69b);text-shadow:0 2px 4px #000b;pointer-events:none;}
 #cp-initiative-bar .cp-init-round b{font:22px/1 Georgia,serif;}#cp-initiative-bar .cp-init-round small{font-size:9px;}
 #cp-initiative-bar .cp-init-controls{display:flex;flex-direction:column;gap:6px;padding-top:48px;opacity:0;transition:opacity .15s;}
 #cp-initiative-bar:hover .cp-init-controls,#cp-initiative-bar:focus-within .cp-init-controls{opacity:1;}

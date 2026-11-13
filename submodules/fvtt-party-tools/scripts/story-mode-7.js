@@ -1,6 +1,6 @@
 import {getController} from './parent-ui-1.js';
 import {STORY_ID as ID,STORY_CHOICES,STORY_GRACE_MS,storyNow,readStoryState,isStoryActive,isStoryPlayer,storyVote,storyTally} from './story-state-2.js';
-import {StoryInput} from './story-input-6.js';
+import {StoryInput} from './story-input-7.js';
 import {patchHTML} from './parent-ui-1.js';
 import {FirstStrike} from './first-strike-2.js';
 
