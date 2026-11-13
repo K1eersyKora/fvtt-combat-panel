@@ -1,0 +1,15 @@
+:is(#cp-party-panel,.cp-party-menu) button:not(:disabled):is(:hover,:focus-visible) {color:color-mix(in srgb,var(--cp-accent),white 45%);box-shadow:inset 0 0 9px color-mix(in srgb,var(--cp-accent) 12%,transparent),0 0 15px color-mix(in srgb,var(--cp-accent) 14%,transparent)!important;}
+#cp-party-panel .cp-party-image {background:var(--cp-edge);}
+#cp-party-panel :is(.cp-party-header strong,.cp-party-header strong span,.cp-party-stats b) {color:var(--cp-accent);}
+#cp-party-panel [data-party-mode][aria-pressed="true"], #cp-party-panel .cp-party-card.is-controlled {--cp-button:linear-gradient(135deg,color-mix(in srgb,var(--cp-accent) 22%,var(--cp-base)),var(--cp-base));--cp-edge:var(--cp-edge-hover);color:var(--cp-accent);}
+
+/* Palette values are provided by the required combat panel. */
+:is(.bg3-dm-dialog,.bg3-player-overlay,.bg3-check-consent) { background:var(--cp-glass)!important; border-color:var(--cp-edge-a)!important; color:var(--cp-ink); }
+:is(.bg3-dm-dialog,.bg3-player-overlay,.bg3-check-consent) h2 {color:var(--cp-accent);}
+.bg3-dm-dialog :is(.window-header,.window-content), .bg3-player-overlay .bg3-tray-glass {background:var(--cp-glass)!important;}
+.bg3-dm-dialog :is(.bg3-check-section-title,.bg3-check-section>h3), .bg3-player-overlay :is(.bg3-focus-heading h2,.bg3-difficulty strong,.bg3-bonus-total strong) {color:var(--cp-accent)!important;}
+.bg3-dm-dialog :is(.bg3-check-section,.bg3-check-inline) {border-color:color-mix(in srgb,var(--cp-edge-a) 30%,transparent)!important;background:color-mix(in srgb,var(--cp-base) 60%,transparent)!important;}
+.bg3-dm-dialog .bg3-check-option input {accent-color:var(--cp-accent)!important;}
+.bg3-dm-dialog .bg3-check-option:is(:hover,:has(input:checked)) {background:color-mix(in srgb,var(--cp-accent) 14%,transparent)!important;border-color:color-mix(in srgb,var(--cp-accent) 35%,transparent)!important;}
+.bg3-dm-dialog :is(.bg3-mode,.bg3-roll-btn,.form-footer button), .bg3-player-overlay :is(.bg3-focus-roll,.bg3-check-tabs button) {background:var(--cp-button)!important;border-color:color-mix(in srgb,var(--cp-edge-a) 45%,transparent)!important;color:var(--cp-ink)!important;}
+.bg3-dm-dialog .bg3-mode.active, .bg3-player-overlay :is(.bg3-bonus-card.selected[data-act],.bg3-check-tabs button[aria-current="step"]) {background:var(--cp-button-hover)!important;border-color:var(--cp-accent)!important;}

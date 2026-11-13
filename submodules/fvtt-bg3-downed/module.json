@@ -1,0 +1,38 @@
+{
+  "id": "fvtt-bg3-downed",
+  "title": "BG3 倒地与死亡豁免",
+  "description": "玩家角色归零时显示 BG3 原版头顶濒死指示器，独立显示成功与失败刻度；进入自身回合时自动调用 D&D5e 原生死亡豁免。",
+  "version": "0.1.2",
+  "compatibility": {
+    "minimum": "13",
+    "verified": "13.351",
+    "maximum": "13"
+  },
+  "authors": [
+    {
+      "name": "Codex"
+    }
+  ],
+  "esmodules": [
+    "scripts/main-3.js"
+  ],
+  "styles": [
+    "styles/downed-1.css"
+  ],
+  "relationships": {
+    "systems": [
+      {
+        "id": "dnd5e",
+        "type": "system",
+        "compatibility": {
+          "minimum": "5.1.0",
+          "verified": "5.1.10",
+          "maximum": "5.1.99"
+        }
+      }
+    ]
+  },
+  "url": "https://github.com/K1eersyKora/fvtt-combat-panel",
+  "manifest": "https://github.com/K1eersyKora/fvtt-combat-panel/releases/latest/download/fvtt-bg3-downed.json",
+  "download": "https://github.com/K1eersyKora/fvtt-combat-panel/releases/download/v0.15.3/fvtt-bg3-downed.zip"
+}

@@ -1,0 +1,232 @@
+/* Combat targeting overlays shared with the bottom HUD. */
+#dsh-cp-overlay {
+  position: fixed;
+  inset: 0;
+  width: 0;
+  height: 0;
+  overflow: visible;
+  pointer-events: none;
+  z-index: 100;
+  font-family: "Signika", "Noto Sans SC", system-ui, sans-serif;
+  font-size: 13px;
+  line-height: 1.35;
+  color: #e8e6df;
+  --dsh-cp-bg: rgba(18, 20, 26, 0.93);
+  --dsh-cp-border: rgba(255, 255, 255, 0.14);
+  --dsh-cp-accent: #d7b46a;
+  --dsh-cp-dim: #8d8f98;
+  --dsh-cp-good: #6fd08c;
+  --dsh-cp-bad: #e06b6b;
+  --dsh-cp-info: #7fb6e8;
+}
+
+#dsh-cp-overlay {
+  z-index: 160;
+}
+
+#dsh-cp-overlay .dsh-cp-hidden {
+  display: none !important;
+}
+
+/* ---------- 拖拽施法指示器 ---------- */
+.dsh-cp-drag {
+  position: fixed;
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  border: 2px solid rgba(215, 180, 106, 0.9);
+  background: rgba(18, 20, 26, 0.88);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.6), 0 0 14px rgba(215, 180, 106, 0.18);
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 150;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 160ms ease, box-shadow 160ms ease;
+}
+
+.dsh-cp-drag::before {
+  content: "";
+  position: absolute;
+  inset: -6px;
+  border: 1px solid rgba(215, 180, 106, 0.28);
+  border-left-color: rgba(243, 217, 163, 0.85);
+  border-right-color: rgba(243, 217, 163, 0.85);
+  border-radius: 50%;
+  animation: dsh-cp-ring-orbit 4s linear infinite;
+}
+
+.dsh-cp-drag.is-locked {
+  border-color: #f4dca3;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.6), 0 0 18px rgba(215, 180, 106, 0.35);
+}
+
+@keyframes dsh-cp-ring-orbit {
+  to { transform: rotate(360deg); }
+}
+
+/* 真实椭圆链节由主程序按屏幕坐标排列；装饰层不截获鼠标。 */
+#dsh-cp-attack-chain {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: visible;
+  pointer-events: none;
+  z-index: 141;
+}
+
+#dsh-cp-attack-chain.dsh-cp-hidden {
+  display: none !important;
+}
+
+#dsh-cp-attack-chain .dsh-cp-chain-links {
+  filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.85));
+}
+
+#dsh-cp-attack-chain .dsh-cp-chain-links ellipse {
+  fill: rgba(19, 20, 26, 0.45);
+  stroke: #b89555;
+  stroke-width: 1.45px;
+  vector-effect: non-scaling-stroke;
+  transition: stroke 160ms ease;
+}
+
+#dsh-cp-attack-chain .dsh-cp-chain-links ellipse:nth-child(even) {
+  fill: rgba(39, 32, 22, 0.38);
+  stroke: #e2c27d;
+}
+
+#dsh-cp-attack-chain.is-locked .dsh-cp-chain-links ellipse {
+  stroke: #e9cb88;
+}
+
+#dsh-cp-attack-chain.is-locked .dsh-cp-chain-links ellipse:nth-child(even) {
+  stroke: #fff0c7;
+}
+
+.dsh-cp-drag img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* ---------- 目标锁定 ---------- */
+#dsh-cp-lock {
+  position: fixed;
+  pointer-events: none;
+  z-index: 145;
+}
+
+#dsh-cp-lock span {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  border-color: rgba(215, 180, 106, 0.95);
+  border-style: solid;
+  border-width: 0;
+  filter: drop-shadow(0 0 3px rgba(215, 180, 106, 0.28));
+  transition: border-color 160ms ease;
+}
+
+#dsh-cp-lock .tl { left: 0; top: 0; border-left-width: 2px; border-top-width: 2px; border-top-left-radius: 4px; }
+#dsh-cp-lock .tr { right: 0; top: 0; border-right-width: 2px; border-top-width: 2px; border-top-right-radius: 4px; }
+#dsh-cp-lock .bl { left: 0; bottom: 0; border-left-width: 2px; border-bottom-width: 2px; border-bottom-left-radius: 4px; }
+#dsh-cp-lock .br { right: 0; bottom: 0; border-right-width: 2px; border-bottom-width: 2px; border-bottom-right-radius: 4px; }
+
+/* ---------- 命中率预览 ---------- */
+#dsh-cp-hit {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  padding: 7px 10px;
+  border-radius: 8px;
+  border: 1px solid var(--dsh-cp-border);
+  background: var(--dsh-cp-bg);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.55);
+  pointer-events: none;
+  z-index: 146;
+  transform: translate(-50%, -100%);
+  width: max-content;
+  min-width: 112px;
+  max-width: min(260px, calc(100vw - 16px));
+  box-sizing: border-box;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  font-size: 12px;
+  line-height: 1.4;
+  text-align: center;
+}
+
+#dsh-cp-hit .dsh-cp-hit-line {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+#dsh-cp-hit .dsh-cp-hit-label {
+  color: var(--dsh-cp-dim);
+  font-size: 11px;
+}
+
+#dsh-cp-hit .dsh-cp-hit-value {
+  font-weight: 700;
+  font-size: 14px;
+}
+
+#dsh-cp-hit .dsh-cp-hit-arrow {
+  font-size: 11px;
+}
+
+#dsh-cp-hit .dsh-cp-hit-dmg {
+  color: #b7b6b9;
+  font-size: 11px;
+}
+
+#dsh-cp-hit .dsh-cp-hit-verdict {
+  font-size: 13px;
+  font-weight: 600;
+  color: #e4d4af;
+}
+
+#dsh-cp-hit .dsh-cp-hit-mode {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  padding: 1px 6px;
+  border-radius: 9px;
+  color: #c9c9d0;
+  background: rgba(255, 255, 255, 0.06);
+  font-size: 10px;
+}
+
+#dsh-cp-hit.is-adv .dsh-cp-hit-mode {
+  color: #98e5ae;
+  background: rgba(83, 167, 111, 0.14);
+}
+
+#dsh-cp-hit.is-dis .dsh-cp-hit-mode {
+  color: #f0a4a4;
+  background: rgba(190, 77, 77, 0.14);
+}
+
+#dsh-cp-hit.is-adv .dsh-cp-hit-value,
+#dsh-cp-hit.is-adv .dsh-cp-hit-arrow {
+  color: #6fd08c;
+}
+
+#dsh-cp-hit.is-normal .dsh-cp-hit-value {
+  color: #ffffff;
+}
+
+#dsh-cp-hit.is-dis .dsh-cp-hit-value,
+#dsh-cp-hit.is-dis .dsh-cp-hit-arrow {
+  color: #e06b6b;
+}
+

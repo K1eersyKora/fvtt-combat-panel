@@ -1,0 +1,61 @@
+{
+  "id": "fvtt-bg3-initiative",
+  "title": "BG3先攻栏",
+  "description": "战斗面板风格的顶部立绘先攻栏，与队伍与剧情的投票开战和先下手为强联动。",
+  "version": "0.1.3",
+  "authors": [
+    {
+      "name": "DeepSeek Harness"
+    }
+  ],
+  "compatibility": {
+    "minimum": "13",
+    "verified": "13.351",
+    "maximum": "13"
+  },
+  "esmodules": [
+    "scripts/main-4.js"
+  ],
+  "styles": [
+    "styles/initiative-3.css"
+  ],
+  "relationships": {
+    "requires": [
+      {
+        "id": "fvtt-combat-panel",
+        "type": "module",
+        "compatibility": {
+          "minimum": "0.15.2"
+        },
+        "manifest": "https://github.com/K1eersyKora/fvtt-combat-panel/releases/latest/download/module.json"
+      },
+      {
+        "id": "fvtt-party-tools",
+        "type": "module",
+        "compatibility": {
+          "minimum": "0.2.2"
+        }
+      },
+      {
+        "id": "fvtt-bg3-encounter-sfx",
+        "type": "module",
+        "compatibility": {
+          "minimum": "0.1.1"
+        }
+      }
+    ],
+    "systems": [
+      {
+        "id": "dnd5e",
+        "type": "system",
+        "compatibility": {
+          "minimum": "5.1.0",
+          "verified": "5.1.10"
+        }
+      }
+    ]
+  },
+  "url": "https://github.com/K1eersyKora/fvtt-combat-panel",
+  "manifest": "https://github.com/K1eersyKora/fvtt-combat-panel/releases/latest/download/fvtt-bg3-initiative.json",
+  "download": "https://github.com/K1eersyKora/fvtt-combat-panel/releases/download/v0.15.3/fvtt-bg3-initiative.zip"
+}

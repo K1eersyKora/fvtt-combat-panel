@@ -1,11 +1,11 @@
 {
   "id": "fvtt-combat-panel",
   "title": "BG3操作风格战斗面板",
-  "description": "BG3 式底部战斗 HUD：无整块底板、动作/附赠/反应/法术位资源条、技能与施放环位、免费施法次数、指向目标预测与点击施放。",
-  "version": "0.12.14",
+  "description": "BG3式底部战斗HUD、目标预测与法术特性自动化。队伍、检定与剧情由依赖本模块的 BG3队伍与剧情 子模块提供。",
+  "version": "0.15.3",
   "url": "https://github.com/K1eersyKora/fvtt-combat-panel",
   "manifest": "https://github.com/K1eersyKora/fvtt-combat-panel/releases/latest/download/module.json",
-  "download": "https://github.com/K1eersyKora/fvtt-combat-panel/releases/download/v0.12.14/fvtt-combat-panel.zip",
+  "download": "https://github.com/K1eersyKora/fvtt-combat-panel/releases/download/v0.15.3/fvtt-combat-panel.zip",
   "compatibility": {
     "minimum": "13",
     "verified": "13.351",
@@ -17,13 +17,18 @@
     }
   ],
   "esmodules": [
-    "scripts/main-171.js"
+    "scripts/main-200.js"
   ],
   "styles": [
-    "styles/panel-150.css",
-    "styles/hud-168.css",
-    "styles/skill-layout-150.css",
-    "styles/tooltip-150.css"
+    "styles/panel-197.css",
+    "styles/hud-197.css",
+    "styles/skill-layout-172.css",
+    "styles/tooltip-172.css",
+    "styles/glass-200.css",
+    "styles/hud-layout-187.css",
+    "styles/hud-preparation-200.css",
+    "styles/hud-theme-200.css",
+    "styles/performance-199.css"
   ],
   "relationships": {
     "systems": [

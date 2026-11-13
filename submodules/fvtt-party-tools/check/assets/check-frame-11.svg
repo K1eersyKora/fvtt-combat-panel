@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 380 380" preserveAspectRatio="none" aria-hidden="true">
+  <defs>
+    <linearGradient id="frame-dark" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#625c6d"/><stop offset=".34" stop-color="#322b3c"/><stop offset=".7" stop-color="#100d17"/><stop offset="1" stop-color="#51445e"/></linearGradient>
+    <linearGradient id="gold-horizontal" gradientUnits="userSpaceOnUse" x1="20" y1="25" x2="119" y2="25"><stop stop-color="#9c875c" stop-opacity=".65"/><stop offset=".2" stop-color="#eee1b9"/><stop offset=".55" stop-color="#cbbb91" stop-opacity=".83"/><stop offset=".85" stop-color="#ad976c" stop-opacity=".4"/><stop offset="1" stop-color="#d9cba6" stop-opacity="0"/></linearGradient>
+    <linearGradient id="gold-vertical" gradientUnits="userSpaceOnUse" x1="25" y1="20" x2="25" y2="119"><stop stop-color="#9c875c" stop-opacity=".65"/><stop offset=".2" stop-color="#eee1b9"/><stop offset=".55" stop-color="#cbbb91" stop-opacity=".83"/><stop offset=".85" stop-color="#ad976c" stop-opacity=".4"/><stop offset="1" stop-color="#d9cba6" stop-opacity="0"/></linearGradient>
+    <linearGradient id="gold-jewel" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#f3e8c6"/><stop offset=".5" stop-color="#b6a276"/><stop offset="1" stop-color="#e2d2aa" stop-opacity=".45"/></linearGradient>
+    <!-- Filled ribbons meet at zero-width tips; reflections keep all four corners identical. -->
+    <g id="corner">
+      <path fill="url(#gold-horizontal)" d="M20 33C25 29 29 23 35 21C54 20 88 21 119 18C93 22 60 24 36 24C30 26 25 31 20 33Z"/>
+      <path fill="url(#gold-vertical)" d="M33 20C29 25 23 29 21 35C20 54 21 88 18 119C22 93 24 60 24 36C26 30 31 25 33 20Z"/>
+      <path fill="url(#gold-horizontal)" d="M27 58C34 39 48 32 77 29C59 33 43 36 36 44C32 48 29 53 27 58Z"/>
+      <path fill="url(#gold-vertical)" d="M58 27C39 34 32 48 29 77C33 59 36 43 44 36C48 32 53 29 58 27Z"/>
+      <path fill="url(#gold-jewel)" fill-rule="evenodd" d="M36 16L45 25L36 34L27 25ZM36 19L30 25L36 31L42 25Z"/>
+      <path fill="url(#gold-horizontal)" d="M46 25C58 24 75 25 88 23C74 28 57 27 46 25Z" opacity=".62"/>
+      <path fill="url(#gold-vertical)" d="M25 46C24 58 25 75 23 88C28 74 27 57 25 46Z" opacity=".62"/>
+    </g>
+  </defs>
+  <path fill="#1c1a2b" fill-opacity=".12" d="M190 8C151 8 127 26 115 51H83C55 51 39 67 39 95V265C39 300 65 323 100 323H128C142 346 164 361 190 372C216 361 238 346 252 323H280C315 323 341 300 341 265V95C341 67 325 51 297 51H265C253 26 229 8 190 8Z"/>
+  <g fill="none" stroke="url(#frame-dark)" stroke-width="1.8">
+    <path d="M190 8C151 8 127 26 115 51H83C55 51 39 67 39 95V265C39 300 65 323 100 323H128C142 346 164 361 190 372C216 361 238 346 252 323H280C315 323 341 300 341 265V95C341 67 325 51 297 51H265C253 26 229 8 190 8Z"/>
+    <path d="M39 133H341M39 139H341M179 136L190 130L201 136L190 142Z"/>
+  </g>
+  <use href="#corner"/>
+  <use href="#corner" transform="translate(380 0) scale(-1 1)"/>
+  <use href="#corner" transform="translate(0 380) scale(1 -1)"/>
+  <use href="#corner" transform="translate(380 380) scale(-1 -1)"/>
+</svg>

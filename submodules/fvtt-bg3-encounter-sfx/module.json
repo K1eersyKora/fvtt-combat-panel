@@ -1,0 +1,30 @@
+{
+  "id": "fvtt-bg3-encounter-sfx",
+  "title": "BG3 遭遇提示音",
+  "description": "点击指示物 HUD 的“进入战斗”时，加入成功后播放 BG3 入战提示音，并在 4 秒后为本次加入且尚无先攻的单位掷骰。",
+  "version": "0.1.1",
+  "compatibility": {
+    "minimum": "13",
+    "verified": "13.351",
+    "maximum": "13"
+  },
+  "authors": [
+    {
+      "name": "Codex"
+    }
+  ],
+  "esmodules": [
+    "scripts/main-3.js"
+  ],
+  "relationships": {
+    "requires": [
+      {
+        "id": "lib-wrapper",
+        "type": "module"
+      }
+    ]
+  },
+  "url": "https://github.com/K1eersyKora/fvtt-combat-panel",
+  "manifest": "https://github.com/K1eersyKora/fvtt-combat-panel/releases/latest/download/fvtt-bg3-encounter-sfx.json",
+  "download": "https://github.com/K1eersyKora/fvtt-combat-panel/releases/download/v0.15.3/fvtt-bg3-encounter-sfx.zip"
+}

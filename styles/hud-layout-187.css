@@ -1,0 +1,84 @@
+/* Keep the deck as the layout anchor at every row count. */
+#dsh-bg3-hud {
+  min-height:0;
+  align-items:flex-end;
+  --portrait-size:clamp(48px,calc(var(--bg3-deck-h) - 24px),110px);
+  --portrait-width:calc(var(--portrait-size) + 6px);
+  --bg3-class-size:clamp(24px,calc(var(--portrait-size) * .45),44px);
+}
+#dsh-bg3-hud .bg3-center { align-self:flex-end; }
+#dsh-bg3-hud .bg3-topbar {
+  position:absolute; top:auto; bottom:100%; left:50%;
+  transform:translateX(-50%); margin:0;
+}
+#dsh-bg3-hud .bg3-nav {
+  position:absolute; right:0; bottom:calc(100% + var(--bg3-resource-height,40px) + 6px)!important;
+  margin:0; max-width:100%;
+}
+#dsh-bg3-hud .bg3-portrait { align-self:flex-end; justify-content:flex-end; gap:5px; padding-bottom:0; }
+#dsh-bg3-hud .bg3-portrait > button.bg3-class-badge {
+  position:absolute!important; top:calc(var(--portrait-size) / 2);
+  left:calc((var(--portrait-width) - var(--portrait-size)) / 2);
+  transform:translateY(-50%);
+}
+#dsh-bg3-hud .bg3-vitals { padding:2px; }
+#dsh-bg3-hud .bg3-character { min-height:20px; padding:2px 8px; font-size:12px; }
+#dsh-bg3-hud .bg3-weapons { align-self:flex-end; transform:translateY(var(--bg3-weapons-offset-y,0px)); padding:0; }
+#dsh-bg3-hud:has(.bg3-choice-popover:not([hidden])) { z-index:120; }
+
+/* Popovers stay beside the resource bar, with a constant readable UI size. */
+#dsh-bg3-hud .bg3-choice-popover {
+  transform:scale(var(--bg3-choice-inverse-scale,1)); transform-origin:top left;
+  min-width:0; box-sizing:border-box; outline:0; padding:10px;
+  font:13px/1.4 'Microsoft YaHei','Noto Sans SC',system-ui,sans-serif;
+  overflow-x:hidden; overflow-y:auto;
+}
+#dsh-bg3-hud .bg3-choice-popover .bg3-upcast-slots {
+  display:grid; grid-template-columns:repeat(auto-fit,minmax(64px,1fr));
+  gap:8px; overflow:visible; padding:2px;
+}
+#dsh-bg3-hud .bg3-choice-popover .bg3-upcast-cell {
+  width:100%; min-width:0; height:auto; min-height:78px; max-height:none;
+  flex:auto; padding:8px 6px; gap:5px; align-self:stretch;
+  white-space:normal; overflow:visible;
+}
+#dsh-bg3-hud .bg3-choice-popover :is(.cell-caption,.cell-kind,.cell-count,.cell-activation) {
+  display:block; width:100%; max-width:100%; white-space:normal;
+  overflow:visible; text-overflow:clip; overflow-wrap:anywhere;
+  line-height:1.4; font-size:12px;
+}
+#dsh-bg3-hud .bg3-choice-popover .cell-level { font-size:18px; line-height:1.2; }
+#dsh-bg3-hud .bg3-choice-popover .cell-activation { color:#c4d5d5; }
+#dsh-bg3-hud .bg3-choice-popover .cell-count { font-size:11px; color:#b7cddc; }
+#dsh-bg3-hud .bg3-choice-popover .bg3-upcast-title { font:600 13px/1.4 'Microsoft YaHei',sans-serif; }
+#dsh-bg3-hud .bg3-choice-popover .bg3-choice-title { gap:7px; }
+#dsh-bg3-hud .bg3-choice-popover .bg3-choice-title b { font-size:13px; }
+#dsh-bg3-hud .bg3-choice-popover .cell-pips { max-width:100%; gap:5px; margin:2px 0; padding:2px; }
+#dsh-bg3-hud .bg3-choice-popover .pip {
+  display:block; width:7px; height:7px; flex:0 0 7px;
+  transform:rotate(45deg); border:1px solid #a5c6dd; background:transparent;
+  font-size:0; text-shadow:none; box-shadow:none;
+}
+#dsh-bg3-hud .bg3-choice-popover .pip.filled { border-color:#89c7ff; background:#65b6ff; box-shadow:0 0 4px #65b6ff66; }
+#dsh-bg3-hud .bg3-choice-popover .pip.empty { border-color:#b9d3e5; background:transparent; }
+#dsh-bg3-hud .bg3-choice-popover .bg3-upcast-cell:disabled { opacity:1; cursor:not-allowed; }
+#dsh-bg3-hud .bg3-choice-popover .bg3-upcast-cell:disabled :is(.cell-level,.cell-caption,.cell-activation) { opacity:.65; }
+#dsh-bg3-hud .bg3-choice-popover .bg3-upcast-cell.free {
+  --cp-button:linear-gradient(135deg,#8061a759,#51497466);
+  --cp-button-hover:radial-gradient(90px circle at var(--cp-light-x,50%) var(--cp-light-y,0%),#ddc5ff39,transparent 85%),linear-gradient(135deg,#9473c775,#63578e66);
+  --cp-edge:linear-gradient(135deg,#ddbdffb8,#9c8dcd44,#c1b7ee99);
+  --cp-edge-hover:linear-gradient(135deg,#f0d6ff,#b2a1e9aa,#e0d5ff);
+}
+#dsh-bg3-hud .bg3-choice-popover .free :is(.cell-level,.cell-kind,.cell-count) { color:#e0c2ff; }
+#dsh-bg3-hud .bg3-choice-popover .free .pip { border-color:#d7b5f6; }
+#dsh-bg3-hud .bg3-choice-popover .free .pip.filled { background:#c99af1; box-shadow:0 0 4px #c99af166; }
+#dsh-bg3-hud .bg3-choice-popover .bg3-upcast-source { position:relative; display:grid; min-width:0; flex:auto; }
+#dsh-bg3-hud .bg3-choice-popover .bg3-upcast-source > .bg3-upcast-cell { padding-top:25px; }
+#dsh-bg3-hud .bg3-choice-popover .bg3-upcast-source > .bg3-free-delete {
+  position:absolute!important; top:5px; right:5px; z-index:5;
+  width:18px; height:18px; min-height:18px; padding:0; font-size:14px; line-height:1;
+  display:flex; align-items:center; justify-content:center;
+}
+
+/* Align normal and free options without the delete control affecting content. */
+#dsh-bg3-hud .bg3-choice-popover .bg3-upcast-cell[data-hud-option] { justify-content:flex-start; padding-top:25px; }

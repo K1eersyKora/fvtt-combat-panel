@@ -1,0 +1,133 @@
+/* Load after hud-160.css. All lengths are CSS pixels. */
+#dsh-bg3-hud {
+  --bg3-rows: 3;
+  --bg3-row-h: 46px;
+  --bg3-row-gap: 4px;
+  --bg3-grid-pad: 4px;
+  --bg3-deck-h: calc(var(--bg3-rows) * var(--bg3-row-h) + (var(--bg3-rows) - 1) * var(--bg3-row-gap) + 2 * var(--bg3-grid-pad));
+  min-width: 0;
+}
+@media (height < 720px) { #dsh-bg3-hud { --bg3-rows: 2; } }
+@media (min-height: 1100px) { #dsh-bg3-hud { --bg3-rows: 4; } }
+
+#dsh-bg3-hud .bg3-center { min-width: 0; container: bg3-center / inline-size; }
+#dsh-bg3-hud .bg3-zone { position:relative; min-width:0; overflow:visible; }
+
+/* Extra .bg3-zone specificity beats legacy 150/140/130px and
+   .zone-equipment.has-attacks 109/101/92px at every width. */
+#dsh-bg3-hud .bg3-zone .bg3-deck,
+#dsh-bg3-hud .bg3-zone .bg3-grid,
+#dsh-bg3-hud .bg3-zone.zone-equipment.has-attacks .bg3-deck,
+#dsh-bg3-hud .bg3-zone.zone-equipment.has-attacks .bg3-grid {
+  box-sizing: border-box;
+  height: var(--bg3-deck-h);
+  min-height: 0;
+  max-height: var(--bg3-deck-h);
+}
+#dsh-bg3-hud .bg3-zone .bg3-deck { position:relative; min-width:0; overflow:visible; }
+#dsh-bg3-hud .bg3-zone .bg3-grid {
+  display: grid;
+  grid-auto-rows: var(--bg3-row-h);
+  gap: var(--bg3-row-gap);
+  padding: var(--bg3-grid-pad);
+  border: 0;
+  min-width: 0;
+  align-content: start;
+  overflow-x:hidden;
+  overflow-y: auto;
+  scroll-snap-type: y mandatory;
+  scroll-padding-block: var(--bg3-grid-pad);
+  overscroll-behavior: contain;
+  scrollbar-width: thin;
+  scrollbar-color: var(--bg3-brass-aged) var(--bg3-obsidian-deep);
+  scrollbar-gutter: stable;
+}
+#dsh-bg3-hud .bg3-zone {
+  --bg3-scroll-h:var(--bg3-deck-h);
+}
+#dsh-bg3-hud .bg3-zone[data-scroll-above]::before,
+#dsh-bg3-hud .bg3-zone[data-scroll-below]::after {
+  content:"";
+  display:block;
+  position:absolute;
+  left:4px;
+  right:8px;
+  width:auto;
+  height:8px;
+  z-index:1;
+  pointer-events:none;
+}
+#dsh-bg3-hud .bg3-zone[data-scroll-above]::before {
+  top:0;
+  background:linear-gradient(var(--bg3-obsidian-deep), transparent);
+}
+#dsh-bg3-hud .bg3-zone[data-scroll-below]::after {
+  top:calc(var(--bg3-scroll-h) - 8px);
+  background:linear-gradient(transparent, var(--bg3-obsidian-deep));
+}
+#dsh-bg3-hud .bg3-grid .bg3-skill {
+  height: var(--bg3-row-h) !important;
+  min-height: 0 !important;
+  min-width: 0;
+  max-width:100%;
+  justify-self:center;
+  aspect-ratio: auto;
+  scroll-snap-align: start;
+  scroll-margin: 0;
+}
+#dsh-bg3-hud .bg3-grid .bg3-skill:hover { transform: none; }
+#dsh-bg3-hud .bg3-deck > .bg3-empty {
+  position:absolute;
+  inset:0;
+  justify-content:center;
+  gap:2px;
+  margin:0;
+  padding:2px 4px;
+  line-height:1.1;
+  text-align:center;
+  text-shadow:0 1px 3px #000;
+  pointer-events:none;
+}
+#dsh-bg3-hud .bg3-deck > .bg3-empty button { pointer-events:auto; }
+@container bg3-zone (max-width:125px) {
+  #dsh-bg3-hud .bg3-deck > .bg3-empty span { display:none; }
+  #dsh-bg3-hud .bg3-deck > .bg3-empty button { padding-inline:2px; }
+}
+#dsh-bg3-hud .bg3-grid::-webkit-scrollbar { width: 6px; }
+#dsh-bg3-hud .bg3-grid::-webkit-scrollbar-track { background: #13171a; }
+#dsh-bg3-hud .bg3-grid::-webkit-scrollbar-thumb { background: #8e7446; border-radius: 3px; }
+
+/* In normal navigation flow, never positioned over skills. */
+#dsh-bg3-hud .bg3-pager {
+  display: inline-flex;
+  align-items: center;
+  flex: 0 0 auto;
+  gap: 3px;
+  height: 20px;
+  max-height: 20px;
+  font-size: 10px;
+  line-height: 16px;
+  white-space: nowrap;
+  color: #e9e0cb;
+}
+#dsh-bg3-hud .bg3-pager button {
+  flex: 0 0 18px;
+  width: 18px;
+  height: 18px;
+  min-height: 0;
+  max-height: 20px;
+  padding: 0;
+  margin: 0;
+  border: 1px solid #796845;
+  font-size: 10px;
+  line-height: 16px;
+}
+#dsh-bg3-hud .bg3-pager-label { font-variant-numeric: tabular-nums; }
+#dsh-bg3-hud .bg3-pager-more { color: #c7b380; }
+#dsh-bg3-hud .bg3-pager[data-state="none"] { display: none; }
+@container bg3-center (max-width: 620px) {
+  #dsh-bg3-hud .bg3-pager-more { display: none; }
+}
+@media (max-width: 620px) {
+  #dsh-bg3-hud .bg3-pager-more { display: none; }
+}
