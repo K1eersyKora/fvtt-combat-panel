@@ -34,14 +34,16 @@
         "type": "module",
         "compatibility": {
           "minimum": "0.2.2"
-        }
+        },
+        "manifest": "https://github.com/K1eersyKora/fvtt-combat-panel/releases/latest/download/fvtt-party-tools.json"
       },
       {
         "id": "fvtt-bg3-encounter-sfx",
         "type": "module",
         "compatibility": {
           "minimum": "0.1.1"
-        }
+        },
+        "manifest": "https://github.com/K1eersyKora/fvtt-combat-panel/releases/latest/download/fvtt-bg3-encounter-sfx.json"
       }
     ],
     "systems": [
