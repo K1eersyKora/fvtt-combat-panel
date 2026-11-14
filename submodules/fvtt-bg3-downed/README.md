@@ -15,4 +15,4 @@
 
 本模块不改第三方代码、不会自行推进回合，也不接管伤害导致的死亡豁免失败结算。若另装自动死亡豁免模块，应只启用一处回合自动投掷；本模块会识别已完成的当回合原生死亡豁免。
 
-素材为此前本机 `Game.pak` 中的 BG3 `Overhead/Downed` 图层及 `PlayerPortraits/ico_downed`，依原版 `Overhead.DeathSavingThrow` 模板定位。本交付未发布至 GitHub 或 Foundry 目录。
+素材为此前本机 `Game.pak` 中的 BG3 `Overhead/Downed` 图层及 `PlayerPortraits/ico_downed`，依原版 `Overhead.DeathSavingThrow` 模板定位。原始素材说明在此保留。

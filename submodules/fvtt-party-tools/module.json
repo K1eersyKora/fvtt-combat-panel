@@ -2,7 +2,7 @@
   "id": "fvtt-party-tools",
   "title": "BG3队伍与剧情",
   "description": "战斗面板子模块：队伍总览、移动管理、完全限制、BG3属性与技能检定、剧情模式和队友悬停信息。配色跟随战斗面板底部HUD齿轮设置。",
-  "version": "0.2.5",
+  "version": "0.2.6",
   "authors": [
     {
       "name": "DeepSeek Harness"
@@ -14,10 +14,10 @@
     "maximum": "13"
   },
   "esmodules": [
-    "scripts/main-7.js"
+    "scripts/main-8.js"
   ],
   "styles": [
-    "styles/party-1.css",
+    "styles/party-8.css",
     "check/styles/bg3-check-1.css",
     "styles/story-mode-5.css",
     "styles/peer-inspector-3.css",
@@ -59,18 +59,21 @@
         "type": "module",
         "compatibility": {
           "minimum": "0.1.1"
-        }
+        },
+        "manifest": "https://github.com/K1eersyKora/fvtt-combat-panel/releases/latest/download/fvtt-bg3-encounter-sfx.json"
       },
       {
         "id": "fvtt-bg3-initiative",
         "type": "module",
         "compatibility": {
           "minimum": "0.1.0"
-        }
+        },
+        "manifest": "https://github.com/K1eersyKora/fvtt-combat-panel/releases/latest/download/fvtt-bg3-initiative.json"
       }
     ]
   },
   "url": "https://github.com/K1eersyKora/fvtt-combat-panel",
   "manifest": "https://github.com/K1eersyKora/fvtt-combat-panel/releases/latest/download/fvtt-party-tools.json",
-  "download": "https://github.com/K1eersyKora/fvtt-combat-panel/releases/download/v0.15.4/fvtt-party-tools.zip"
+  "packs": [],
+  "download": "https://github.com/K1eersyKora/fvtt-combat-panel/releases/download/v0.15.5/fvtt-party-tools.zip"
 }

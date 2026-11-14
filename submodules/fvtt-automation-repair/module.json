@@ -1,0 +1,71 @@
+{
+  "id": "fvtt-automation-repair",
+  "title": "FVTT 统一自动化修复",
+  "description": "集中维护全部职业、法术、神秘武器及跨世界数据迁移；替代旧分散补丁和自动化入口。",
+  "version": "1.0.2",
+  "authors": [
+    {
+      "name": "Codex / DSH"
+    }
+  ],
+  "compatibility": {
+    "minimum": "13.351",
+    "verified": "13.351",
+    "maximum": "13"
+  },
+  "esmodules": [
+    "scripts/main-3.js"
+  ],
+  "styles": [
+    "styles/dialogs-1.css"
+  ],
+  "socket": true,
+  "relationships": {
+    "systems": [
+      {
+        "id": "dnd5e",
+        "type": "system",
+        "compatibility": {
+          "minimum": "5.1.10",
+          "verified": "5.1.10"
+        }
+      }
+    ],
+    "requires": [
+      {
+        "id": "midi-qol",
+        "type": "module"
+      },
+      {
+        "id": "chris-premades",
+        "type": "module"
+      },
+      {
+        "id": "dae",
+        "type": "module"
+      },
+      {
+        "id": "socketlib",
+        "type": "module"
+      },
+      {
+        "id": "lib-wrapper",
+        "type": "module"
+      },
+      {
+        "id": "times-up",
+        "type": "module"
+      },
+      {
+        "id": "midi-item-showcase-community",
+        "type": "module",
+        "compatibility": {
+          "minimum": "1.6.2"
+        }
+      }
+    ]
+  },
+  "url": "https://github.com/K1eersyKora/fvtt-combat-panel",
+  "manifest": "https://github.com/K1eersyKora/fvtt-combat-panel/releases/latest/download/fvtt-automation-repair.json",
+  "download": "https://github.com/K1eersyKora/fvtt-combat-panel/releases/download/v0.15.5/fvtt-automation-repair.zip"
+}

@@ -1,0 +1,289 @@
+[
+  {
+    "pack": "items",
+    "id": "itemoneness1b2ob",
+    "name": "与原力同在 One With The Force",
+    "type": "feat",
+    "rules": "2024"
+  },
+  {
+    "pack": "items",
+    "id": "itemforms1u6fzeb",
+    "name": "光剑剑式 Saber Forms",
+    "type": "feat",
+    "rules": "2024"
+  },
+  {
+    "pack": "items",
+    "id": "itemkhyber0a0yu1",
+    "name": "凯伯筑剑 Khyber Saber",
+    "type": "feat",
+    "rules": "2024"
+  },
+  {
+    "pack": "items",
+    "id": "itemserenity1eqd",
+    "name": "原力宁静 Force Serenity",
+    "type": "feat",
+    "rules": "2024"
+  },
+  {
+    "pack": "items",
+    "id": "itemarmor1xv7l0j",
+    "name": "原力衣钵 Force Vestment",
+    "type": "feat",
+    "rules": "2024"
+  },
+  {
+    "pack": "items",
+    "id": "itemawareness0mz",
+    "name": "原力觉知与进阶剑式 Force Awareness",
+    "type": "feat",
+    "rules": "2024"
+  },
+  {
+    "pack": "items",
+    "id": "itemforce04l4q07",
+    "name": "原力谐律 Force Harmony",
+    "type": "feat",
+    "rules": "2024"
+  },
+  {
+    "pack": "items",
+    "id": "RSLTHUYElHVA6BK7",
+    "name": "幽魂视界弓 Ghost Sight Bow",
+    "type": "weapon",
+    "rules": "2024"
+  },
+  {
+    "pack": "items",
+    "id": "BKi0SK9hubH0cfwH",
+    "name": "方天画戟",
+    "type": "weapon",
+    "rules": "2024"
+  },
+  {
+    "pack": "items",
+    "id": "VkeegXJCVTkrag37",
+    "name": "星辉秘银魔杖",
+    "type": "weapon",
+    "rules": "2024"
+  },
+  {
+    "pack": "items",
+    "id": "itemmastery0vlkw",
+    "name": "绝地大师之境 Jedi Mastery",
+    "type": "feat",
+    "rules": "2024"
+  },
+  {
+    "pack": "items",
+    "id": "itemsubclass0ptm",
+    "name": "绝地武士 Jedi",
+    "type": "subclass",
+    "rules": "2024"
+  },
+  {
+    "pack": "repairs",
+    "id": "3d1eac136b325179",
+    "name": "吸收元素 Absorb Elements",
+    "type": "spell",
+    "rules": "2014"
+  },
+  {
+    "pack": "repairs",
+    "id": "b74ba40ae69c73c6",
+    "name": "Channel Divinity: Twilight Sanctuary",
+    "type": "feat",
+    "rules": "2014"
+  },
+  {
+    "pack": "repairs",
+    "id": "7d9d5a116f3e7ecf",
+    "name": "恐惧伏击 Dread Ambusher",
+    "type": "feat",
+    "rules": "2024"
+  },
+  {
+    "pack": "repairs",
+    "id": "e80a23fe37de99e5",
+    "name": "吸血鬼之触 Vampiric Touch",
+    "type": "spell",
+    "rules": "2014"
+  },
+  {
+    "pack": "repairs",
+    "id": "233b90a31ecbef37",
+    "name": "荒野形态 Wild Shape",
+    "type": "feat",
+    "rules": "2024"
+  },
+  {
+    "pack": "repairs",
+    "id": "a8ecc942fb166875",
+    "name": "瀚海之怒 Wrath of the Sea",
+    "type": "feat",
+    "rules": "2024"
+  },
+  {
+    "pack": "repairs",
+    "id": "dad911a52416a843",
+    "name": "仇敌誓言 Vow of Enmity",
+    "type": "feat",
+    "rules": "2024"
+  },
+  {
+    "pack": "repairs",
+    "id": "11a07eb496c1a488",
+    "name": "光耀祷词 Word of Radiance",
+    "type": "spell",
+    "rules": "2024"
+  },
+  {
+    "pack": "repairs",
+    "id": "cc0f5cf94051fbf9",
+    "name": "吐息武器 Breath Weapon",
+    "type": "feat",
+    "rules": "2024"
+  },
+  {
+    "pack": "repairs",
+    "id": "707a404998b0fa85",
+    "name": "咒唤微元素群 Conjure Minor Elementals",
+    "type": "spell",
+    "rules": "2024"
+  },
+  {
+    "pack": "repairs",
+    "id": "7b47362a3030a0fd",
+    "name": "圣洁武器 Sacred Weapon",
+    "type": "feat",
+    "rules": "2024"
+  },
+  {
+    "pack": "repairs",
+    "id": "d0367581dba23a5a",
+    "name": "圣疗 Lay on Hands",
+    "type": "feat",
+    "rules": "2024"
+  },
+  {
+    "pack": "repairs",
+    "id": "c73713660130ed7d",
+    "name": "守御之光 Warding Flare",
+    "type": "feat",
+    "rules": "2024"
+  },
+  {
+    "pack": "repairs",
+    "id": "4298ca244a89126b",
+    "name": "巨武器大师 Great Weapon Master",
+    "type": "feat",
+    "rules": "2024"
+  },
+  {
+    "pack": "repairs",
+    "id": "25eb845b709e46a2",
+    "name": "巨武器战斗 Great Weapon Fighting",
+    "type": "feat",
+    "rules": "2024"
+  },
+  {
+    "pack": "repairs",
+    "id": "f53831fc302e1e7b",
+    "name": "幸运 Lucky",
+    "type": "feat",
+    "rules": "2024"
+  },
+  {
+    "pack": "repairs",
+    "id": "5b43bd6fb1bee6f6",
+    "name": "恶言相加 Vicious Mockery",
+    "type": "spell",
+    "rules": "2024"
+  },
+  {
+    "pack": "repairs",
+    "id": "0cfd772bd939c62e",
+    "name": "战技：恐吓攻击 Menacing Attack",
+    "type": "feat",
+    "rules": "2024"
+  },
+  {
+    "pack": "repairs",
+    "id": "76637fc8116bc28a",
+    "name": "战技：精准攻击 Precision Attack",
+    "type": "feat",
+    "rules": "2024"
+  },
+  {
+    "pack": "repairs",
+    "id": "e213c968f8c8f1c4",
+    "name": "猎人印记 Hunter's Mark",
+    "type": "spell",
+    "rules": "2024"
+  },
+  {
+    "pack": "repairs",
+    "id": "d5af582188e34407",
+    "name": "神导术 Guidance",
+    "type": "spell",
+    "rules": "2024"
+  },
+  {
+    "pack": "repairs",
+    "id": "52fc6aa9e972a2d5",
+    "name": "脆弱诅咒 Hex",
+    "type": "spell",
+    "rules": "2024"
+  },
+  {
+    "pack": "repairs",
+    "id": "f29d1bb9434ce251",
+    "name": "至圣斩 Divine Smite",
+    "type": "spell",
+    "rules": "2024"
+  },
+  {
+    "pack": "repairs",
+    "id": "449ffcbaca096073",
+    "name": "英雄气概 Heroism",
+    "type": "spell",
+    "rules": "2024"
+  },
+  {
+    "pack": "repairs",
+    "id": "8b65c7d048af64ec",
+    "name": "造风术 Gust of Wind",
+    "type": "spell",
+    "rules": "2024"
+  },
+  {
+    "pack": "repairs",
+    "id": "d2288e742806f9ed",
+    "name": "防护善恶 Protection from Evil and Good",
+    "type": "spell",
+    "rules": "2024"
+  },
+  {
+    "pack": "repairs",
+    "id": "39b4f151060f076c",
+    "name": "魂灵环绕 Spirit Shroud",
+    "type": "spell",
+    "rules": "2014"
+  },
+  {
+    "pack": "repairs",
+    "id": "a1b3db0edf7aa2b4",
+    "name": "魔能爆 Eldritch Blast",
+    "type": "spell",
+    "rules": "2024"
+  },
+  {
+    "pack": "repairs",
+    "id": "35011c8d5bff367a",
+    "name": "黎明曙光 Radiance of the Dawn",
+    "type": "feat",
+    "rules": "2024"
+  }
+]

@@ -1,0 +1,3871 @@
+[
+  {
+    "_id": "itemoneness1b2ob",
+    "name": "与原力同在 One With The Force",
+    "type": "feat",
+    "img": "modules/mystic-weapon-pack/assets/jedi/oneness.webp",
+    "system": {
+      "description": {
+        "value": "<p>十八级特性。</p><p><strong>原力极境</strong>：原力骰面值提升至 d12。</p><p><strong>入微预见</strong>：使用动作如潮时同步进入 1 分钟的原力合一：移动速度 +20 尺，不触发借机攻击；每轮获得一个额外反应（仅用于剑式反应）；每回合开始时若原力骰少于 2 枚则恢复 1 枚。</p><p><strong>英灵永驻</strong>：生命终结时可化作原力微光，保留意识并与伙伴心灵感应；复生法术无需材料成分。</p>",
+        "chat": ""
+      },
+      "type": {
+        "value": "class",
+        "subtype": ""
+      },
+      "identifier": "one-with-the-force",
+      "requirements": "战士 18",
+      "source": {
+        "custom": "绝地武士",
+        "revision": 1,
+        "rules": "2024"
+      },
+      "activities": {},
+      "uses": {
+        "spent": 0,
+        "recovery": []
+      },
+      "advancement": [],
+      "crewed": false,
+      "enchant": {},
+      "prerequisites": {
+        "items": [],
+        "repeatable": false
+      },
+      "properties": []
+    },
+    "flags": {
+      "fvtt-automation-repair": {
+        "pack": "mvp"
+      }
+    },
+    "effects": []
+  },
+  {
+    "_id": "itemforms1u6fzeb",
+    "name": "光剑剑式 Saber Forms",
+    "type": "feat",
+    "img": "modules/mystic-weapon-pack/assets/jedi/forms.webp",
+    "system": {
+      "description": {
+        "value": "<p>三级特性。先攻时、自己回合开始时或使用回气时，可进入一种光剑剑式。</p><p>第三型 索雷苏：削弱精通；飞矢偏转（反应减伤）。<br />第四型 阿塔鲁：迅击或推离精通；步行速度翻倍。<br />第五型 德杰姆苏：擦掠或失衡精通；破势反击（反应+1 原力骰）。</p>",
+        "chat": ""
+      },
+      "type": {
+        "value": "class",
+        "subtype": ""
+      },
+      "identifier": "saber-forms",
+      "requirements": "战士 3",
+      "source": {
+        "custom": "绝地武士",
+        "revision": 1,
+        "rules": "2024"
+      },
+      "activities": {
+        "act1rsg3x1000000": {
+          "_id": "act1rsg3x1000000",
+          "type": "utility",
+          "name": "第三型·索雷苏",
+          "img": "icons/svg/aura.svg",
+          "activation": {
+            "type": "special",
+            "value": null,
+            "condition": "先攻时 / 回合开始 / 使用回气",
+            "override": false
+          },
+          "consumption": {
+            "targets": [],
+            "scaling": {
+              "allowed": false,
+              "max": ""
+            },
+            "spellSlot": false
+          },
+          "target": {
+            "template": {
+              "count": "",
+              "contiguous": false,
+              "type": "",
+              "size": "",
+              "width": "",
+              "height": "",
+              "units": "ft"
+            },
+            "affects": {
+              "count": "",
+              "type": "",
+              "choice": false,
+              "special": ""
+            },
+            "prompt": false,
+            "override": false
+          },
+          "range": {
+            "value": "",
+            "units": "self",
+            "special": "",
+            "override": false
+          },
+          "effects": [],
+          "uses": {
+            "spent": 0,
+            "recovery": [],
+            "max": ""
+          },
+          "sort": 0,
+          "description": {},
+          "duration": {
+            "units": "inst",
+            "concentration": false,
+            "override": false
+          },
+          "roll": {
+            "prompt": false,
+            "visible": false
+          },
+          "useConditionText": "",
+          "useConditionReason": "",
+          "effectConditionText": "",
+          "macroData": {
+            "name": "",
+            "command": ""
+          },
+          "ignoreTraits": {
+            "idi": false,
+            "idr": false,
+            "idv": false,
+            "ida": false,
+            "idm": false
+          },
+          "midiProperties": {
+            "ignoreTraits": [],
+            "triggeredActivityId": "none",
+            "triggeredActivityConditionText": "",
+            "triggeredActivityTargets": "targets",
+            "triggeredActivityRollAs": "self",
+            "autoConsume": false,
+            "forceConsumeDialog": "default",
+            "forceRollDialog": "default",
+            "forceDamageDialog": "default",
+            "confirmTargets": "default",
+            "autoTargetType": "any",
+            "autoTargetAction": "default",
+            "automationOnly": false,
+            "otherActivityCompatible": true,
+            "otherActivityAsParentType": true,
+            "identifier": "",
+            "displayActivityName": false,
+            "rollMode": "default",
+            "chooseEffects": false,
+            "toggleEffect": false,
+            "ignoreFullCover": false,
+            "removeChatButtons": "default",
+            "magicEffect": false,
+            "magicDamage": false,
+            "noConcentrationCheck": false,
+            "autoCEEffects": "default"
+          },
+          "isOverTimeFlag": false,
+          "overTimeProperties": {
+            "saveRemoves": true,
+            "preRemoveConditionText": "",
+            "postRemoveConditionText": ""
+          },
+          "otherActivityId": "none",
+          "otherActivityAsParentType": true
+        },
+        "act0e88igj000000": {
+          "_id": "act0e88igj000000",
+          "type": "utility",
+          "name": "第四型·阿塔鲁·迅击",
+          "img": "icons/svg/aura.svg",
+          "activation": {
+            "type": "special",
+            "value": null,
+            "condition": "先攻时 / 回合开始 / 使用回气",
+            "override": false
+          },
+          "consumption": {
+            "targets": [],
+            "scaling": {
+              "allowed": false,
+              "max": ""
+            },
+            "spellSlot": false
+          },
+          "target": {
+            "template": {
+              "count": "",
+              "contiguous": false,
+              "type": "",
+              "size": "",
+              "width": "",
+              "height": "",
+              "units": "ft"
+            },
+            "affects": {
+              "count": "",
+              "type": "",
+              "choice": false,
+              "special": ""
+            },
+            "prompt": false,
+            "override": false
+          },
+          "range": {
+            "value": "",
+            "units": "self",
+            "special": "",
+            "override": false
+          },
+          "effects": [],
+          "uses": {
+            "spent": 0,
+            "recovery": [],
+            "max": ""
+          },
+          "sort": 0,
+          "description": {},
+          "duration": {
+            "units": "inst",
+            "concentration": false,
+            "override": false
+          },
+          "roll": {
+            "prompt": false,
+            "visible": false
+          },
+          "useConditionText": "",
+          "useConditionReason": "",
+          "effectConditionText": "",
+          "macroData": {
+            "name": "",
+            "command": ""
+          },
+          "ignoreTraits": {
+            "idi": false,
+            "idr": false,
+            "idv": false,
+            "ida": false,
+            "idm": false
+          },
+          "midiProperties": {
+            "ignoreTraits": [],
+            "triggeredActivityId": "none",
+            "triggeredActivityConditionText": "",
+            "triggeredActivityTargets": "targets",
+            "triggeredActivityRollAs": "self",
+            "autoConsume": false,
+            "forceConsumeDialog": "default",
+            "forceRollDialog": "default",
+            "forceDamageDialog": "default",
+            "confirmTargets": "default",
+            "autoTargetType": "any",
+            "autoTargetAction": "default",
+            "automationOnly": false,
+            "otherActivityCompatible": true,
+            "otherActivityAsParentType": true,
+            "identifier": "",
+            "displayActivityName": false,
+            "rollMode": "default",
+            "chooseEffects": false,
+            "toggleEffect": false,
+            "ignoreFullCover": false,
+            "removeChatButtons": "default",
+            "magicEffect": false,
+            "magicDamage": false,
+            "noConcentrationCheck": false,
+            "autoCEEffects": "default"
+          },
+          "isOverTimeFlag": false,
+          "overTimeProperties": {
+            "saveRemoves": true,
+            "preRemoveConditionText": "",
+            "postRemoveConditionText": ""
+          },
+          "otherActivityId": "none",
+          "otherActivityAsParentType": true
+        },
+        "act0h04106000000": {
+          "_id": "act0h04106000000",
+          "type": "utility",
+          "name": "第四型·阿塔鲁·推离",
+          "img": "icons/svg/aura.svg",
+          "activation": {
+            "type": "special",
+            "value": null,
+            "condition": "先攻时 / 回合开始 / 使用回气",
+            "override": false
+          },
+          "consumption": {
+            "targets": [],
+            "scaling": {
+              "allowed": false,
+              "max": ""
+            },
+            "spellSlot": false
+          },
+          "target": {
+            "template": {
+              "count": "",
+              "contiguous": false,
+              "type": "",
+              "size": "",
+              "width": "",
+              "height": "",
+              "units": "ft"
+            },
+            "affects": {
+              "count": "",
+              "type": "",
+              "choice": false,
+              "special": ""
+            },
+            "prompt": false,
+            "override": false
+          },
+          "range": {
+            "value": "",
+            "units": "self",
+            "special": "",
+            "override": false
+          },
+          "effects": [],
+          "uses": {
+            "spent": 0,
+            "recovery": [],
+            "max": ""
+          },
+          "sort": 0,
+          "description": {},
+          "duration": {
+            "units": "inst",
+            "concentration": false,
+            "override": false
+          },
+          "roll": {
+            "prompt": false,
+            "visible": false
+          },
+          "useConditionText": "",
+          "useConditionReason": "",
+          "effectConditionText": "",
+          "macroData": {
+            "name": "",
+            "command": ""
+          },
+          "ignoreTraits": {
+            "idi": false,
+            "idr": false,
+            "idv": false,
+            "ida": false,
+            "idm": false
+          },
+          "midiProperties": {
+            "ignoreTraits": [],
+            "triggeredActivityId": "none",
+            "triggeredActivityConditionText": "",
+            "triggeredActivityTargets": "targets",
+            "triggeredActivityRollAs": "self",
+            "autoConsume": false,
+            "forceConsumeDialog": "default",
+            "forceRollDialog": "default",
+            "forceDamageDialog": "default",
+            "confirmTargets": "default",
+            "autoTargetType": "any",
+            "autoTargetAction": "default",
+            "automationOnly": false,
+            "otherActivityCompatible": true,
+            "otherActivityAsParentType": true,
+            "identifier": "",
+            "displayActivityName": false,
+            "rollMode": "default",
+            "chooseEffects": false,
+            "toggleEffect": false,
+            "ignoreFullCover": false,
+            "removeChatButtons": "default",
+            "magicEffect": false,
+            "magicDamage": false,
+            "noConcentrationCheck": false,
+            "autoCEEffects": "default"
+          },
+          "isOverTimeFlag": false,
+          "overTimeProperties": {
+            "saveRemoves": true,
+            "preRemoveConditionText": "",
+            "postRemoveConditionText": ""
+          },
+          "otherActivityId": "none",
+          "otherActivityAsParentType": true
+        },
+        "act1b973me000000": {
+          "_id": "act1b973me000000",
+          "type": "utility",
+          "name": "第五型·德杰姆苏·擦掠",
+          "img": "icons/svg/aura.svg",
+          "activation": {
+            "type": "special",
+            "value": null,
+            "condition": "先攻时 / 回合开始 / 使用回气",
+            "override": false
+          },
+          "consumption": {
+            "targets": [],
+            "scaling": {
+              "allowed": false,
+              "max": ""
+            },
+            "spellSlot": false
+          },
+          "target": {
+            "template": {
+              "count": "",
+              "contiguous": false,
+              "type": "",
+              "size": "",
+              "width": "",
+              "height": "",
+              "units": "ft"
+            },
+            "affects": {
+              "count": "",
+              "type": "",
+              "choice": false,
+              "special": ""
+            },
+            "prompt": false,
+            "override": false
+          },
+          "range": {
+            "value": "",
+            "units": "self",
+            "special": "",
+            "override": false
+          },
+          "effects": [],
+          "uses": {
+            "spent": 0,
+            "recovery": [],
+            "max": ""
+          },
+          "sort": 0,
+          "description": {},
+          "duration": {
+            "units": "inst",
+            "concentration": false,
+            "override": false
+          },
+          "roll": {
+            "prompt": false,
+            "visible": false
+          },
+          "useConditionText": "",
+          "useConditionReason": "",
+          "effectConditionText": "",
+          "macroData": {
+            "name": "",
+            "command": ""
+          },
+          "ignoreTraits": {
+            "idi": false,
+            "idr": false,
+            "idv": false,
+            "ida": false,
+            "idm": false
+          },
+          "midiProperties": {
+            "ignoreTraits": [],
+            "triggeredActivityId": "none",
+            "triggeredActivityConditionText": "",
+            "triggeredActivityTargets": "targets",
+            "triggeredActivityRollAs": "self",
+            "autoConsume": false,
+            "forceConsumeDialog": "default",
+            "forceRollDialog": "default",
+            "forceDamageDialog": "default",
+            "confirmTargets": "default",
+            "autoTargetType": "any",
+            "autoTargetAction": "default",
+            "automationOnly": false,
+            "otherActivityCompatible": true,
+            "otherActivityAsParentType": true,
+            "identifier": "",
+            "displayActivityName": false,
+            "rollMode": "default",
+            "chooseEffects": false,
+            "toggleEffect": false,
+            "ignoreFullCover": false,
+            "removeChatButtons": "default",
+            "magicEffect": false,
+            "magicDamage": false,
+            "noConcentrationCheck": false,
+            "autoCEEffects": "default"
+          },
+          "isOverTimeFlag": false,
+          "overTimeProperties": {
+            "saveRemoves": true,
+            "preRemoveConditionText": "",
+            "postRemoveConditionText": ""
+          },
+          "otherActivityId": "none",
+          "otherActivityAsParentType": true
+        },
+        "act1goiy12000000": {
+          "_id": "act1goiy12000000",
+          "type": "utility",
+          "name": "第五型·德杰姆苏·失衡",
+          "img": "icons/svg/aura.svg",
+          "activation": {
+            "type": "special",
+            "value": null,
+            "condition": "先攻时 / 回合开始 / 使用回气",
+            "override": false
+          },
+          "consumption": {
+            "targets": [],
+            "scaling": {
+              "allowed": false,
+              "max": ""
+            },
+            "spellSlot": false
+          },
+          "target": {
+            "template": {
+              "count": "",
+              "contiguous": false,
+              "type": "",
+              "size": "",
+              "width": "",
+              "height": "",
+              "units": "ft"
+            },
+            "affects": {
+              "count": "",
+              "type": "",
+              "choice": false,
+              "special": ""
+            },
+            "prompt": false,
+            "override": false
+          },
+          "range": {
+            "value": "",
+            "units": "self",
+            "special": "",
+            "override": false
+          },
+          "effects": [],
+          "uses": {
+            "spent": 0,
+            "recovery": [],
+            "max": ""
+          },
+          "sort": 0,
+          "description": {},
+          "duration": {
+            "units": "inst",
+            "concentration": false,
+            "override": false
+          },
+          "roll": {
+            "prompt": false,
+            "visible": false
+          },
+          "useConditionText": "",
+          "useConditionReason": "",
+          "effectConditionText": "",
+          "macroData": {
+            "name": "",
+            "command": ""
+          },
+          "ignoreTraits": {
+            "idi": false,
+            "idr": false,
+            "idv": false,
+            "ida": false,
+            "idm": false
+          },
+          "midiProperties": {
+            "ignoreTraits": [],
+            "triggeredActivityId": "none",
+            "triggeredActivityConditionText": "",
+            "triggeredActivityTargets": "targets",
+            "triggeredActivityRollAs": "self",
+            "autoConsume": false,
+            "forceConsumeDialog": "default",
+            "forceRollDialog": "default",
+            "forceDamageDialog": "default",
+            "confirmTargets": "default",
+            "autoTargetType": "any",
+            "autoTargetAction": "default",
+            "automationOnly": false,
+            "otherActivityCompatible": true,
+            "otherActivityAsParentType": true,
+            "identifier": "",
+            "displayActivityName": false,
+            "rollMode": "default",
+            "chooseEffects": false,
+            "toggleEffect": false,
+            "ignoreFullCover": false,
+            "removeChatButtons": "default",
+            "magicEffect": false,
+            "magicDamage": false,
+            "noConcentrationCheck": false,
+            "autoCEEffects": "default"
+          },
+          "isOverTimeFlag": false,
+          "overTimeProperties": {
+            "saveRemoves": true,
+            "preRemoveConditionText": "",
+            "postRemoveConditionText": ""
+          },
+          "otherActivityId": "none",
+          "otherActivityAsParentType": true
+        },
+        "act0gsqi9i000000": {
+          "_id": "act0gsqi9i000000",
+          "type": "utility",
+          "name": "破势反击",
+          "img": "icons/svg/aura.svg",
+          "activation": {
+            "type": "reaction",
+            "value": 1,
+            "condition": "5 尺内生物完成攻击后",
+            "override": false
+          },
+          "consumption": {
+            "targets": [],
+            "scaling": {
+              "allowed": false,
+              "max": ""
+            },
+            "spellSlot": false
+          },
+          "target": {
+            "template": {
+              "count": "",
+              "contiguous": false,
+              "type": "",
+              "size": "",
+              "width": "",
+              "height": "",
+              "units": "ft"
+            },
+            "affects": {
+              "count": "",
+              "type": "",
+              "choice": false,
+              "special": ""
+            },
+            "prompt": false,
+            "override": false
+          },
+          "range": {
+            "value": "",
+            "units": "self",
+            "special": "",
+            "override": false
+          },
+          "effects": [],
+          "uses": {
+            "spent": 0,
+            "recovery": [],
+            "max": ""
+          },
+          "sort": 0,
+          "description": {},
+          "duration": {
+            "units": "inst",
+            "concentration": false,
+            "override": false
+          },
+          "roll": {
+            "prompt": false,
+            "visible": false
+          },
+          "useConditionText": "",
+          "useConditionReason": "",
+          "effectConditionText": "",
+          "macroData": {
+            "name": "",
+            "command": ""
+          },
+          "ignoreTraits": {
+            "idi": false,
+            "idr": false,
+            "idv": false,
+            "ida": false,
+            "idm": false
+          },
+          "midiProperties": {
+            "ignoreTraits": [],
+            "triggeredActivityId": "none",
+            "triggeredActivityConditionText": "",
+            "triggeredActivityTargets": "targets",
+            "triggeredActivityRollAs": "self",
+            "autoConsume": false,
+            "forceConsumeDialog": "default",
+            "forceRollDialog": "default",
+            "forceDamageDialog": "default",
+            "confirmTargets": "default",
+            "autoTargetType": "any",
+            "autoTargetAction": "default",
+            "automationOnly": false,
+            "otherActivityCompatible": true,
+            "otherActivityAsParentType": true,
+            "identifier": "",
+            "displayActivityName": false,
+            "rollMode": "default",
+            "chooseEffects": false,
+            "toggleEffect": false,
+            "ignoreFullCover": false,
+            "removeChatButtons": "default",
+            "magicEffect": false,
+            "magicDamage": false,
+            "noConcentrationCheck": false,
+            "autoCEEffects": "default"
+          },
+          "isOverTimeFlag": false,
+          "overTimeProperties": {
+            "saveRemoves": true,
+            "preRemoveConditionText": "",
+            "postRemoveConditionText": ""
+          },
+          "otherActivityId": "none",
+          "otherActivityAsParentType": true
+        }
+      },
+      "uses": {
+        "spent": 0,
+        "recovery": []
+      },
+      "advancement": [],
+      "crewed": false,
+      "enchant": {},
+      "prerequisites": {
+        "items": [],
+        "repeatable": false
+      },
+      "properties": []
+    },
+    "effects": [
+      {
+        "_id": "eff02qec21000000",
+        "name": "剑式·第三型 索雷苏",
+        "img": "modules/mystic-weapon-pack/assets/jedi/forms.webp",
+        "type": "base",
+        "system": {},
+        "disabled": true,
+        "transfer": false,
+        "description": "削弱：命中后目标下一次攻击具有劣势。",
+        "flags": {
+          "fvtt-automation-repair": {
+            "stance": "III"
+          }
+        },
+        "changes": [
+          {
+            "key": "system.traits.weaponProf.mastery.bonus",
+            "mode": 2,
+            "value": "sap"
+          }
+        ],
+        "duration": {
+          "startTime": null,
+          "combat": null,
+          "startRound": null,
+          "startTurn": null
+        },
+        "tint": "#ffffff",
+        "statuses": [],
+        "sort": 0
+      },
+      {
+        "_id": "eff06zsn8t000000",
+        "name": "剑式·第四型 阿塔鲁",
+        "img": "modules/mystic-weapon-pack/assets/jedi/forms.webp",
+        "type": "base",
+        "system": {},
+        "disabled": true,
+        "transfer": false,
+        "description": "迅击：轻型武器可额外攻击一次（选用迅击时）。",
+        "flags": {
+          "fvtt-automation-repair": {
+            "stance": "IV"
+          }
+        },
+        "changes": [
+          {
+            "key": "system.traits.weaponProf.mastery.bonus",
+            "mode": 2,
+            "value": "nick"
+          }
+        ],
+        "duration": {
+          "startTime": null,
+          "combat": null,
+          "startRound": null,
+          "startTurn": null
+        },
+        "tint": "#ffffff",
+        "statuses": [],
+        "sort": 0
+      },
+      {
+        "_id": "eff08e4w1l000000",
+        "name": "剑式·第四型 阿塔鲁（推离）",
+        "img": "modules/mystic-weapon-pack/assets/jedi/forms.webp",
+        "type": "base",
+        "system": {},
+        "disabled": true,
+        "transfer": false,
+        "description": "推离：命中可将目标推离 10 尺。",
+        "flags": {
+          "fvtt-automation-repair": {
+            "stance": "IV"
+          }
+        },
+        "changes": [
+          {
+            "key": "system.traits.weaponProf.mastery.bonus",
+            "mode": 2,
+            "value": "push"
+          }
+        ],
+        "duration": {
+          "startTime": null,
+          "combat": null,
+          "startRound": null,
+          "startTurn": null
+        },
+        "tint": "#ffffff",
+        "statuses": [],
+        "sort": 0
+      },
+      {
+        "_id": "eff0a7cgdc000000",
+        "name": "剑式·第五型 德杰姆苏",
+        "img": "modules/mystic-weapon-pack/assets/jedi/forms.webp",
+        "type": "base",
+        "system": {},
+        "disabled": true,
+        "transfer": false,
+        "description": "擦掠：未命中仍造成属性调整值伤害。",
+        "flags": {
+          "fvtt-automation-repair": {
+            "stance": "V"
+          }
+        },
+        "changes": [
+          {
+            "key": "system.traits.weaponProf.mastery.bonus",
+            "mode": 2,
+            "value": "graze"
+          }
+        ],
+        "duration": {
+          "startTime": null,
+          "combat": null,
+          "startRound": null,
+          "startTurn": null
+        },
+        "tint": "#ffffff",
+        "statuses": [],
+        "sort": 0
+      },
+      {
+        "_id": "eff1fbrvx1000000",
+        "name": "剑式·第五型 德杰姆苏（失衡）",
+        "img": "modules/mystic-weapon-pack/assets/jedi/forms.webp",
+        "type": "base",
+        "system": {},
+        "disabled": true,
+        "transfer": false,
+        "description": "失衡：命中可令目标倒地（力量豁免）。",
+        "flags": {
+          "fvtt-automation-repair": {
+            "stance": "V"
+          }
+        },
+        "changes": [
+          {
+            "key": "system.traits.weaponProf.mastery.bonus",
+            "mode": 2,
+            "value": "topple"
+          }
+        ],
+        "duration": {
+          "startTime": null,
+          "combat": null,
+          "startRound": null,
+          "startTurn": null
+        },
+        "tint": "#ffffff",
+        "statuses": [],
+        "sort": 0
+      }
+    ],
+    "flags": {
+      "chris-premades": {
+        "embeddedMacros": [
+          {
+            "type": "midi-item",
+            "pass": "preItemRoll",
+            "name": "stance",
+            "priority": 0,
+            "macro": "return game.modules.get(\"fvtt-automation-repair\").api.embedded.run(\"itemforms1u6fzeb.midi-item.preItemRoll.stance\", {workflow, trigger});"
+          },
+          {
+            "type": "midi-actor",
+            "pass": "targetApplyDamage",
+            "name": "deflect",
+            "priority": 0,
+            "macro": "return game.modules.get(\"fvtt-automation-repair\").api.embedded.run(\"itemforms1u6fzeb.midi-actor.targetApplyDamage.deflect\", {workflow, trigger});"
+          },
+          {
+            "type": "midi-item",
+            "pass": "preItemRoll",
+            "name": "riposte",
+            "priority": 1,
+            "macro": "return game.modules.get(\"fvtt-automation-repair\").api.embedded.run(\"itemforms1u6fzeb.midi-item.preItemRoll.riposte\", {workflow, trigger});"
+          },
+          {
+            "type": "movement",
+            "pass": "moved",
+            "name": "moved10",
+            "distance": 10,
+            "priority": 0,
+            "macro": "return game.modules.get(\"fvtt-automation-repair\").api.embedded.run(\"itemforms1u6fzeb.movement.moved.moved10\", {workflow, trigger});"
+          }
+        ]
+      },
+      "fvtt-automation-repair": {
+        "pack": "mvp"
+      }
+    }
+  },
+  {
+    "_id": "itemkhyber0a0yu1",
+    "name": "凯伯筑剑 Khyber Saber",
+    "type": "feat",
+    "img": "modules/mystic-weapon-pack/assets/jedi/khyber.webp",
+    "system": {
+      "description": {
+        "value": "<p>三级特性。你能将凯伯水晶与剑柄共鸣：短休/长休结束时触碰一把近战武器，将其转化为你的凯伯光剑。</p><p>使用「唤醒光剑」选择已装备的近战武器与能量类型（光耀/力场）；若武器有轻型或两用属性，额外获得灵巧。剑刃点亮时提供 10 尺明亮光照与额外 10 尺微光光照。</p>",
+        "chat": ""
+      },
+      "type": {
+        "value": "class",
+        "subtype": ""
+      },
+      "identifier": "khyber-saber",
+      "requirements": "战士 3",
+      "source": {
+        "custom": "绝地武士",
+        "revision": 1,
+        "rules": "2024"
+      },
+      "activities": {
+        "act1tqdfy7000000": {
+          "_id": "act1tqdfy7000000",
+          "type": "utility",
+          "name": "唤醒光剑",
+          "img": "icons/svg/aura.svg",
+          "activation": {
+            "type": "action",
+            "value": 1,
+            "condition": "",
+            "override": false
+          },
+          "consumption": {
+            "targets": [],
+            "scaling": {
+              "allowed": false,
+              "max": ""
+            },
+            "spellSlot": false
+          },
+          "target": {
+            "template": {
+              "count": "",
+              "contiguous": false,
+              "type": "",
+              "size": "",
+              "width": "",
+              "height": "",
+              "units": "ft"
+            },
+            "affects": {
+              "count": "",
+              "type": "",
+              "choice": false,
+              "special": ""
+            },
+            "prompt": false,
+            "override": false
+          },
+          "range": {
+            "value": "",
+            "units": "self",
+            "special": "",
+            "override": false
+          },
+          "effects": [],
+          "uses": {
+            "spent": 0,
+            "recovery": [],
+            "max": ""
+          },
+          "sort": 0,
+          "description": {},
+          "duration": {
+            "units": "inst",
+            "concentration": false,
+            "override": false
+          },
+          "roll": {
+            "prompt": false,
+            "visible": false
+          },
+          "useConditionText": "",
+          "useConditionReason": "",
+          "effectConditionText": "",
+          "macroData": {
+            "name": "",
+            "command": ""
+          },
+          "ignoreTraits": {
+            "idi": false,
+            "idr": false,
+            "idv": false,
+            "ida": false,
+            "idm": false
+          },
+          "midiProperties": {
+            "ignoreTraits": [],
+            "triggeredActivityId": "none",
+            "triggeredActivityConditionText": "",
+            "triggeredActivityTargets": "targets",
+            "triggeredActivityRollAs": "self",
+            "autoConsume": false,
+            "forceConsumeDialog": "default",
+            "forceRollDialog": "default",
+            "forceDamageDialog": "default",
+            "confirmTargets": "default",
+            "autoTargetType": "any",
+            "autoTargetAction": "default",
+            "automationOnly": false,
+            "otherActivityCompatible": true,
+            "otherActivityAsParentType": true,
+            "identifier": "",
+            "displayActivityName": false,
+            "rollMode": "default",
+            "chooseEffects": false,
+            "toggleEffect": false,
+            "ignoreFullCover": false,
+            "removeChatButtons": "default",
+            "magicEffect": false,
+            "magicDamage": false,
+            "noConcentrationCheck": false,
+            "autoCEEffects": "default"
+          },
+          "isOverTimeFlag": false,
+          "overTimeProperties": {
+            "saveRemoves": true,
+            "preRemoveConditionText": "",
+            "postRemoveConditionText": ""
+          },
+          "otherActivityId": "none",
+          "otherActivityAsParentType": true
+        },
+        "act030k2yu000000": {
+          "_id": "act030k2yu000000",
+          "type": "utility",
+          "name": "收起光剑",
+          "img": "icons/svg/aura.svg",
+          "activation": {
+            "type": "free",
+            "value": null,
+            "condition": "",
+            "override": false
+          },
+          "consumption": {
+            "targets": [],
+            "scaling": {
+              "allowed": false,
+              "max": ""
+            },
+            "spellSlot": false
+          },
+          "target": {
+            "template": {
+              "count": "",
+              "contiguous": false,
+              "type": "",
+              "size": "",
+              "width": "",
+              "height": "",
+              "units": "ft"
+            },
+            "affects": {
+              "count": "",
+              "type": "",
+              "choice": false,
+              "special": ""
+            },
+            "prompt": false,
+            "override": false
+          },
+          "range": {
+            "value": "",
+            "units": "self",
+            "special": "",
+            "override": false
+          },
+          "effects": [],
+          "uses": {
+            "spent": 0,
+            "recovery": [],
+            "max": ""
+          },
+          "sort": 0,
+          "description": {},
+          "duration": {
+            "units": "inst",
+            "concentration": false,
+            "override": false
+          },
+          "roll": {
+            "prompt": false,
+            "visible": false
+          },
+          "useConditionText": "",
+          "useConditionReason": "",
+          "effectConditionText": "",
+          "macroData": {
+            "name": "",
+            "command": ""
+          },
+          "ignoreTraits": {
+            "idi": false,
+            "idr": false,
+            "idv": false,
+            "ida": false,
+            "idm": false
+          },
+          "midiProperties": {
+            "ignoreTraits": [],
+            "triggeredActivityId": "none",
+            "triggeredActivityConditionText": "",
+            "triggeredActivityTargets": "targets",
+            "triggeredActivityRollAs": "self",
+            "autoConsume": false,
+            "forceConsumeDialog": "default",
+            "forceRollDialog": "default",
+            "forceDamageDialog": "default",
+            "confirmTargets": "default",
+            "autoTargetType": "any",
+            "autoTargetAction": "default",
+            "automationOnly": false,
+            "otherActivityCompatible": true,
+            "otherActivityAsParentType": true,
+            "identifier": "",
+            "displayActivityName": false,
+            "rollMode": "default",
+            "chooseEffects": false,
+            "toggleEffect": false,
+            "ignoreFullCover": false,
+            "removeChatButtons": "default",
+            "magicEffect": false,
+            "magicDamage": false,
+            "noConcentrationCheck": false,
+            "autoCEEffects": "default"
+          },
+          "isOverTimeFlag": false,
+          "overTimeProperties": {
+            "saveRemoves": true,
+            "preRemoveConditionText": "",
+            "postRemoveConditionText": ""
+          },
+          "otherActivityId": "none",
+          "otherActivityAsParentType": true
+        }
+      },
+      "uses": {
+        "spent": 0,
+        "recovery": []
+      },
+      "advancement": [],
+      "crewed": false,
+      "enchant": {},
+      "prerequisites": {
+        "items": [],
+        "repeatable": false
+      },
+      "properties": []
+    },
+    "flags": {
+      "chris-premades": {
+        "embeddedMacros": [
+          {
+            "type": "midi-item",
+            "pass": "preItemRoll",
+            "name": "ignite",
+            "priority": 0,
+            "macro": "return game.modules.get(\"fvtt-automation-repair\").api.embedded.run(\"itemkhyber0a0yu1.midi-item.preItemRoll.ignite\", {workflow, trigger});"
+          },
+          {
+            "type": "midi-item",
+            "pass": "preItemRoll",
+            "name": "douse",
+            "priority": 1,
+            "macro": "return game.modules.get(\"fvtt-automation-repair\").api.embedded.run(\"itemkhyber0a0yu1.midi-item.preItemRoll.douse\", {workflow, trigger});"
+          }
+        ]
+      },
+      "fvtt-automation-repair": {
+        "pack": "mvp"
+      }
+    },
+    "effects": []
+  },
+  {
+    "_id": "itemserenity1eqd",
+    "name": "原力宁静 Force Serenity",
+    "type": "feat",
+    "img": "modules/mystic-weapon-pack/assets/jedi/serenity.webp",
+    "system": {
+      "description": {
+        "value": "<p>十级特性。</p><p><strong>原力升华</strong>：原力骰面值提升至 d10。</p><p><strong>冥想回气</strong>：使用回气时，可令 30 尺内一名盟友或自己结束魅惑、恐慌或震慑之一，并获得 1d8+感知 的临时生命。</p><p><strong>原力壁障</strong>：你或 30 尺内可见生物进行豁免时，可用反应并消耗 1 枚原力骰，将掷骰结果加入该豁免。</p>",
+        "chat": ""
+      },
+      "type": {
+        "value": "class",
+        "subtype": ""
+      },
+      "identifier": "force-serenity",
+      "requirements": "战士 10",
+      "source": {
+        "custom": "绝地武士",
+        "revision": 1,
+        "rules": "2024"
+      },
+      "activities": {},
+      "uses": {
+        "spent": 0,
+        "recovery": []
+      },
+      "advancement": [],
+      "crewed": false,
+      "enchant": {},
+      "prerequisites": {
+        "items": [],
+        "repeatable": false
+      },
+      "properties": []
+    },
+    "flags": {
+      "fvtt-automation-repair": {
+        "pack": "mvp"
+      }
+    },
+    "effects": []
+  },
+  {
+    "_id": "itemarmor1xv7l0j",
+    "name": "原力衣钵 Force Vestment",
+    "type": "feat",
+    "img": "modules/mystic-weapon-pack/assets/jedi/armor.webp",
+    "system": {
+      "description": {
+        "value": "<p>三级特性。仅着长袍或便服、手部仅握持武器时，AC = 10 + 敏捷调整值 + 感知调整值。</p><p>切换「原力衣钵」以启用/关闭；护甲与手部条件由 DM 判定。</p>",
+        "chat": ""
+      },
+      "type": {
+        "value": "class",
+        "subtype": ""
+      },
+      "identifier": "force-vestment",
+      "requirements": "战士 3",
+      "source": {
+        "custom": "绝地武士",
+        "revision": 1,
+        "rules": "2024"
+      },
+      "activities": {
+        "act01byrml000000": {
+          "_id": "act01byrml000000",
+          "type": "utility",
+          "name": "原力衣钵",
+          "img": "icons/svg/aura.svg",
+          "activation": {
+            "type": "special",
+            "value": null,
+            "condition": "",
+            "override": false
+          },
+          "consumption": {
+            "targets": [],
+            "scaling": {
+              "allowed": false,
+              "max": ""
+            },
+            "spellSlot": false
+          },
+          "target": {
+            "template": {
+              "count": "",
+              "contiguous": false,
+              "type": "",
+              "size": "",
+              "width": "",
+              "height": "",
+              "units": "ft"
+            },
+            "affects": {
+              "count": "",
+              "type": "",
+              "choice": false,
+              "special": ""
+            },
+            "prompt": false,
+            "override": false
+          },
+          "range": {
+            "value": "",
+            "units": "self",
+            "special": "",
+            "override": false
+          },
+          "effects": [],
+          "uses": {
+            "spent": 0,
+            "recovery": [],
+            "max": ""
+          },
+          "sort": 0,
+          "description": {},
+          "duration": {
+            "units": "inst",
+            "concentration": false,
+            "override": false
+          },
+          "roll": {
+            "prompt": false,
+            "visible": false
+          },
+          "useConditionText": "",
+          "useConditionReason": "",
+          "effectConditionText": "",
+          "macroData": {
+            "name": "",
+            "command": ""
+          },
+          "ignoreTraits": {
+            "idi": false,
+            "idr": false,
+            "idv": false,
+            "ida": false,
+            "idm": false
+          },
+          "midiProperties": {
+            "ignoreTraits": [],
+            "triggeredActivityId": "none",
+            "triggeredActivityConditionText": "",
+            "triggeredActivityTargets": "targets",
+            "triggeredActivityRollAs": "self",
+            "autoConsume": false,
+            "forceConsumeDialog": "default",
+            "forceRollDialog": "default",
+            "forceDamageDialog": "default",
+            "confirmTargets": "default",
+            "autoTargetType": "any",
+            "autoTargetAction": "default",
+            "automationOnly": false,
+            "otherActivityCompatible": true,
+            "otherActivityAsParentType": true,
+            "identifier": "",
+            "displayActivityName": false,
+            "rollMode": "default",
+            "chooseEffects": false,
+            "toggleEffect": false,
+            "ignoreFullCover": false,
+            "removeChatButtons": "default",
+            "magicEffect": false,
+            "magicDamage": false,
+            "noConcentrationCheck": false,
+            "autoCEEffects": "default"
+          },
+          "isOverTimeFlag": false,
+          "overTimeProperties": {
+            "saveRemoves": true,
+            "preRemoveConditionText": "",
+            "postRemoveConditionText": ""
+          },
+          "otherActivityId": "none",
+          "otherActivityAsParentType": true
+        }
+      },
+      "uses": {
+        "spent": 0,
+        "recovery": []
+      },
+      "advancement": [],
+      "crewed": false,
+      "enchant": {},
+      "prerequisites": {
+        "items": [],
+        "repeatable": false
+      },
+      "properties": []
+    },
+    "flags": {
+      "chris-premades": {
+        "embeddedMacros": [
+          {
+            "type": "midi-item",
+            "pass": "preItemRoll",
+            "name": "acToggle",
+            "priority": 0,
+            "macro": "return game.modules.get(\"fvtt-automation-repair\").api.embedded.run(\"itemarmor1xv7l0j.midi-item.preItemRoll.acToggle\", {workflow, trigger});"
+          }
+        ]
+      },
+      "fvtt-automation-repair": {
+        "pack": "mvp"
+      }
+    },
+    "effects": []
+  },
+  {
+    "_id": "itemawareness0mz",
+    "name": "原力觉知与进阶剑式 Force Awareness",
+    "type": "feat",
+    "img": "modules/mystic-weapon-pack/assets/jedi/awareness.webp",
+    "system": {
+      "description": {
+        "value": "<p>七级特性。</p><p><strong>原力预知</strong>：保持清醒时获得 10 尺盲视，先攻检定加感知调整值。</p><p><strong>心灵暗示</strong>：消耗 2 枚原力骰，以魔法动作施展暗示术或安定心神（仅姿势，感知为施法属性）。</p><p><strong>进阶剑式</strong>：剑式列表新增第二型马卡希、第六型尼曼。</p>",
+        "chat": ""
+      },
+      "type": {
+        "value": "class",
+        "subtype": ""
+      },
+      "identifier": "force-awareness",
+      "requirements": "战士 7",
+      "source": {
+        "custom": "绝地武士",
+        "revision": 1,
+        "rules": "2024"
+      },
+      "activities": {},
+      "uses": {
+        "spent": 0,
+        "recovery": []
+      },
+      "advancement": [],
+      "crewed": false,
+      "enchant": {},
+      "prerequisites": {
+        "items": [],
+        "repeatable": false
+      },
+      "properties": []
+    },
+    "flags": {
+      "fvtt-automation-repair": {
+        "pack": "mvp"
+      }
+    },
+    "effects": []
+  },
+  {
+    "_id": "itemforce04l4q07",
+    "name": "原力谐律 Force Harmony",
+    "type": "feat",
+    "img": "modules/mystic-weapon-pack/assets/jedi/force.webp",
+    "system": {
+      "description": {
+        "value": "<p>三级特性。你拥有 4 枚原力骰（d8），短休恢复 1 枚，长休恢复全部；使用回气时恢复 1 枚。</p><p>原力豁免 DC = 8 + 熟练加值 + 感知调整值。</p><p>原力技艺：原力控物（推斥/牵引）、隔空御剑、原力共情。</p><p><strong>原力共情</strong>：获得该特性时选择洞悉或游说，永久获得其熟练（常效被动，无需使用）；进行洞悉/察觉/游说检定时可消耗 1 枚原力骰，额外加 1d8。</p>",
+        "chat": ""
+      },
+      "type": {
+        "value": "class",
+        "subtype": ""
+      },
+      "identifier": "force-harmony",
+      "requirements": "战士 3",
+      "source": {
+        "custom": "绝地武士",
+        "revision": 1,
+        "rules": "2024"
+      },
+      "uses": {
+        "spent": 0,
+        "max": "4",
+        "recovery": [
+          {
+            "period": "sr",
+            "type": "formula",
+            "formula": "1"
+          },
+          {
+            "period": "lr",
+            "type": "all"
+          }
+        ]
+      },
+      "activities": {
+        "act1df02q5000000": {
+          "_id": "act1df02q5000000",
+          "type": "save",
+          "name": "原力控物·推斥",
+          "img": "icons/svg/aura.svg",
+          "activation": {
+            "type": "bonus",
+            "value": 1,
+            "condition": "",
+            "override": false
+          },
+          "consumption": {
+            "targets": [],
+            "scaling": {
+              "allowed": false,
+              "max": ""
+            },
+            "spellSlot": false
+          },
+          "target": {
+            "template": {
+              "count": "",
+              "contiguous": false,
+              "type": "",
+              "size": "",
+              "width": "",
+              "height": "",
+              "units": "ft"
+            },
+            "affects": {
+              "count": "",
+              "type": "creature",
+              "choice": false,
+              "special": ""
+            },
+            "prompt": false,
+            "override": false
+          },
+          "range": {
+            "value": "30",
+            "units": "ft",
+            "special": "",
+            "override": true
+          },
+          "effects": [],
+          "uses": {
+            "spent": 0,
+            "recovery": [],
+            "max": ""
+          },
+          "save": {
+            "ability": [
+              "str"
+            ],
+            "dc": {
+              "calculation": "wis",
+              "formula": ""
+            }
+          },
+          "damage": {
+            "onSave": "none",
+            "parts": [
+              {
+                "number": 1,
+                "denomination": 8,
+                "bonus": "@abilities.wis.mod",
+                "types": [
+                  "force"
+                ],
+                "custom": {
+                  "enabled": false
+                },
+                "scaling": {
+                  "number": 1
+                }
+              }
+            ],
+            "critical": {
+              "allow": false
+            }
+          },
+          "sort": 0,
+          "description": {},
+          "duration": {
+            "units": "inst",
+            "concentration": false,
+            "override": false
+          },
+          "useConditionText": "",
+          "useConditionReason": "",
+          "effectConditionText": "",
+          "macroData": {
+            "name": "",
+            "command": ""
+          },
+          "ignoreTraits": {
+            "idi": false,
+            "idr": false,
+            "idv": false,
+            "ida": false,
+            "idm": false
+          },
+          "midiProperties": {
+            "ignoreTraits": [],
+            "triggeredActivityId": "none",
+            "triggeredActivityConditionText": "",
+            "triggeredActivityTargets": "targets",
+            "triggeredActivityRollAs": "self",
+            "autoConsume": false,
+            "forceConsumeDialog": "default",
+            "forceRollDialog": "default",
+            "forceDamageDialog": "default",
+            "confirmTargets": "default",
+            "autoTargetType": "any",
+            "autoTargetAction": "default",
+            "automationOnly": false,
+            "otherActivityCompatible": true,
+            "otherActivityAsParentType": true,
+            "identifier": "",
+            "displayActivityName": false,
+            "rollMode": "default",
+            "chooseEffects": false,
+            "toggleEffect": false,
+            "ignoreFullCover": false,
+            "removeChatButtons": "default",
+            "magicEffect": false,
+            "magicDamage": false,
+            "noConcentrationCheck": false,
+            "autoCEEffects": "default"
+          },
+          "isOverTimeFlag": false,
+          "overTimeProperties": {
+            "saveRemoves": true,
+            "preRemoveConditionText": "",
+            "postRemoveConditionText": ""
+          },
+          "otherActivityId": "",
+          "otherActivityAsParentType": true,
+          "friendlySave": "default"
+        },
+        "act1r52sjo000000": {
+          "_id": "act1r52sjo000000",
+          "type": "save",
+          "name": "原力控物·牵引",
+          "img": "icons/svg/aura.svg",
+          "activation": {
+            "type": "bonus",
+            "value": 1,
+            "condition": "",
+            "override": false
+          },
+          "consumption": {
+            "targets": [],
+            "scaling": {
+              "allowed": false,
+              "max": ""
+            },
+            "spellSlot": false
+          },
+          "target": {
+            "template": {
+              "count": "",
+              "contiguous": false,
+              "type": "",
+              "size": "",
+              "width": "",
+              "height": "",
+              "units": "ft"
+            },
+            "affects": {
+              "count": "",
+              "type": "creature",
+              "choice": false,
+              "special": ""
+            },
+            "prompt": false,
+            "override": false
+          },
+          "range": {
+            "value": "30",
+            "units": "ft",
+            "special": "",
+            "override": true
+          },
+          "effects": [],
+          "uses": {
+            "spent": 0,
+            "recovery": [],
+            "max": ""
+          },
+          "save": {
+            "ability": [
+              "str"
+            ],
+            "dc": {
+              "calculation": "wis",
+              "formula": ""
+            }
+          },
+          "damage": {
+            "onSave": "none",
+            "parts": [
+              {
+                "number": 1,
+                "denomination": 8,
+                "bonus": "@abilities.wis.mod",
+                "types": [
+                  "force"
+                ],
+                "custom": {
+                  "enabled": false
+                },
+                "scaling": {
+                  "number": 1
+                }
+              }
+            ],
+            "critical": {
+              "allow": false
+            }
+          },
+          "sort": 0,
+          "description": {},
+          "duration": {
+            "units": "inst",
+            "concentration": false,
+            "override": false
+          },
+          "useConditionText": "",
+          "useConditionReason": "",
+          "effectConditionText": "",
+          "macroData": {
+            "name": "",
+            "command": ""
+          },
+          "ignoreTraits": {
+            "idi": false,
+            "idr": false,
+            "idv": false,
+            "ida": false,
+            "idm": false
+          },
+          "midiProperties": {
+            "ignoreTraits": [],
+            "triggeredActivityId": "none",
+            "triggeredActivityConditionText": "",
+            "triggeredActivityTargets": "targets",
+            "triggeredActivityRollAs": "self",
+            "autoConsume": false,
+            "forceConsumeDialog": "default",
+            "forceRollDialog": "default",
+            "forceDamageDialog": "default",
+            "confirmTargets": "default",
+            "autoTargetType": "any",
+            "autoTargetAction": "default",
+            "automationOnly": false,
+            "otherActivityCompatible": true,
+            "otherActivityAsParentType": true,
+            "identifier": "",
+            "displayActivityName": false,
+            "rollMode": "default",
+            "chooseEffects": false,
+            "toggleEffect": false,
+            "ignoreFullCover": false,
+            "removeChatButtons": "default",
+            "magicEffect": false,
+            "magicDamage": false,
+            "noConcentrationCheck": false,
+            "autoCEEffects": "default"
+          },
+          "isOverTimeFlag": false,
+          "overTimeProperties": {
+            "saveRemoves": true,
+            "preRemoveConditionText": "",
+            "postRemoveConditionText": ""
+          },
+          "otherActivityId": "",
+          "otherActivityAsParentType": true,
+          "friendlySave": "default"
+        },
+        "act1y6xtsv000000": {
+          "_id": "act1y6xtsv000000",
+          "type": "save",
+          "name": "隔空御剑",
+          "img": "icons/svg/aura.svg",
+          "activation": {
+            "type": "action",
+            "value": 1,
+            "condition": "",
+            "override": false
+          },
+          "consumption": {
+            "targets": [],
+            "scaling": {
+              "allowed": false,
+              "max": ""
+            },
+            "spellSlot": false
+          },
+          "target": {
+            "template": {
+              "count": "",
+              "contiguous": false,
+              "type": "line",
+              "size": "30",
+              "width": "5",
+              "height": "",
+              "units": "ft"
+            },
+            "affects": {
+              "count": "",
+              "type": "creature",
+              "choice": false,
+              "special": ""
+            },
+            "prompt": true,
+            "override": true
+          },
+          "range": {
+            "value": "30",
+            "units": "ft",
+            "special": "",
+            "override": true
+          },
+          "effects": [],
+          "uses": {
+            "spent": 0,
+            "recovery": [],
+            "max": ""
+          },
+          "save": {
+            "ability": [
+              "dex"
+            ],
+            "dc": {
+              "calculation": "wis",
+              "formula": ""
+            }
+          },
+          "damage": {
+            "onSave": "half",
+            "parts": [
+              {
+                "number": 1,
+                "denomination": 8,
+                "bonus": "",
+                "types": [
+                  "radiant"
+                ],
+                "custom": {
+                  "enabled": false
+                },
+                "scaling": {
+                  "number": 1
+                }
+              },
+              {
+                "number": 1,
+                "denomination": 8,
+                "bonus": "",
+                "types": [
+                  "radiant"
+                ],
+                "custom": {
+                  "enabled": false
+                },
+                "scaling": {
+                  "number": 1
+                }
+              }
+            ],
+            "critical": {
+              "allow": false
+            }
+          },
+          "sort": 0,
+          "description": {},
+          "duration": {
+            "units": "inst",
+            "concentration": false,
+            "override": false
+          },
+          "useConditionText": "",
+          "useConditionReason": "",
+          "effectConditionText": "",
+          "macroData": {
+            "name": "",
+            "command": ""
+          },
+          "ignoreTraits": {
+            "idi": false,
+            "idr": false,
+            "idv": false,
+            "ida": false,
+            "idm": false
+          },
+          "midiProperties": {
+            "ignoreTraits": [],
+            "triggeredActivityId": "none",
+            "triggeredActivityConditionText": "",
+            "triggeredActivityTargets": "targets",
+            "triggeredActivityRollAs": "self",
+            "autoConsume": false,
+            "forceConsumeDialog": "default",
+            "forceRollDialog": "default",
+            "forceDamageDialog": "default",
+            "confirmTargets": "default",
+            "autoTargetType": "any",
+            "autoTargetAction": "default",
+            "automationOnly": false,
+            "otherActivityCompatible": true,
+            "otherActivityAsParentType": true,
+            "identifier": "",
+            "displayActivityName": false,
+            "rollMode": "default",
+            "chooseEffects": false,
+            "toggleEffect": false,
+            "ignoreFullCover": false,
+            "removeChatButtons": "default",
+            "magicEffect": false,
+            "magicDamage": false,
+            "noConcentrationCheck": false,
+            "autoCEEffects": "default"
+          },
+          "isOverTimeFlag": false,
+          "overTimeProperties": {
+            "saveRemoves": true,
+            "preRemoveConditionText": "",
+            "postRemoveConditionText": ""
+          },
+          "otherActivityId": "",
+          "otherActivityAsParentType": true,
+          "friendlySave": "default"
+        },
+        "act1y38nfp000000": {
+          "_id": "act1y38nfp000000",
+          "type": "utility",
+          "name": "原力共情·引导",
+          "img": "icons/svg/aura.svg",
+          "activation": {
+            "type": "special",
+            "value": null,
+            "condition": "",
+            "override": false
+          },
+          "consumption": {
+            "targets": [],
+            "scaling": {
+              "allowed": false,
+              "max": ""
+            },
+            "spellSlot": false
+          },
+          "target": {
+            "template": {
+              "count": "",
+              "contiguous": false,
+              "type": "",
+              "size": "",
+              "width": "",
+              "height": "",
+              "units": "ft"
+            },
+            "affects": {
+              "count": "",
+              "type": "",
+              "choice": false,
+              "special": ""
+            },
+            "prompt": false,
+            "override": false
+          },
+          "range": {
+            "value": "",
+            "units": "self",
+            "special": "",
+            "override": false
+          },
+          "effects": [],
+          "uses": {
+            "spent": 0,
+            "recovery": [],
+            "max": ""
+          },
+          "sort": 0,
+          "description": {},
+          "duration": {
+            "units": "inst",
+            "concentration": false,
+            "override": false
+          },
+          "roll": {
+            "prompt": false,
+            "visible": false
+          },
+          "useConditionText": "",
+          "useConditionReason": "",
+          "effectConditionText": "",
+          "macroData": {
+            "name": "",
+            "command": ""
+          },
+          "ignoreTraits": {
+            "idi": false,
+            "idr": false,
+            "idv": false,
+            "ida": false,
+            "idm": false
+          },
+          "midiProperties": {
+            "ignoreTraits": [],
+            "triggeredActivityId": "none",
+            "triggeredActivityConditionText": "",
+            "triggeredActivityTargets": "targets",
+            "triggeredActivityRollAs": "self",
+            "autoConsume": false,
+            "forceConsumeDialog": "default",
+            "forceRollDialog": "default",
+            "forceDamageDialog": "default",
+            "confirmTargets": "default",
+            "autoTargetType": "any",
+            "autoTargetAction": "default",
+            "automationOnly": false,
+            "otherActivityCompatible": true,
+            "otherActivityAsParentType": true,
+            "identifier": "",
+            "displayActivityName": false,
+            "rollMode": "default",
+            "chooseEffects": false,
+            "toggleEffect": false,
+            "ignoreFullCover": false,
+            "removeChatButtons": "default",
+            "magicEffect": false,
+            "magicDamage": false,
+            "noConcentrationCheck": false,
+            "autoCEEffects": "default"
+          },
+          "isOverTimeFlag": false,
+          "overTimeProperties": {
+            "saveRemoves": true,
+            "preRemoveConditionText": "",
+            "postRemoveConditionText": ""
+          },
+          "otherActivityId": "none",
+          "otherActivityAsParentType": true
+        }
+      },
+      "advancement": [],
+      "crewed": false,
+      "enchant": {},
+      "prerequisites": {
+        "items": [],
+        "repeatable": false
+      },
+      "properties": []
+    },
+    "flags": {
+      "chris-premades": {
+        "embeddedMacros": [
+          {
+            "type": "midi-item",
+            "pass": "preItemRoll",
+            "name": "empathy",
+            "priority": 0,
+            "macro": "return game.modules.get(\"fvtt-automation-repair\").api.embedded.run(\"itemforce04l4q07.midi-item.preItemRoll.empathy\", {workflow, trigger});"
+          },
+          {
+            "type": "midi-item",
+            "pass": "rollFinished",
+            "name": "forceUse",
+            "priority": 0,
+            "macro": "return game.modules.get(\"fvtt-automation-repair\").api.embedded.run(\"itemforce04l4q07.midi-item.rollFinished.forceUse\", {workflow, trigger});"
+          },
+          {
+            "type": "skill",
+            "pass": "bonus",
+            "name": "empathySkill",
+            "priority": 0,
+            "macro": "return game.modules.get(\"fvtt-automation-repair\").api.embedded.run(\"itemforce04l4q07.skill.bonus.empathySkill\", {workflow, trigger});"
+          }
+        ]
+      },
+      "fvtt-automation-repair": {
+        "pack": "mvp",
+        "die": "d8"
+      }
+    },
+    "effects": []
+  },
+  {
+    "flags": {
+      "dnd5e": {
+        "riders": {
+          "activity": []
+        }
+      },
+      "midi-qol": {
+        "onUseMacroName": ""
+      },
+      "fvtt-automation-repair": {
+        "automationRepair": {
+          "key": "ghostBow",
+          "revision": 4
+        }
+      }
+    },
+    "name": "幽魂视界弓 Ghost Sight Bow",
+    "effects": [
+      {
+        "_id": "Serg2jnakhmJfYyQ",
+        "flags": {
+          "dnd5e": {
+            "riders": {
+              "statuses": []
+            }
+          }
+        },
+        "changes": [
+          {
+            "key": "system.attributes.movement.walk",
+            "mode": 5,
+            "priority": null,
+            "value": "0"
+          }
+        ],
+        "description": "<p>你能以一个附赠动作来获得以太位面的视野，并能看见所有隐形的生物和物件，直到你的回合结束。此时你还可以看穿距你 60 尺内的墙壁和固体物件，此效应也持续到你的回合结束。在你享受这些好处期间，长弓射出的幽魂弹药可以穿透它们，你能将距离你 60 尺内的敌人作为你以此武器发动的远程武器攻击的目标，即使敌人在全身掩护下也无法幸免。你只能在你本回合还没有移动的时候使用这个附赠动作。</p><p>在你使用此特性后，你的速度在当前回合中降至 0。</p>",
+        "disabled": false,
+        "duration": {
+          "combat": null,
+          "rounds": null,
+          "seconds": 60,
+          "startRound": null,
+          "startTime": null,
+          "startTurn": null,
+          "turns": null
+        },
+        "img": "icons/magic/perception/eye-ringed-glow-angry-large-teal.webp",
+        "name": "幽魂视界",
+        "sort": 0,
+        "statuses": [],
+        "system": {},
+        "tint": "#ffffff",
+        "transfer": false,
+        "type": "base"
+      }
+    ],
+    "img": "modules/mystic-weapon-pack/assets/ghost-sight-bow.webp",
+    "system": {
+      "activities": {
+        "VilLDG6QbUUhmu8J": {
+          "_id": "VilLDG6QbUUhmu8J",
+          "activation": {
+            "override": false,
+            "type": "action",
+            "condition": ""
+          },
+          "attack": {
+            "critical": {
+              "threshold": null
+            },
+            "flat": false,
+            "type": {
+              "value": "",
+              "classification": ""
+            },
+            "ability": "spellcasting",
+            "bonus": ""
+          },
+          "consumption": {
+            "scaling": {
+              "allowed": false
+            },
+            "spellSlot": true,
+            "targets": []
+          },
+          "damage": {
+            "critical": {
+              "bonus": ""
+            },
+            "includeBase": true,
+            "parts": []
+          },
+          "description": {
+            "chatFlavor": ""
+          },
+          "duration": {
+            "concentration": false,
+            "override": false,
+            "units": "inst"
+          },
+          "effects": [],
+          "range": {
+            "override": false,
+            "units": "self"
+          },
+          "sort": 0,
+          "target": {
+            "affects": {
+              "choice": false,
+              "type": ""
+            },
+            "override": false,
+            "prompt": true,
+            "template": {
+              "contiguous": false,
+              "units": "ft",
+              "type": ""
+            }
+          },
+          "type": "attack",
+          "uses": {
+            "recovery": [],
+            "spent": 0,
+            "max": ""
+          },
+          "useConditionText": "",
+          "useConditionReason": "",
+          "effectConditionText": "",
+          "macroData": {
+            "name": "",
+            "command": ""
+          },
+          "ignoreTraits": {
+            "idi": false,
+            "idr": false,
+            "idv": false,
+            "ida": false,
+            "idm": false
+          },
+          "midiProperties": {
+            "ignoreTraits": [],
+            "triggeredActivityId": "none",
+            "triggeredActivityConditionText": "",
+            "triggeredActivityTargets": "targets",
+            "triggeredActivityRollAs": "self",
+            "autoConsume": false,
+            "forceConsumeDialog": "default",
+            "forceRollDialog": "default",
+            "forceDamageDialog": "default",
+            "confirmTargets": "default",
+            "autoTargetType": "any",
+            "autoTargetAction": "default",
+            "automationOnly": false,
+            "otherActivityCompatible": true,
+            "otherActivityAsParentType": true,
+            "identifier": "",
+            "displayActivityName": false,
+            "rollMode": "default",
+            "chooseEffects": false,
+            "toggleEffect": false,
+            "ignoreFullCover": false,
+            "removeChatButtons": "default",
+            "magicEffect": false,
+            "magicDamage": false,
+            "noConcentrationCheck": false,
+            "autoCEEffects": "default"
+          },
+          "isOverTimeFlag": false,
+          "overTimeProperties": {
+            "saveRemoves": true,
+            "preRemoveConditionText": "",
+            "postRemoveConditionText": ""
+          },
+          "otherActivityId": "none",
+          "otherActivityAsParentType": true,
+          "attackMode": "",
+          "ammunition": "",
+          "otherActivityUuid": "",
+          "attackRollPerTarget": "default",
+          "fumbleThreshold": 1,
+          "name": ""
+        },
+        "XA5WN4VIosdvewRv": {
+          "_id": "XA5WN4VIosdvewRv",
+          "activation": {
+            "condition": "",
+            "override": false,
+            "type": "bonus"
+          },
+          "consumption": {
+            "scaling": {
+              "allowed": false,
+              "max": ""
+            },
+            "spellSlot": false,
+            "targets": [
+              {
+                "type": "activityUses",
+                "target": "",
+                "value": "1",
+                "scaling": {}
+              }
+            ]
+          },
+          "description": {
+            "chatFlavor": ""
+          },
+          "duration": {
+            "concentration": false,
+            "override": false,
+            "units": "minute",
+            "value": "1"
+          },
+          "effects": [],
+          "img": "icons/magic/perception/eye-ringed-glow-angry-large-teal.webp",
+          "name": "幽魂视界",
+          "range": {
+            "override": true,
+            "units": "self"
+          },
+          "roll": {
+            "formula": "",
+            "name": "",
+            "prompt": false,
+            "visible": false
+          },
+          "sort": 0,
+          "target": {
+            "override": true,
+            "prompt": false,
+            "template": {
+              "type": "",
+              "units": "ft",
+              "contiguous": false
+            },
+            "affects": {
+              "type": "self",
+              "choice": false
+            }
+          },
+          "type": "utility",
+          "uses": {
+            "max": "1",
+            "recovery": [
+              {
+                "period": "lr",
+                "type": "recoverAll"
+              }
+            ],
+            "spent": 0
+          },
+          "useConditionText": "",
+          "useConditionReason": "",
+          "effectConditionText": "",
+          "macroData": {
+            "name": "",
+            "command": ""
+          },
+          "ignoreTraits": {
+            "idi": false,
+            "idr": false,
+            "idv": false,
+            "ida": false,
+            "idm": false
+          },
+          "midiProperties": {
+            "ignoreTraits": [],
+            "triggeredActivityId": "none",
+            "triggeredActivityConditionText": "",
+            "triggeredActivityTargets": "targets",
+            "triggeredActivityRollAs": "self",
+            "autoConsume": false,
+            "forceConsumeDialog": "default",
+            "forceRollDialog": "default",
+            "forceDamageDialog": "default",
+            "confirmTargets": "default",
+            "autoTargetType": "any",
+            "autoTargetAction": "default",
+            "automationOnly": false,
+            "otherActivityCompatible": true,
+            "otherActivityAsParentType": true,
+            "identifier": "",
+            "displayActivityName": false,
+            "rollMode": "default",
+            "chooseEffects": false,
+            "toggleEffect": false,
+            "ignoreFullCover": false,
+            "removeChatButtons": "default",
+            "magicEffect": false,
+            "magicDamage": false,
+            "noConcentrationCheck": false,
+            "autoCEEffects": "default"
+          },
+          "isOverTimeFlag": false,
+          "overTimeProperties": {
+            "saveRemoves": true,
+            "preRemoveConditionText": "",
+            "postRemoveConditionText": ""
+          },
+          "otherActivityId": "none",
+          "otherActivityAsParentType": true
+        },
+        "2O2sqPMqTEwNrk5L": {
+          "type": "attack",
+          "_id": "2O2sqPMqTEwNrk5L",
+          "sort": 100000,
+          "activation": {
+            "type": "action",
+            "override": false,
+            "condition": ""
+          },
+          "consumption": {
+            "scaling": {
+              "allowed": false
+            },
+            "spellSlot": true,
+            "targets": [
+              {
+                "type": "itemUses",
+                "value": "1",
+                "target": "",
+                "scaling": {}
+              }
+            ]
+          },
+          "description": {
+            "chatFlavor": ""
+          },
+          "duration": {
+            "units": "inst",
+            "concentration": false,
+            "override": false
+          },
+          "effects": [],
+          "range": {
+            "units": "self",
+            "override": false
+          },
+          "target": {
+            "template": {
+              "contiguous": false,
+              "units": "ft",
+              "type": ""
+            },
+            "affects": {
+              "choice": false,
+              "type": ""
+            },
+            "override": false,
+            "prompt": false
+          },
+          "uses": {
+            "spent": 0,
+            "recovery": [
+              {
+                "period": "lr",
+                "type": "recoverAll"
+              }
+            ],
+            "max": "3"
+          },
+          "attack": {
+            "critical": {
+              "threshold": 1
+            },
+            "flat": false,
+            "type": {
+              "value": "",
+              "classification": ""
+            },
+            "ability": "spellcasting",
+            "bonus": ""
+          },
+          "damage": {
+            "critical": {
+              "bonus": ""
+            },
+            "includeBase": true,
+            "parts": []
+          },
+          "useConditionText": "",
+          "useConditionReason": "",
+          "effectConditionText": "",
+          "macroData": {
+            "name": "",
+            "command": ""
+          },
+          "ignoreTraits": {
+            "idi": false,
+            "idr": false,
+            "idv": false,
+            "ida": false,
+            "idm": false
+          },
+          "midiProperties": {
+            "ignoreTraits": [],
+            "triggeredActivityId": "none",
+            "triggeredActivityConditionText": "",
+            "triggeredActivityTargets": "targets",
+            "triggeredActivityRollAs": "self",
+            "autoConsume": false,
+            "forceConsumeDialog": "default",
+            "forceRollDialog": "default",
+            "forceDamageDialog": "default",
+            "confirmTargets": "default",
+            "autoTargetType": "any",
+            "autoTargetAction": "default",
+            "automationOnly": false,
+            "otherActivityCompatible": true,
+            "otherActivityAsParentType": true,
+            "identifier": "",
+            "displayActivityName": false,
+            "rollMode": "default",
+            "chooseEffects": false,
+            "toggleEffect": false,
+            "ignoreFullCover": false,
+            "removeChatButtons": "default",
+            "magicEffect": false,
+            "magicDamage": false,
+            "noConcentrationCheck": false,
+            "autoCEEffects": "default"
+          },
+          "isOverTimeFlag": false,
+          "overTimeProperties": {
+            "saveRemoves": true,
+            "preRemoveConditionText": "",
+            "postRemoveConditionText": ""
+          },
+          "otherActivityId": "none",
+          "otherActivityAsParentType": true,
+          "attackMode": "",
+          "ammunition": "",
+          "otherActivityUuid": "",
+          "attackRollPerTarget": "default",
+          "fumbleThreshold": null,
+          "name": "追猎重击"
+        }
+      },
+      "ammunition": {
+        "type": ""
+      },
+      "armor": {},
+      "attuned": false,
+      "attunement": "required",
+      "container": null,
+      "damage": {
+        "base": {
+          "bonus": "",
+          "custom": {
+            "enabled": false,
+            "formula": ""
+          },
+          "denomination": 6,
+          "number": 1,
+          "scaling": {
+            "number": 1
+          },
+          "types": [
+            "force"
+          ]
+        },
+        "versatile": {
+          "custom": {
+            "enabled": false
+          },
+          "scaling": {
+            "number": 1
+          },
+          "types": []
+        }
+      },
+      "description": {
+        "chat": "",
+        "value": "<p><em>武器（长弓），珍稀（需同调）</em></p><p>这把长弓是以手工雕刻的树精之骨制造的，并以吸血鬼的不死血液浸泡。再以女妖的头发制成弓弦，并注入一枚强大而愤怒的幽魂精魄。一旦完工，这把武器就会从物质界中消逝，再以半灵体的形态重现世间。</p><p>这把长弓轻巧而灵动，具有轻型词条而不是重型。当你熟练使用后，他的精通属性是侵扰而不是缓速。</p><p>你用此魔法长弓发动的攻击检定和伤害掷骰具有+2的加值。</p><p>这把长弓会自己生成其使用的幽魂弹药，并且造成力场伤害代替原本的穿刺伤害。无论击中或者击失，弹药都会随后消失。</p><p>这把长弓具有三次充能，每回合一次，当你使用幽魂弹药攻击时，可以选择消耗一次充能使这次攻击必定重击，所有充能会在长休后恢复</p><p>当你同调此武器后，每天一次，你能以一个附赠动作来获得以太位面的视野，并能看见所有隐形的生物和物件，持续一分钟。此时你还可以看穿距你60尺内的墙壁和固体物件，此效应也持续一分钟。在你享受这些好处期间，长弓射出的幽魂弹药可以穿透它们，你能将距离你 60 尺内的敌人作为你以此武器发动的远程武器攻击的目标，即使敌人在全身掩护下也无法幸免。你只能在你本回合还没有移动的时候使用这个附赠动作，而且在你使用这个附赠动作后，你的速度在一分钟内降至 0，直到你主动解除效果。</p>"
+      },
+      "equipped": false,
+      "identified": true,
+      "identifier": "ghost-sight-bow",
+      "magicalBonus": 2,
+      "mastery": "vex",
+      "price": {
+        "denomination": "gp",
+        "value": 4000
+      },
+      "proficient": null,
+      "properties": [
+        "fin",
+        "mgc",
+        "two"
+      ],
+      "quantity": 1,
+      "range": {
+        "long": 600,
+        "reach": null,
+        "units": "ft",
+        "value": 150
+      },
+      "rarity": "rare",
+      "source": {
+        "revision": 1,
+        "rules": "2024",
+        "book": "SRD 5.1",
+        "page": "",
+        "custom": "",
+        "license": ""
+      },
+      "type": {
+        "baseItem": "longbow",
+        "value": "martialR"
+      },
+      "unidentified": {
+        "description": "<blockquote><p>这把造型修长的长弓静静悬浮在半寸高的虚空中，通体呈现出半透明的虚幻质感，形态在物质与以太之间不断闪烁。 弓身上半由某种质地温润又带着木纹的棕色骨骼雕琢而成，下半则是某种翠色的能量实体；弓弦仅由一缕泛着惨白银光的纤细发丝编成，紧绷的弦线上隐约回荡着若有若无的凄厉低语。 当你伸手握住弓把时，掌心会传来刺骨的寒意，整把武器的重量轻盈得超乎想象，挥动间毫无寻常长弓的滞重感。每当你尝试虚拉弓弦，指尖都会涌起一股狂暴而愤怒的怨念，一簇血红色的半透明箭矢虚影随之在弦上凝聚，松手后又瞬间消散于无形</p></blockquote>",
+        "name": "未鉴定的 长弓 Longbow"
+      },
+      "uses": {
+        "max": "",
+        "recovery": [
+          {
+            "period": "lr",
+            "type": "recoverAll"
+          }
+        ],
+        "spent": 0
+      },
+      "weight": {
+        "units": "lb",
+        "value": 0
+      },
+      "crewed": false
+    },
+    "type": "weapon",
+    "_id": "RSLTHUYElHVA6BK7"
+  },
+  {
+    "name": "方天画戟",
+    "type": "weapon",
+    "_id": "BKi0SK9hubH0cfwH",
+    "img": "modules/mystic-weapon-pack/assets/halberd.webp",
+    "system": {
+      "activities": {
+        "rMGhGt6i7WOfNiQF": {
+          "_id": "rMGhGt6i7WOfNiQF",
+          "type": "attack",
+          "sort": 0,
+          "activation": {
+            "type": "action",
+            "override": false
+          },
+          "consumption": {
+            "scaling": {
+              "allowed": false
+            },
+            "spellSlot": false,
+            "targets": []
+          },
+          "description": {},
+          "duration": {
+            "units": "inst",
+            "concentration": false,
+            "override": false
+          },
+          "effects": [],
+          "range": {
+            "units": "self",
+            "override": false
+          },
+          "target": {
+            "template": {
+              "contiguous": false,
+              "units": "ft"
+            },
+            "affects": {
+              "choice": false
+            },
+            "override": false,
+            "prompt": true
+          },
+          "uses": {
+            "spent": 0,
+            "recovery": []
+          },
+          "attack": {
+            "critical": {},
+            "flat": false,
+            "type": {}
+          },
+          "damage": {
+            "critical": {},
+            "includeBase": true,
+            "parts": []
+          },
+          "useConditionText": "",
+          "useConditionReason": "",
+          "effectConditionText": "",
+          "macroData": {
+            "name": "",
+            "command": ""
+          },
+          "ignoreTraits": {
+            "idi": false,
+            "idr": false,
+            "idv": false,
+            "ida": false,
+            "idm": false
+          },
+          "midiProperties": {
+            "ignoreTraits": [],
+            "triggeredActivityId": "none",
+            "triggeredActivityConditionText": "",
+            "triggeredActivityTargets": "targets",
+            "triggeredActivityRollAs": "self",
+            "autoConsume": false,
+            "forceConsumeDialog": "default",
+            "forceRollDialog": "default",
+            "forceDamageDialog": "default",
+            "confirmTargets": "default",
+            "autoTargetType": "any",
+            "autoTargetAction": "default",
+            "automationOnly": false,
+            "otherActivityCompatible": true,
+            "otherActivityAsParentType": true,
+            "identifier": "",
+            "displayActivityName": false,
+            "rollMode": "default",
+            "chooseEffects": false,
+            "toggleEffect": false,
+            "ignoreFullCover": false,
+            "removeChatButtons": "default",
+            "magicEffect": false,
+            "magicDamage": false,
+            "noConcentrationCheck": false,
+            "autoCEEffects": "default"
+          },
+          "isOverTimeFlag": false,
+          "overTimeProperties": {
+            "saveRemoves": true,
+            "preRemoveConditionText": "",
+            "postRemoveConditionText": ""
+          },
+          "otherActivityId": "none",
+          "otherActivityAsParentType": true,
+          "attackMode": "oneHanded",
+          "ammunition": "",
+          "otherActivityUuid": "",
+          "attackRollPerTarget": "default",
+          "fumbleThreshold": 1
+        },
+        "lFXRYdgoGR1BiYlp": {
+          "type": "attack",
+          "_id": "lFXRYdgoGR1BiYlp",
+          "sort": 0,
+          "activation": {
+            "type": "action",
+            "override": false,
+            "condition": ""
+          },
+          "consumption": {
+            "scaling": {
+              "allowed": false
+            },
+            "spellSlot": false,
+            "targets": []
+          },
+          "description": {
+            "chatFlavor": ""
+          },
+          "duration": {
+            "units": "inst",
+            "concentration": false,
+            "override": false
+          },
+          "effects": [],
+          "range": {
+            "units": "self",
+            "override": false
+          },
+          "target": {
+            "template": {
+              "contiguous": false,
+              "units": "ft",
+              "type": ""
+            },
+            "affects": {
+              "choice": false,
+              "type": ""
+            },
+            "override": false,
+            "prompt": true
+          },
+          "uses": {
+            "spent": 0,
+            "recovery": [],
+            "max": ""
+          },
+          "attack": {
+            "critical": {
+              "threshold": null
+            },
+            "flat": false,
+            "type": {
+              "value": "",
+              "classification": ""
+            },
+            "ability": "",
+            "bonus": ""
+          },
+          "damage": {
+            "critical": {
+              "bonus": ""
+            },
+            "includeBase": false,
+            "parts": [
+              {
+                "custom": {
+                  "enabled": false,
+                  "formula": ""
+                },
+                "number": 2,
+                "denomination": 12,
+                "bonus": "6",
+                "types": [
+                  "psychic"
+                ],
+                "scaling": {
+                  "number": 1
+                }
+              }
+            ]
+          },
+          "useConditionText": "",
+          "useConditionReason": "",
+          "effectConditionText": "",
+          "macroData": {
+            "name": "",
+            "command": ""
+          },
+          "ignoreTraits": {
+            "idi": false,
+            "idr": false,
+            "idv": false,
+            "ida": false,
+            "idm": false
+          },
+          "midiProperties": {
+            "ignoreTraits": [],
+            "triggeredActivityId": "none",
+            "triggeredActivityConditionText": "",
+            "triggeredActivityTargets": "targets",
+            "triggeredActivityRollAs": "self",
+            "autoConsume": false,
+            "forceConsumeDialog": "default",
+            "forceRollDialog": "default",
+            "forceDamageDialog": "default",
+            "confirmTargets": "default",
+            "autoTargetType": "any",
+            "autoTargetAction": "default",
+            "automationOnly": false,
+            "otherActivityCompatible": true,
+            "otherActivityAsParentType": true,
+            "identifier": "",
+            "displayActivityName": false,
+            "rollMode": "default",
+            "chooseEffects": false,
+            "toggleEffect": false,
+            "ignoreFullCover": false,
+            "removeChatButtons": "default",
+            "magicEffect": false,
+            "magicDamage": false,
+            "noConcentrationCheck": false,
+            "autoCEEffects": "default"
+          },
+          "isOverTimeFlag": false,
+          "overTimeProperties": {
+            "saveRemoves": true,
+            "preRemoveConditionText": "",
+            "postRemoveConditionText": ""
+          },
+          "otherActivityId": "none",
+          "otherActivityAsParentType": true,
+          "attackMode": "",
+          "ammunition": "",
+          "otherActivityUuid": "",
+          "attackRollPerTarget": "default",
+          "fumbleThreshold": 1,
+          "name": "诡诈攻击"
+        },
+        "cFCiDMTMpzJc9ZPs": {
+          "type": "attack",
+          "_id": "cFCiDMTMpzJc9ZPs",
+          "sort": 0,
+          "activation": {
+            "type": "",
+            "override": false,
+            "condition": ""
+          },
+          "consumption": {
+            "scaling": {
+              "allowed": false
+            },
+            "spellSlot": false,
+            "targets": []
+          },
+          "description": {
+            "chatFlavor": ""
+          },
+          "duration": {
+            "units": "inst",
+            "concentration": false,
+            "override": false
+          },
+          "effects": [],
+          "range": {
+            "units": "self",
+            "override": false
+          },
+          "target": {
+            "template": {
+              "contiguous": false,
+              "units": "ft",
+              "type": ""
+            },
+            "affects": {
+              "choice": false,
+              "type": ""
+            },
+            "override": false,
+            "prompt": true
+          },
+          "uses": {
+            "spent": 0,
+            "recovery": [],
+            "max": ""
+          },
+          "attack": {
+            "critical": {
+              "threshold": null
+            },
+            "flat": false,
+            "type": {
+              "value": "",
+              "classification": ""
+            },
+            "ability": "",
+            "bonus": ""
+          },
+          "damage": {
+            "critical": {
+              "bonus": ""
+            },
+            "includeBase": false,
+            "parts": [
+              {
+                "custom": {
+                  "enabled": false,
+                  "formula": ""
+                },
+                "number": 2,
+                "denomination": 12,
+                "bonus": "6",
+                "types": [
+                  "psychic"
+                ],
+                "scaling": {
+                  "number": 1
+                }
+              }
+            ]
+          },
+          "useConditionText": "",
+          "useConditionReason": "",
+          "effectConditionText": "",
+          "macroData": {
+            "name": "",
+            "command": ""
+          },
+          "ignoreTraits": {
+            "idi": false,
+            "idr": false,
+            "idv": false,
+            "ida": false,
+            "idm": false
+          },
+          "midiProperties": {
+            "ignoreTraits": [],
+            "triggeredActivityId": "none",
+            "triggeredActivityConditionText": "",
+            "triggeredActivityTargets": "targets",
+            "triggeredActivityRollAs": "self",
+            "autoConsume": false,
+            "forceConsumeDialog": "default",
+            "forceRollDialog": "default",
+            "forceDamageDialog": "default",
+            "confirmTargets": "default",
+            "autoTargetType": "any",
+            "autoTargetAction": "default",
+            "automationOnly": false,
+            "otherActivityCompatible": true,
+            "otherActivityAsParentType": true,
+            "identifier": "",
+            "displayActivityName": false,
+            "rollMode": "default",
+            "chooseEffects": false,
+            "toggleEffect": false,
+            "ignoreFullCover": false,
+            "removeChatButtons": "default",
+            "magicEffect": false,
+            "magicDamage": false,
+            "noConcentrationCheck": false,
+            "autoCEEffects": "default"
+          },
+          "isOverTimeFlag": false,
+          "overTimeProperties": {
+            "saveRemoves": true,
+            "preRemoveConditionText": "",
+            "postRemoveConditionText": ""
+          },
+          "otherActivityId": "none",
+          "otherActivityAsParentType": true,
+          "attackMode": "",
+          "ammunition": "",
+          "otherActivityUuid": "",
+          "attackRollPerTarget": "default",
+          "fumbleThreshold": 1,
+          "name": "反击"
+        },
+        "RPYNLIBNxIb2Tqnv": {
+          "type": "utility",
+          "_id": "RPYNLIBNxIb2Tqnv",
+          "sort": 0,
+          "activation": {
+            "type": "action",
+            "override": false,
+            "condition": ""
+          },
+          "consumption": {
+            "scaling": {
+              "allowed": false
+            },
+            "spellSlot": false,
+            "targets": []
+          },
+          "description": {
+            "chatFlavor": ""
+          },
+          "duration": {
+            "units": "inst",
+            "concentration": false,
+            "override": false
+          },
+          "effects": [],
+          "range": {
+            "units": "self",
+            "override": false
+          },
+          "target": {
+            "template": {
+              "contiguous": false,
+              "units": "ft",
+              "type": ""
+            },
+            "affects": {
+              "choice": false,
+              "type": ""
+            },
+            "override": false,
+            "prompt": true
+          },
+          "uses": {
+            "spent": 0,
+            "recovery": [],
+            "max": ""
+          },
+          "roll": {
+            "prompt": false,
+            "visible": false,
+            "formula": "1d12",
+            "name": "精准攻击"
+          },
+          "useConditionText": "",
+          "useConditionReason": "",
+          "effectConditionText": "",
+          "macroData": {
+            "name": "",
+            "command": ""
+          },
+          "ignoreTraits": {
+            "idi": false,
+            "idr": false,
+            "idv": false,
+            "ida": false,
+            "idm": false
+          },
+          "midiProperties": {
+            "ignoreTraits": [],
+            "triggeredActivityId": "none",
+            "triggeredActivityConditionText": "",
+            "triggeredActivityTargets": "targets",
+            "triggeredActivityRollAs": "self",
+            "autoConsume": false,
+            "forceConsumeDialog": "default",
+            "forceRollDialog": "default",
+            "forceDamageDialog": "default",
+            "confirmTargets": "default",
+            "autoTargetType": "any",
+            "autoTargetAction": "default",
+            "automationOnly": false,
+            "otherActivityCompatible": true,
+            "otherActivityAsParentType": true,
+            "identifier": "",
+            "displayActivityName": false,
+            "rollMode": "default",
+            "chooseEffects": false,
+            "toggleEffect": false,
+            "ignoreFullCover": false,
+            "removeChatButtons": "default",
+            "magicEffect": false,
+            "magicDamage": false,
+            "noConcentrationCheck": false,
+            "autoCEEffects": "default"
+          },
+          "isOverTimeFlag": false,
+          "overTimeProperties": {
+            "saveRemoves": true,
+            "preRemoveConditionText": "",
+            "postRemoveConditionText": ""
+          },
+          "otherActivityId": "none",
+          "otherActivityAsParentType": true,
+          "name": "精准攻击"
+        }
+      },
+      "uses": {
+        "spent": 0,
+        "recovery": [
+          {
+            "period": "lr",
+            "type": "recoverAll"
+          }
+        ],
+        "max": "4"
+      },
+      "description": {
+        "value": "<p><em>武器（巨戟），珍稀（需同调）</em></p><p>这把形状怪异但威力绝伦的巨戟里封印了一个战斗大师的灵魂，他会指导你使用精妙的灵能战技克敌制胜。</p><p>这个灵魂在为你提供帮助的同时，也会对你造成限制，在同调成功后，你将无法使用任何其他武器和盾牌，除非你终止同调。</p><p>你用此魔法巨戟发动的攻击检定和伤害掷骰具有+2的加值。</p><p>这把魔法武器拥有四次充能，每当你短休结束后恢复一次充能，而在你完成一次长休后，恢复所有充能次数。你每回合至多只能消耗一次充能。</p><p>诡诈攻击：你可以消耗一个附赠动作并指定一个位于你5尺范围内的生物为目标，对其虚晃一招。你在本回合内对该生物发动的下一次攻击检定具有优势。如果该攻击命中，你增加一枚伤害骰，并且武器会造成心灵伤害。</p><p>反击：当一个生物对你发动了一次近战攻击检定但失手时，你可以执行一个反应并消耗一次充能使用武器对其发动一次近战攻击检定。如果该攻击命中，你增加一枚伤害骰，并且武器会造成心灵伤害。</p><p>精准攻击：当你的一次攻击检定失手时，可以消耗一次充能并投掷1D12将其结果加在本次攻击的攻击检定中，这可能会导致其命中。</p>",
+        "chat": ""
+      },
+      "identifier": "-",
+      "source": {
+        "revision": 1,
+        "rules": "2024"
+      },
+      "identified": true,
+      "unidentified": {
+        "description": ""
+      },
+      "container": null,
+      "quantity": 1,
+      "weight": {
+        "value": 0,
+        "units": "lb"
+      },
+      "price": {
+        "value": 4000,
+        "denomination": "gp"
+      },
+      "rarity": "rare",
+      "attunement": "required",
+      "crewed": false,
+      "ammunition": {},
+      "armor": {},
+      "damage": {
+        "base": {
+          "types": [
+            "slashing"
+          ],
+          "custom": {
+            "enabled": false
+          },
+          "scaling": {
+            "number": 1
+          },
+          "number": 1,
+          "denomination": 12,
+          "bonus": ""
+        },
+        "versatile": {
+          "types": [],
+          "custom": {
+            "enabled": false
+          },
+          "scaling": {
+            "number": 1
+          }
+        }
+      },
+      "properties": [
+        "rch",
+        "mgc",
+        "two",
+        "hvy"
+      ],
+      "proficient": null,
+      "range": {
+        "reach": null,
+        "units": ""
+      },
+      "type": {
+        "value": "martialM",
+        "baseItem": "halberd"
+      },
+      "magicalBonus": 2,
+      "mastery": "topple",
+      "attuned": true,
+      "equipped": true
+    },
+    "effects": [],
+    "flags": {
+      "dnd5e": {
+        "riders": {
+          "activity": []
+        }
+      },
+      "midi-qol": {
+        "onUseMacroName": "[preItemRoll]MWP-HalberdChargeGate,[preAttackRoll]MWP-HalberdSpendFeint,[preAttackRollConfig]MWP-HalberdFeintAdvantage,[preCheckHits]MWP-HalberdPrecision,[postActiveEffects]MWP-HalberdMarkUtility"
+      },
+      "fvtt-automation-repair": {}
+    }
+  },
+  {
+    "name": "星辉秘银魔杖",
+    "type": "weapon",
+    "_id": "VkeegXJCVTkrag37",
+    "img": "modules/mystic-weapon-pack/assets/mithral-wand.webp",
+    "system": {
+      "activities": {
+        "yY4nXjQAXARCsscq": {
+          "_id": "yY4nXjQAXARCsscq",
+          "type": "attack",
+          "sort": 0,
+          "activation": {
+            "type": "action",
+            "override": false,
+            "condition": ""
+          },
+          "consumption": {
+            "scaling": {
+              "allowed": false
+            },
+            "spellSlot": true,
+            "targets": []
+          },
+          "description": {
+            "chatFlavor": ""
+          },
+          "duration": {
+            "units": "inst",
+            "concentration": false,
+            "override": false
+          },
+          "effects": [],
+          "range": {
+            "units": "self",
+            "override": false
+          },
+          "target": {
+            "template": {
+              "contiguous": false,
+              "units": "ft",
+              "type": ""
+            },
+            "affects": {
+              "choice": false,
+              "type": ""
+            },
+            "override": false,
+            "prompt": true
+          },
+          "uses": {
+            "spent": 0,
+            "recovery": [],
+            "max": ""
+          },
+          "attack": {
+            "critical": {
+              "threshold": null
+            },
+            "flat": false,
+            "type": {
+              "value": "",
+              "classification": ""
+            },
+            "ability": "spellcasting",
+            "bonus": "2"
+          },
+          "damage": {
+            "critical": {
+              "bonus": ""
+            },
+            "includeBase": true,
+            "parts": []
+          },
+          "useConditionText": "",
+          "useConditionReason": "",
+          "effectConditionText": "",
+          "macroData": {
+            "name": "",
+            "command": ""
+          },
+          "ignoreTraits": {
+            "idi": false,
+            "idr": false,
+            "idv": false,
+            "ida": false,
+            "idm": false
+          },
+          "midiProperties": {
+            "ignoreTraits": [],
+            "triggeredActivityId": "none",
+            "triggeredActivityConditionText": "",
+            "triggeredActivityTargets": "targets",
+            "triggeredActivityRollAs": "self",
+            "autoConsume": false,
+            "forceConsumeDialog": "default",
+            "forceRollDialog": "default",
+            "forceDamageDialog": "default",
+            "confirmTargets": "default",
+            "autoTargetType": "any",
+            "autoTargetAction": "default",
+            "automationOnly": false,
+            "otherActivityCompatible": true,
+            "otherActivityAsParentType": true,
+            "identifier": "",
+            "displayActivityName": false,
+            "rollMode": "default",
+            "chooseEffects": false,
+            "toggleEffect": false,
+            "ignoreFullCover": false,
+            "removeChatButtons": "default",
+            "magicEffect": false,
+            "magicDamage": false,
+            "noConcentrationCheck": false,
+            "autoCEEffects": "default"
+          },
+          "isOverTimeFlag": false,
+          "overTimeProperties": {
+            "saveRemoves": true,
+            "preRemoveConditionText": "",
+            "postRemoveConditionText": ""
+          },
+          "otherActivityId": "",
+          "otherActivityAsParentType": true,
+          "attackMode": "oneHanded",
+          "ammunition": "",
+          "otherActivityUuid": "",
+          "attackRollPerTarget": "default",
+          "fumbleThreshold": 1,
+          "name": ""
+        },
+        "m6LUzjAAbQcrfvfX": {
+          "type": "utility",
+          "_id": "m6LUzjAAbQcrfvfX",
+          "sort": 0,
+          "activation": {
+            "type": "action",
+            "override": false,
+            "condition": ""
+          },
+          "consumption": {
+            "scaling": {
+              "allowed": false
+            },
+            "spellSlot": true,
+            "targets": [
+              {
+                "type": "itemUses",
+                "value": "1",
+                "target": "",
+                "scaling": {}
+              }
+            ]
+          },
+          "description": {
+            "chatFlavor": ""
+          },
+          "duration": {
+            "units": "inst",
+            "concentration": false,
+            "override": false
+          },
+          "effects": [],
+          "range": {
+            "units": "self",
+            "override": true,
+            "special": ""
+          },
+          "target": {
+            "template": {
+              "contiguous": false,
+              "units": "ft",
+              "type": ""
+            },
+            "affects": {
+              "choice": false,
+              "type": "self",
+              "special": ""
+            },
+            "override": true,
+            "prompt": true
+          },
+          "uses": {
+            "spent": 0,
+            "recovery": [],
+            "max": ""
+          },
+          "useConditionText": "",
+          "useConditionReason": "",
+          "effectConditionText": "",
+          "macroData": {
+            "name": "",
+            "command": ""
+          },
+          "ignoreTraits": {
+            "idi": false,
+            "idr": false,
+            "idv": false,
+            "ida": false,
+            "idm": false
+          },
+          "midiProperties": {
+            "ignoreTraits": [],
+            "triggeredActivityId": "none",
+            "triggeredActivityConditionText": "",
+            "triggeredActivityTargets": "targets",
+            "triggeredActivityRollAs": "self",
+            "autoConsume": false,
+            "forceConsumeDialog": "default",
+            "forceRollDialog": "default",
+            "forceDamageDialog": "default",
+            "confirmTargets": "default",
+            "autoTargetType": "any",
+            "autoTargetAction": "default",
+            "automationOnly": false,
+            "otherActivityCompatible": true,
+            "otherActivityAsParentType": true,
+            "identifier": "",
+            "displayActivityName": false,
+            "rollMode": "default",
+            "chooseEffects": false,
+            "toggleEffect": false,
+            "ignoreFullCover": false,
+            "removeChatButtons": "default",
+            "magicEffect": false,
+            "magicDamage": false,
+            "noConcentrationCheck": false,
+            "autoCEEffects": "default"
+          },
+          "isOverTimeFlag": false,
+          "overTimeProperties": {
+            "saveRemoves": true,
+            "preRemoveConditionText": "",
+            "postRemoveConditionText": ""
+          },
+          "otherActivityId": "",
+          "otherActivityAsParentType": true,
+          "name": "秘银爆",
+          "roll": {
+            "prompt": false,
+            "visible": false
+          }
+        }
+      },
+      "uses": {
+        "spent": 0,
+        "recovery": [
+          {
+            "period": "recharge",
+            "formula": "4",
+            "type": "recoverAll"
+          }
+        ],
+        "max": "1"
+      },
+      "description": {
+        "value": "<p>持握这根魔杖时，你的法术攻击检定和豁免DC获得+2加值，并且这把魔杖可以被视为一把魔法长棍，在近战攻击检定时使用法术攻击加值。</p><p>秘银爆：你能消耗魔杖的星辉来增强你法术的力量，当你用一个 1 至 5 环的法术位施展一个会造成伤害的法术时，你能在施展它的回合中令其造成的伤害取最大值，但你会立即受到最大生命值50%的力场伤害（向上取整）。每天你只能使用此特性一次，然后法杖就需要充能，而星辉在每次长休后的充能是随机的（4-6）。</p>",
+        "chat": ""
+      },
+      "identifier": "-",
+      "source": {
+        "revision": 1,
+        "rules": "2024"
+      },
+      "identified": true,
+      "unidentified": {
+        "description": ""
+      },
+      "container": null,
+      "quantity": 1,
+      "weight": {
+        "value": 0,
+        "units": "lb"
+      },
+      "price": {
+        "value": 4000,
+        "denomination": "gp"
+      },
+      "rarity": "rare",
+      "attunement": "",
+      "crewed": false,
+      "ammunition": {},
+      "armor": {},
+      "damage": {
+        "base": {
+          "types": [
+            "radiant"
+          ],
+          "custom": {
+            "enabled": false
+          },
+          "scaling": {
+            "number": 1
+          },
+          "number": 1,
+          "denomination": 8,
+          "bonus": ""
+        },
+        "versatile": {
+          "types": [],
+          "custom": {
+            "enabled": false
+          },
+          "scaling": {
+            "number": 1
+          }
+        }
+      },
+      "properties": [],
+      "proficient": null,
+      "range": {
+        "reach": null,
+        "units": ""
+      },
+      "type": {
+        "value": "simpleM",
+        "baseItem": "quarterstaff"
+      },
+      "mastery": "slow",
+      "attuned": false,
+      "equipped": true
+    },
+    "effects": [
+      {
+        "name": "星辉秘银魔杖",
+        "duration": {
+          "startTime": null,
+          "seconds": null,
+          "combat": null,
+          "rounds": null,
+          "turns": null,
+          "startRound": null,
+          "startTurn": null
+        },
+        "transfer": true,
+        "disabled": false,
+        "_id": "uf50V8mfDJUxCNKt",
+        "changes": [
+          {
+            "key": "system.bonuses.spell.attack",
+            "mode": 2,
+            "value": "+ 2",
+            "priority": 20
+          },
+          {
+            "key": "system.bonuses.spell.dc",
+            "mode": 2,
+            "value": "+ 2",
+            "priority": 20
+          }
+        ],
+        "description": "",
+        "statuses": [],
+        "flags": {
+          "dae": {
+            "selfTarget": false,
+            "selfTargetAlways": false,
+            "dontApply": false,
+            "stackable": "multi",
+            "showIcon": false,
+            "durationExpression": "",
+            "specialDuration": [],
+            "disableCondition": "",
+            "disableIncapacitated": false,
+            "macroRepeat": "none"
+          },
+          "core": {
+            "overlay": false
+          },
+          "ActiveAuras": {
+            "isAura": false,
+            "aura": "Enemy",
+            "nameOverride": "",
+            "radius": "",
+            "alignment": "",
+            "type": "",
+            "customCheck": "",
+            "ignoreSelf": false,
+            "height": false,
+            "hidden": false,
+            "displayTemp": false,
+            "hostile": false,
+            "onlyOnce": false,
+            "wallsBlock": "system",
+            "statuses": []
+          },
+          "dnd5e": {
+            "riders": {
+              "statuses": []
+            }
+          }
+        },
+        "tint": "#ffffff",
+        "img": "modules/mystic-weapon-pack/assets/mithral-wand.webp",
+        "type": "base",
+        "system": {},
+        "sort": 0
+      }
+    ],
+    "flags": {
+      "dnd5e": {
+        "riders": {
+          "activity": []
+        }
+      },
+      "midi-qol": {
+        "onUseMacroName": "[postActiveEffects]MWP-MithralBurst"
+      },
+      "dae": {
+        "macro": {
+          "name": "MWP-MithralBurstConsume",
+          "type": "script",
+          "command": "return (async()=>await game.modules.get(\"fvtt-automation-repair\").api.macros.run(\"MWP-MithralConsume\", {scope:typeof scope!==\"undefined\"?scope:{},args:typeof args!==\"undefined\"?args:[],workflow:typeof workflow!==\"undefined\"?workflow:undefined,actor:typeof actor!==\"undefined\"?actor:undefined,item:typeof item!==\"undefined\"?item:undefined,token:typeof token!==\"undefined\"?token:undefined,options:typeof options!==\"undefined\"?options:{},macroItem:typeof macroItem!==\"undefined\"?macroItem:undefined,speaker:typeof speaker!==\"undefined\"?speaker:undefined,character:typeof character!==\"undefined\"?character:undefined,macro:this}))();",
+          "ownership": {
+            "default": 0
+          }
+        }
+      },
+      "fvtt-automation-repair": {}
+    }
+  },
+  {
+    "_id": "itemmastery0vlkw",
+    "name": "绝地大师之境 Jedi Mastery",
+    "type": "feat",
+    "img": "modules/mystic-weapon-pack/assets/jedi/mastery.webp",
+    "system": {
+      "description": {
+        "value": "<p>十五级特性。</p><p><strong>群体原力波</strong>：发动原力控物的推斥或牵引时，可额外消耗 1 枚原力骰（合计 2 枚），将影响范围扩展为源自你的 30 尺锥状或 20 尺光环区域内的所有指定生物。</p><p>区域内每个目标进行力量豁免：失败受到 2d8+感知 力场伤害，被推离或拉近至多 20 尺并倒地；成功则伤害减半且位置不变。</p>",
+        "chat": ""
+      },
+      "type": {
+        "value": "class",
+        "subtype": ""
+      },
+      "identifier": "jedi-mastery",
+      "requirements": "战士 15",
+      "source": {
+        "custom": "绝地武士",
+        "revision": 1,
+        "rules": "2024"
+      },
+      "activities": {},
+      "uses": {
+        "spent": 0,
+        "recovery": []
+      },
+      "advancement": [],
+      "crewed": false,
+      "enchant": {},
+      "prerequisites": {
+        "items": [],
+        "repeatable": false
+      },
+      "properties": []
+    },
+    "flags": {
+      "fvtt-automation-repair": {
+        "pack": "mvp"
+      }
+    },
+    "effects": []
+  },
+  {
+    "_id": "itemsubclass0ptm",
+    "name": "绝地武士 Jedi",
+    "type": "subclass",
+    "img": "modules/mystic-weapon-pack/assets/jedi/subclass.webp",
+    "system": {
+      "description": {
+        "value": "<p>凝神静气，顺应万物之流。绝地武士是与宇宙原力深度共鸣的守护者与修行者。</p>",
+        "chat": ""
+      },
+      "identifier": "jedi",
+      "classIdentifier": "fighter",
+      "advancement": [
+        {
+          "_id": "advjedi306mhaab0",
+          "type": "ItemGrant",
+          "level": 3,
+          "title": "绝地武士·3 级特性",
+          "icon": "modules/mystic-weapon-pack/assets/jedi/subclass.webp",
+          "configuration": {
+            "items": [
+              {
+                "uuid": "Compendium.mystic-weapon-pack.items.Item.itemkhyber0a0yu1",
+                "optional": false
+              },
+              {
+                "uuid": "Compendium.mystic-weapon-pack.items.Item.itemforce04l4q07",
+                "optional": false
+              },
+              {
+                "uuid": "Compendium.mystic-weapon-pack.items.Item.itemforms1u6fzeb",
+                "optional": false
+              },
+              {
+                "uuid": "Compendium.mystic-weapon-pack.items.Item.itemarmor1xv7l0j",
+                "optional": false
+              }
+            ],
+            "optional": false,
+            "spell": {
+              "ability": [],
+              "uses": {
+                "max": "",
+                "per": "",
+                "requireSlot": false
+              },
+              "prepared": 0
+            }
+          },
+          "value": {}
+        },
+        {
+          "_id": "advjedi707qfp270",
+          "type": "ItemGrant",
+          "level": 7,
+          "title": "绝地武士·7 级特性",
+          "icon": "modules/mystic-weapon-pack/assets/jedi/subclass.webp",
+          "configuration": {
+            "items": [
+              {
+                "uuid": "Compendium.mystic-weapon-pack.items.Item.itemawareness0mz",
+                "optional": false
+              }
+            ],
+            "optional": false,
+            "spell": {
+              "ability": [],
+              "uses": {
+                "max": "",
+                "per": "",
+                "requireSlot": false
+              },
+              "prepared": 0
+            }
+          },
+          "value": {}
+        },
+        {
+          "_id": "advjedi1001a5jhn",
+          "type": "ItemGrant",
+          "level": 10,
+          "title": "绝地武士·10 级特性",
+          "icon": "modules/mystic-weapon-pack/assets/jedi/subclass.webp",
+          "configuration": {
+            "items": [
+              {
+                "uuid": "Compendium.mystic-weapon-pack.items.Item.itemserenity1eqd",
+                "optional": false
+              }
+            ],
+            "optional": false,
+            "spell": {
+              "ability": [],
+              "uses": {
+                "max": "",
+                "per": "",
+                "requireSlot": false
+              },
+              "prepared": 0
+            }
+          },
+          "value": {}
+        },
+        {
+          "_id": "advjedi150244ckk",
+          "type": "ItemGrant",
+          "level": 15,
+          "title": "绝地武士·15 级特性",
+          "icon": "modules/mystic-weapon-pack/assets/jedi/subclass.webp",
+          "configuration": {
+            "items": [
+              {
+                "uuid": "Compendium.mystic-weapon-pack.items.Item.itemmastery0vlkw",
+                "optional": false
+              }
+            ],
+            "optional": false,
+            "spell": {
+              "ability": [],
+              "uses": {
+                "max": "",
+                "per": "",
+                "requireSlot": false
+              },
+              "prepared": 0
+            }
+          },
+          "value": {}
+        },
+        {
+          "_id": "advjedi181y3crwz",
+          "type": "ItemGrant",
+          "level": 18,
+          "title": "绝地武士·18 级特性",
+          "icon": "modules/mystic-weapon-pack/assets/jedi/subclass.webp",
+          "configuration": {
+            "items": [
+              {
+                "uuid": "Compendium.mystic-weapon-pack.items.Item.itemoneness1b2ob",
+                "optional": false
+              }
+            ],
+            "optional": false,
+            "spell": {
+              "ability": [],
+              "uses": {
+                "max": "",
+                "per": "",
+                "requireSlot": false
+              },
+              "prepared": 0
+            }
+          },
+          "value": {}
+        }
+      ],
+      "source": {
+        "revision": 1,
+        "rules": "2024"
+      },
+      "spellcasting": {
+        "progression": "none",
+        "preparation": {}
+      }
+    },
+    "flags": {
+      "fvtt-automation-repair": {
+        "pack": "mvp"
+      }
+    },
+    "effects": []
+  }
+]

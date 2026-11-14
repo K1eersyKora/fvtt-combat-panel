@@ -1,0 +1,12 @@
+* text=auto
+*.js text eol=lf
+*.mjs text eol=lf
+*.json text eol=lf
+*.md text eol=lf
+*.css text eol=lf
+*.svg text eol=lf
+*.png binary
+*.webp binary
+*.ogg binary
+*.wav binary
+submodules/mystic-weapon-pack/packs/** binary

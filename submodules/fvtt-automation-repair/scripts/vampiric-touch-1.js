@@ -1,0 +1,26 @@
+import{registerMacro,macroStub}from'./macro-registry-1.js';
+registerMacro('vampiricTouch',"// Compatibility repair for CPR Vampiric Touch 1.2.28 / dnd5e 5.1.\nreturn (async () => {\n const wf = scope.workflow;\n if (!wf || wf.item.flags['chris-premades']?.info?.identifier !== 'vampiricTouch') return;\n const {activityUtils, actorUtils, effectUtils, genericUtils, itemUtils, workflowUtils} = chrisPremades.utils;\n const ids = wf.item.flags['chris-premades'].activityIdentifiers;\n const initial = wf.activity.id === ids.vampiricTouch;\n const attack = wf.activity.id === ids.vampiricTouchAttack;\n const pass = scope.args[0].macroPass;\n const effect = () => wf.actor.effects.find(e => !e.disabled && e.flags['chris-premades']?.info?.identifier === 'vampiricTouch' && e.flags['chris-premades']?.castData?.itemUuid === wf.item.uuid);\n if (pass === 'preTargeting') {\n  if (initial) {\n   const requested = scope.options?.usage?.midiOptions?.targetUuids;\n   wf.__vampiricTouchTarget = (requested?.length ? requested.map(u => fromUuidSync(u)?.object) : [...game.user.targets])\n    .find(t => t?.actor && t.document.uuid !== wf.token?.document.uuid)?.document.uuid;\n  } else if (attack) {\n   const e = effect();\n   if (!e || !effectUtils.getConcentrationEffect(wf.actor, wf.item)) {ui.notifications.warn('吸血鬼之触：请先施法并维持专注。'); return false;}\n   scope.options.dialog.configure = false;\n   const slot = actorUtils.getEquivalentSpellSlotName(wf.actor, e.flags['chris-premades'].castData.castLevel);\n   if (slot) scope.options.usage.spell = {slot};\n  }\n  return;\n }\n if (pass !== 'postActiveEffects' || wf.aborted || wf.__vampiricTouchCompleted) return;\n wf.__vampiricTouchCompleted = true;\n if (initial) {\n  const feature = activityUtils.getActivityByIdentifier(wf.item, 'vampiricTouchAttack', {strict:true});\n  if (!feature) return;\n  const healingModifier = Number(itemUtils.getConfig(wf.item, 'healingModifier'));\n  await effectUtils.createEffect(wf.actor, {\n   name:wf.item.name,img:wf.item.img,duration:itemUtils.convertDuration(wf.item),origin:wf.item.uuid,\n   flags:{'chris-premades':{castData:wf.castData,vampiricTouch:{healingModifier:Number.isFinite(healingModifier)?healingModifier:0.5}}}\n  }, {concentrationItem:wf.item,identifier:'vampiricTouch',strictlyInterdependent:true,\n   vae:[{type:'use',name:feature.name,identifier:'vampiricTouch',activityIdentifier:'vampiricTouchAttack'}],\n   unhideActivities:{itemUuid:wf.item.uuid,activityIdentifiers:['vampiricTouchAttack'],favorite:true}});\n  const target = wf.__vampiricTouchTarget && (await fromUuid(wf.__vampiricTouchTarget))?.object;\n  if (target && target.document.uuid !== wf.token?.document.uuid) {\n   await workflowUtils.syntheticActivityRoll(feature, [target], {atLevel:workflowUtils.getCastLevel(wf)});\n  } else ui.notifications.info('吸血鬼之触已开启；选择目标后使用“吸血鬼之触：攻击”。');\n } else if (attack && wf.hitTargets.size === 1) {\n  const target = [...wf.hitTargets][0];\n  const damage = workflowUtils.getTotalDamageOfType(wf.damageDetail, target.actor, 'necrotic');\n  const multiplier = effect()?.flags['chris-premades']?.vampiricTouch?.healingModifier ?? 0.5;\n  const healing = Math.floor(damage * Number(multiplier));\n  if (healing > 0) await workflowUtils.applyDamage([wf.token], healing, 'healing');\n }\n})();\n");
+
+export function vampiricTouchPatch(item) {
+ const cp=item.flags?.['chris-premades'];
+ if(cp?.info?.identifier!=='vampiricTouch'||cp.info.version!=='1.2.28')throw Error('Unsupported spell automation; inspect before changing');
+ const ids=cp.activityIdentifiers, first=item.system.activities.get(ids?.vampiricTouch), attack=item.system.activities.get(ids?.vampiricTouchAttack);
+ if(first?.type!=='utility'||attack?.type!=='attack')throw Error('Unexpected activity structure');
+ const existing=item._source.flags?.dae?.macro;
+ if(existing?.command && existing.name!=='FVTT Vampiric Touch compatibility')throw Error('Existing ItemMacro must be reviewed before merging');
+ const flavor=first.description.chatFlavor??'';
+ const binding=item._source.flags?.['midi-qol']?.onUseMacroName??'';
+ const entries=binding.split(',').map(x=>x.trim()).filter(Boolean);
+ for(const entry of ['[preTargeting]ItemMacro','[postActiveEffects]ItemMacro'])if(!entries.includes(entry))entries.push(entry);
+ const desired={
+  ['system.activities.'+first.id+'.description.chatFlavor']:flavor.includes('[noaa]')?flavor:(flavor+' [noaa]').trim(),
+  'flags.chris-premades.macros.midi.item':(cp.macros?.midi?.item??[]).filter(x=>x!=='vampiricTouch'),
+  'flags.dae.macro':{name:'FVTT Vampiric Touch compatibility',type:'script',command:macroStub('vampiricTouch')},
+  'flags.midi-qol.onUseMacroName':entries.join(','),
+  'flags.fvtt-automation-repair.vampiricTouchRepair':1
+ };
+ const ordered=v=>Array.isArray(v)?v.map(ordered):v&&typeof v==='object'?Object.fromEntries(Object.keys(v).sort().map(k=>[k,ordered(v[k])])):v;
+ const same=(a,b)=>JSON.stringify(ordered(a))===JSON.stringify(ordered(b));
+ const updates={};for(const [k,v]of Object.entries(desired)){const current=foundry.utils.getProperty(item.toObject(),k);if(k==='flags.dae.macro'?!Object.entries(v).every(([key,value])=>same(current?.[key],value)):!same(current,v))updates[k]=v;}
+ return updates;
+}

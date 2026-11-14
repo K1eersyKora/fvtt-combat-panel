@@ -1,0 +1,56 @@
+{
+  "id": "mystic-weapon-pack",
+  "title": "FVTT 物品与职业模板",
+  "description": "纯内容图鉴：神秘武器、职业特性与已修复的法术模板。自动化由 FVTT 统一自动化修复 模组提供。",
+  "version": "1.5.0",
+  "compatibility": {
+    "minimum": "13",
+    "verified": "13.351"
+  },
+  "authors": [
+    {
+      "name": "DSH"
+    }
+  ],
+  "esmodules": [],
+  "packs": [
+    {
+      "name": "items",
+      "label": "神秘武器与绝地职业模板",
+      "path": "packs/items",
+      "type": "Item",
+      "system": "dnd5e"
+    },
+    {
+      "name": "repairs",
+      "label": "统一自动化 · 法术与职业特性",
+      "path": "packs/repairs",
+      "type": "Item",
+      "system": "dnd5e"
+    }
+  ],
+  "relationships": {
+    "systems": [
+      {
+        "id": "dnd5e",
+        "type": "system",
+        "compatibility": {
+          "minimum": "5.1.0"
+        }
+      }
+    ],
+    "requires": [
+      {
+        "id": "fvtt-automation-repair",
+        "type": "module",
+        "compatibility": {
+          "minimum": "1.0.0"
+        },
+        "manifest": "https://github.com/K1eersyKora/fvtt-combat-panel/releases/latest/download/fvtt-automation-repair.json"
+      }
+    ]
+  },
+  "url": "https://github.com/K1eersyKora/fvtt-combat-panel",
+  "manifest": "https://github.com/K1eersyKora/fvtt-combat-panel/releases/latest/download/mystic-weapon-pack.json",
+  "download": "https://github.com/K1eersyKora/fvtt-combat-panel/releases/download/v0.15.5/mystic-weapon-pack.zip"
+}

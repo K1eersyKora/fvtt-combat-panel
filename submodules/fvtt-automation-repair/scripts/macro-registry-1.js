@@ -1,0 +1,11 @@
+const ID='fvtt-automation-repair',sources=new Map(),compiled=new Map(),AsyncFunction=Object.getPrototypeOf(async function(){}).constructor;
+export function registerMacro(name,source){sources.set(name,String(source));compiled.delete(name);}
+export function macroStub(name){return `return (async()=>await game.modules.get("${ID}").api.macros.run(${JSON.stringify(name)}, {scope:typeof scope!=="undefined"?scope:{},args:typeof args!=="undefined"?args:[],workflow:typeof workflow!=="undefined"?workflow:undefined,actor:typeof actor!=="undefined"?actor:undefined,item:typeof item!=="undefined"?item:undefined,token:typeof token!=="undefined"?token:undefined,options:typeof options!=="undefined"?options:{},macroItem:typeof macroItem!=="undefined"?macroItem:undefined,speaker:typeof speaker!=="undefined"?speaker:undefined,character:typeof character!=="undefined"?character:undefined,macro:this}))();`;}
+export function isMacroStub(command,name){return typeof command==='string'&&command.includes(`game.modules.get("${ID}").api.macros.run(${JSON.stringify(name)},`)&&command.trim().startsWith('return ');}
+export function runMacro(name,context={}){
+ if(!sources.has(name))throw Error('未注册的统一自动化：'+name);
+ let fn=compiled.get(name);if(!fn){fn=new AsyncFunction('scope','args','workflow','actor','item','token','options','macroItem','speaker','character','return await (async()=>{\n'+sources.get(name)+'\n})();');compiled.set(name,fn);}
+ const scope=context.scope??{},workflow=context.workflow??scope.workflow??scope.midiData?.workflow;
+ return fn.call(context.macro??scope.macro??null,scope,context.args??scope.args??[],workflow,context.actor??workflow?.actor,context.item??workflow?.item,context.token??workflow?.token,context.options??{},context.macroItem??scope.macroItem,context.speaker??ChatMessage.getSpeaker({actor:context.actor??workflow?.actor,token:context.token??workflow?.token}),context.character??game.user.character);
+}
+export const macroRegistry={run:runMacro,stub:macroStub,names:()=>[...sources.keys()],validate:()=>[...sources].map(([name,source])=>{try{new AsyncFunction('scope','args','workflow','actor','item','token','options','macroItem','speaker','character','return await (async()=>{\n'+source+'\n})();');return{name,ok:true};}catch(error){return{name,ok:false,error:error.message};}})};
