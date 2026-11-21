@@ -1,8 +1,8 @@
-# 安装与升级到 0.15.5 套件
+# 安装与升级到 0.15.16 套件
 
 ## 安装方式
 
-推荐使用仓库首页的七个稳定 Manifest URL，分别在 Foundry 设置页「附加模组 → 安装模组」安装。父模块地址保持不变：
+推荐使用仓库首页的九个稳定 Manifest URL，分别在 Foundry 设置页「附加模组 → 安装模组」安装。父模块地址保持不变：
 
 ```text
 https://github.com/K1eersyKora/fvtt-combat-panel/releases/latest/download/module.json
@@ -10,13 +10,17 @@ https://github.com/K1eersyKora/fvtt-combat-panel/releases/latest/download/module
 
 其余清单使用同一路径下的 `<模块ID>.json`。更新时应一起检查战斗面板、队伍与剧情、统一自动化和模板包的版本，不能只替换父 HUD。
 
-手动安装可下载独立 ZIP，或将 `fvtt-combat-suite-0.15.5.zip` 中的七个模组目录放到 `Data/modules/`。保持目录名等于模块 ID，不能多套一层 ZIP 名目录。模块放在同级目录后，跨模组脚本导入才有正确路径。
+手动安装可下载独立 ZIP，或将 `fvtt-combat-suite-0.15.16.zip` 中的九个模组目录放到 `Data/modules/`。保持目录名等于模块 ID，不能多套一层 ZIP 名目录。模块放在同级目录后，跨模组脚本导入才有正确路径。
+
+## 从上一公开版 0.15.5 升级
+
+备份世界及现有模块，更新所使用的套件模块和外部依赖。新模板可从对应图鉴拖入。请在测试副本核对现有资源、专注、目标预测和权限，再决定是否迁移存量卡。新增的三维工具按用途单独安装。[三维工具上手](3D-USAGE.md)
 
 ## 从 0.15.4 或更早版本升级
 
 1. 安排维护，退出使用这些模块的世界；备份现有世界目录和旧模块目录。世界 API 快照可作为补充，不能替代完整离线备份。
-2. 安装统一自动化修复 1.0.2 及清单列出的第三方依赖；将战斗面板更新到 0.15.5、队伍与剧情更新到 0.2.6。需要原神秘武器包或模板时更新到 `mystic-weapon-pack` 1.5.0。
-3. 在世界管理模组中停用旧独立 `fvtt-lucky`、`fvtt-battle-master`。旧神秘武器包必须换成 1.5.0 纯模板版。使用队伍检定时停用旧 `fvtt-bg3-check`；使用新先攻栏时停用重复的 Carousel 界面。
+2. 安装统一自动化修复 1.0.9 及清单列出的第三方依赖；将战斗面板更新到 0.15.16、队伍与剧情更新到 0.2.7。需要原神秘武器包或模板时更新到 `mystic-weapon-pack` 1.5.5。
+3. 在世界管理模组中停用旧独立 `fvtt-lucky`、`fvtt-battle-master`。旧神秘武器包必须换成 1.5.5 纯模板版。使用队伍检定时停用旧 `fvtt-bg3-check`；使用新先攻栏时停用重复的 Carousel 界面。
 4. 启用统一引擎、需要的模板和界面模块，重新加载世界。不要再运行已被统一引擎替代的旧 fixpack、职业修复或武器修复入口。
 5. GM 先调用 `api.migrateWorld({apply:false})` 查看世界与对象清单，再通过带实际持久化备份回调的 `api.migrateWorld({apply:true,backup})` 迁移。API 说明见 [AUTOMATION.md](AUTOMATION.md)。返回报告必须检查 `errors`；各步骤可能返回错误报告，不能只看 Promise 是否完成。
 6. 再运行一次带备份的迁移，核对错误和变更记录；核对现有 HP、法术位、次数、物品 ID 与基础伤害、专注／模板、Token 位置及当前战斗。五世界已有证据的复跑为零，不代表任意用户自定义环境可跳过检查。
@@ -30,12 +34,14 @@ https://github.com/K1eersyKora/fvtt-combat-panel/releases/latest/download/module
 | 统一自动化修复 | 无 | Midi-QOL、Chris's Premades、DAE、Socketlib、libWrapper、Times Up、Midi Item Showcase Community ≥ 1.6.2 |
 | 战斗面板 | 统一自动化修复 | D&D5e |
 | 队伍与剧情 | 战斗面板 | D&D5e；Dice So Nice 推荐 |
-| 先攻栏 | 战斗面板、队伍与剧情、遭遇提示音 | D&D5e |
+| 先攻栏 | 战斗面板 | D&D5e。剧情联动推荐队伍与剧情、遭遇提示音 |
 | 倒地与死亡豁免 | 无 | D&D5e |
 | 遭遇提示音 | 无 | libWrapper |
 | 物品与职业模板 | 统一自动化修复 | D&D5e |
+| 三维跑团 | 无 | 3D Canvas 8.x、libWrapper |
+| 方块建造 | 无 | 3D Canvas 8.x、libWrapper |
 
-GP 匕首之云分支额外使用 Gambit's Premades 与 Region Attacher。模板包没有启动脚本，41 张模板的宏由统一引擎执行。安装模板不会自动替换所有现有角色物品。
+GP 匕首之云分支额外使用 Gambit's Premades 与 Region Attacher。模板包没有启动脚本，43 张模板的宏由统一引擎执行。安装模板不会自动替换所有现有角色物品。
 
 ## 兼容与注意事项
 

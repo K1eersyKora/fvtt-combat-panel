@@ -1,0 +1,34 @@
+{
+  "id": "fvtt-3d-tabletop",
+  "title": "三维跑团 · 高低差、施法动画与相机",
+  "description": "为 3D Canvas 提供高低差攻击判定、三维施法动画与 BG3 式相机操作。",
+  "version": "0.1.7",
+  "compatibility": {
+    "minimum": "13",
+    "verified": "13.351",
+    "maximum": "13"
+  },
+  "esmodules": [
+    "scripts/main-8.js"
+  ],
+  "socket": true,
+  "relationships": {
+    "requires": [
+      {
+        "id": "levels-3d-preview",
+        "type": "module",
+        "compatibility": {
+          "minimum": "8.0.0",
+          "maximum": "8.999"
+        }
+      },
+      {
+        "id": "lib-wrapper",
+        "type": "module"
+      }
+    ]
+  },
+  "url": "https://github.com/K1eersyKora/fvtt-combat-panel",
+  "manifest": "https://github.com/K1eersyKora/fvtt-combat-panel/releases/latest/download/fvtt-3d-tabletop.json",
+  "download": "https://github.com/K1eersyKora/fvtt-combat-panel/releases/download/v0.15.16/fvtt-3d-tabletop.zip"
+}

@@ -1,4 +1,4 @@
-# 配套自动化修复的作用 · 1.0.2
+# 配套自动化修复的作用 · 1.0.9
 
 统一引擎将规则、物品匹配和旧宏路由集中在一个模块。战斗面板负责用户操作；实际资源、攻击、伤害、豁免及效果继续接入 D&D5e、Midi-QOL、Chris's Premades 和 DAE 等已有能力。
 
@@ -34,7 +34,7 @@
 
 必须启用 Midi-QOL、Chris's Premades、DAE、Socketlib、libWrapper、Times Up 和 Midi Item Showcase Community ≥ 1.6.2。GP 匕首之云需要启用 Gambit's Premades 和 Region Attacher。动画和媒体还受原物品及第三方配置影响。
 
-只需规则引擎时，可不启用父 HUD 和界面子模组。需要模板时，再启用 `mystic-weapon-pack` 1.5.0，从两个图鉴拖入需要的物品。旧 `fvtt-lucky`、`fvtt-battle-master` 及旧神秘武器包执行脚本应停用或升级，避免重复规则钩子。
+只需规则引擎时，可不启用父 HUD 和界面子模组。需要模板时，再启用 `mystic-weapon-pack` 1.5.5，从两个图鉴拖入需要的物品。旧 `fvtt-lucky`、`fvtt-battle-master` 及旧神秘武器包执行脚本应停用或升级，避免重复规则钩子。
 
 GM API：
 
@@ -48,6 +48,10 @@ const snapshot = api.snapshotWorld();
 `apply:false` 返回世界、角色、物品与模块清单，不写入，也不是每一项改动的差异预览。`snapshotWorld()` 返回可保存的世界 API 快照，包含角色、物品、宏、场景、战斗、消息、时间／暂停及相关设置；不代替 Foundry 整个世界目录、用户数据与素材备份。
 
 实际迁移通过 `api.migrateWorld({apply:true, backup})` 执行。必须由 GM 提供能够实际保存快照、成功后才返回的 `backup(snapshot)` 回调；未提供备份回调会拒绝执行。先离线备份世界目录，再按 [升级说明](UPGRADING.md)安排维护并检查返回的 `errors`、`changes` 和各步骤报告。不要用空回调绕过备份。
+
+## 1.0.5–1.0.9 的补充
+
+自身立方体处理雷鸣波的朝向和落点。新增的诗人激励适配支持角色间独立的次数与等级，绝地武士增加命中及五尺内攻击触发的反应与隔空御剑。夺魂魔音按角色总等级决定可选音波数量，每道独立攻击，支持同一目标多道或多目标分配。模板现有 14 项物品／职业条目和 29 项法术／特性条目。[模板目录](ITEM-CATALOG.md)
 
 ## 验证边界
 

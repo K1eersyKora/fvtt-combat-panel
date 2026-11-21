@@ -1,8 +1,8 @@
 {
   "id": "fvtt-combat-panel",
   "title": "BG3操作风格战斗面板",
-  "description": "BG3式底部战斗HUD、目标选择与预测；职业、法术和武器结算由统一自动化修复提供，队伍、剧情与检定由配套子模组提供。",
-  "version": "0.15.5",
+  "description": "BG3式底部战斗HUD、目标预测与法术特性自动化。队伍、检定与剧情由依赖本模块的 BG3队伍与剧情 子模块提供。",
+  "version": "0.15.16",
   "url": "https://github.com/K1eersyKora/fvtt-combat-panel",
   "manifest": "https://github.com/K1eersyKora/fvtt-combat-panel/releases/latest/download/module.json",
   "compatibility": {
@@ -16,10 +16,11 @@
     }
   ],
   "esmodules": [
-    "scripts/main-202.js"
+    "scripts/main-214.js"
   ],
   "styles": [
     "styles/panel-197.css",
+    "styles/lock-frame-214.css",
     "styles/hud-197.css",
     "styles/skill-layout-172.css",
     "styles/tooltip-172.css",
@@ -45,12 +46,12 @@
         "id": "fvtt-automation-repair",
         "type": "module",
         "compatibility": {
-          "minimum": "1.0.0"
+          "minimum": "1.0.9"
         },
         "manifest": "https://github.com/K1eersyKora/fvtt-combat-panel/releases/latest/download/fvtt-automation-repair.json"
       }
     ]
   },
   "packs": [],
-  "download": "https://github.com/K1eersyKora/fvtt-combat-panel/releases/download/v0.15.5/fvtt-combat-panel.zip"
+  "download": "https://github.com/K1eersyKora/fvtt-combat-panel/releases/download/v0.15.16/fvtt-combat-panel.zip"
 }

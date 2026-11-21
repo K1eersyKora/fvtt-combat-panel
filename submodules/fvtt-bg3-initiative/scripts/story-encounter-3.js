@@ -12,6 +12,7 @@ export function storyParticipants(state,scene){
 }
 export function enterStoryEncounter(state){
  if(!authority())return Promise.reject(Error('只有当前主持人可以创建剧情遭遇。'));
+ if(!game.modules.get(PARTY)?.active)return Promise.reject(Error('剧情开战需要启用队伍与剧情模块。'));
  if(transitions.has(state.id))return transitions.get(state.id);
  const pending=enter(state).finally(()=>transitions.delete(state.id));transitions.set(state.id,pending);return pending;
 }

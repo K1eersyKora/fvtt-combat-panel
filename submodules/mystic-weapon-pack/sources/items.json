@@ -1,5 +1,195 @@
 [
   {
+    "_id": "resonanceBracer1",
+    "name": "魔音护臂",
+    "type": "weapon",
+    "img": "modules/mystic-weapon-pack/assets/resonant-bracer.webp",
+    "system": {
+      "identifier": "resonant-bracer",
+      "description": {
+        "value": "<p><em>武器，珍稀（需同调）</em></p><p>与这件武器同调期间，你的法术攻击检定和法术豁免 DC 获得 +2 加值。</p><p><strong><em>魔音贯耳。</em></strong> 装备这件武器并与其同调期间，你可以用一个附赠动作从中施展 @UUID[Compendium.mystic-weapon-pack.items.Item.soulResonance001]{夺魂魔音} 戏法。你使用自己的施法属性施展该法术。</p>",
+        "chat": ""
+      },
+      "source": {
+        "custom": "自制",
+        "revision": 1,
+        "rules": "2024"
+      },
+      "type": {
+        "value": "martialM",
+        "baseItem": ""
+      },
+      "rarity": "rare",
+      "attunement": "required",
+      "attuned": false,
+      "equipped": false,
+      "properties": ["mgc"],
+      "activities": {
+        "bracerSpellCast1": {
+          "_id": "bracerSpellCast1",
+          "name": "夺魂魔音",
+          "type": "cast",
+          "img": "modules/mystic-weapon-pack/assets/soul-resonance.webp",
+          "activation": {
+            "type": "bonus",
+            "value": 1,
+            "override": true
+          },
+          "consumption": {
+            "targets": [],
+            "spellSlot": false
+          },
+          "range": {
+            "value": "60",
+            "units": "ft",
+            "override": true
+          },
+          "target": {
+            "affects": {
+              "type": "creature",
+              "count": "1"
+            },
+            "override": true
+          },
+          "spell": {
+            "uuid": "Compendium.mystic-weapon-pack.items.Item.soulResonance001",
+            "ability": "",
+            "level": 0,
+            "spellbook": false
+          }
+        }
+      }
+    },
+    "effects": [
+      {
+        "_id": "bracerSpellPower",
+        "name": "魔音护臂",
+        "img": "modules/mystic-weapon-pack/assets/resonant-bracer.webp",
+        "transfer": true,
+        "changes": [
+          {
+            "key": "system.bonuses.msak.attack",
+            "mode": 2,
+            "value": "+2",
+            "priority": 20
+          },
+          {
+            "key": "system.bonuses.rsak.attack",
+            "mode": 2,
+            "value": "+2",
+            "priority": 20
+          },
+          {
+            "key": "system.bonuses.spell.dc",
+            "mode": 2,
+            "value": "+2",
+            "priority": 20
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "_id": "soulResonance001",
+    "name": "夺魂魔音",
+    "type": "spell",
+    "img": "modules/mystic-weapon-pack/assets/soul-resonance.webp",
+    "system": {
+      "identifier": "soul-resonance",
+      "description": {
+        "value": "<p><em>惑控戏法（魔音护臂）</em></p><p><strong>施法时间：</strong>1 个附赠动作<br><strong>施法距离：</strong>60 尺<br><strong>法术成分：</strong>无<br><strong>持续时间：</strong>立即</p><p>你向施法距离内的一个生物发出一阵晦涩刺耳的音波。对目标进行一次远程法术攻击。若命中，目标受到 1d6 ＋你的施法属性调整值的心灵伤害，且其速度降低 10 尺，直到你的下个回合开始。</p><p><strong><em>戏法增强。</em></strong> 当你的角色等级达到 5 级、11 级和 17 级时，此法术分别发出两道、三道和四道音波。你可以将这些音波射向同一个生物，也可以分配给不同的生物。每道音波分别进行攻击检定。</p>",
+        "chat": ""
+      },
+      "source": {
+        "custom": "魔音护臂",
+        "revision": 1,
+        "rules": "2024"
+      },
+      "level": 0,
+      "method": "atwill",
+      "school": "enc",
+      "properties": [],
+      "activation": {
+        "type": "bonus",
+        "value": 1
+      },
+      "duration": {
+        "units": "inst"
+      },
+      "range": {
+        "value": "60",
+        "units": "ft"
+      },
+      "target": {
+        "affects": {
+          "type": "creature",
+          "count": "1"
+        }
+      },
+      "activities": {
+        "bracerSpellHit01": {
+          "_id": "bracerSpellHit01",
+          "type": "attack",
+          "img": "modules/mystic-weapon-pack/assets/soul-resonance.webp",
+          "consumption": {
+            "targets": [],
+            "spellSlot": false
+          },
+          "attack": {
+            "ability": "spellcasting",
+            "type": {
+              "value": "ranged",
+              "classification": "spell"
+            }
+          },
+          "damage": {
+            "includeBase": false,
+            "parts": [
+              {
+                "custom": {
+                  "enabled": true,
+                  "formula": "1d6 + @mod"
+                },
+                "types": ["psychic"],
+                "scaling": {
+                  "mode": ""
+                }
+              }
+            ]
+          },
+          "effects": [{"_id": "bracerSlowEffect"}]
+        }
+      }
+    },
+    "effects": [
+      {
+        "_id": "bracerSlowEffect",
+        "name": "夺魂魔音",
+        "img": "modules/mystic-weapon-pack/assets/soul-resonance.webp",
+        "description": "<p>目标的速度降低 10 尺，直到施法者的下个回合开始。</p>",
+        "transfer": false,
+        "duration": {
+          "seconds": 6,
+          "rounds": 1
+        },
+        "flags": {
+          "dae": {
+            "specialDuration": ["turnStartSource"],
+            "stackable": "noneNameOnly"
+          }
+        },
+        "changes": [
+          {
+            "key": "system.attributes.movement.all",
+            "mode": 0,
+            "value": "-10",
+            "priority": 20
+          }
+        ]
+      }
+    ]
+  },
+  {
     "_id": "itemoneness1b2ob",
     "name": "与原力同在 One With The Force",
     "type": "feat",
@@ -684,7 +874,7 @@
             "prompt": false,
             "visible": false
           },
-          "useConditionText": "",
+          "useConditionText": "typeof reaction === \"undefined\"",
           "useConditionReason": "",
           "effectConditionText": "",
           "macroData": {
@@ -914,21 +1104,21 @@
             "pass": "preItemRoll",
             "name": "stance",
             "priority": 0,
-            "macro": "return game.modules.get(\"fvtt-automation-repair\").api.embedded.run(\"itemforms1u6fzeb.midi-item.preItemRoll.stance\", {workflow, trigger});"
+            "macro": "return game.modules.get(\"fvtt-automation-repair\").api.embedded.run(\"itemforms1u6fzeb.midi-item.preItemRoll.stance\", {workflow:typeof workflow!==\"undefined\"?workflow:undefined,trigger,ditem:typeof ditem!==\"undefined\"?ditem:undefined});"
           },
           {
             "type": "midi-actor",
             "pass": "targetApplyDamage",
             "name": "deflect",
             "priority": 0,
-            "macro": "return game.modules.get(\"fvtt-automation-repair\").api.embedded.run(\"itemforms1u6fzeb.midi-actor.targetApplyDamage.deflect\", {workflow, trigger});"
+            "macro": "return game.modules.get(\"fvtt-automation-repair\").api.embedded.run(\"itemforms1u6fzeb.midi-actor.targetApplyDamage.deflect\", {workflow:typeof workflow!==\"undefined\"?workflow:undefined,trigger,ditem:typeof ditem!==\"undefined\"?ditem:undefined});"
           },
           {
             "type": "midi-item",
             "pass": "preItemRoll",
             "name": "riposte",
             "priority": 1,
-            "macro": "return game.modules.get(\"fvtt-automation-repair\").api.embedded.run(\"itemforms1u6fzeb.midi-item.preItemRoll.riposte\", {workflow, trigger});"
+            "macro": "return game.modules.get(\"fvtt-automation-repair\").api.embedded.run(\"itemforms1u6fzeb.midi-item.preItemRoll.riposte\", {workflow:typeof workflow!==\"undefined\"?workflow:undefined,trigger,ditem:typeof ditem!==\"undefined\"?ditem:undefined});"
           },
           {
             "type": "movement",
@@ -936,7 +1126,7 @@
             "name": "moved10",
             "distance": 10,
             "priority": 0,
-            "macro": "return game.modules.get(\"fvtt-automation-repair\").api.embedded.run(\"itemforms1u6fzeb.movement.moved.moved10\", {workflow, trigger});"
+            "macro": "return game.modules.get(\"fvtt-automation-repair\").api.embedded.run(\"itemforms1u6fzeb.movement.moved.moved10\", {workflow:typeof workflow!==\"undefined\"?workflow:undefined,trigger,ditem:typeof ditem!==\"undefined\"?ditem:undefined});"
           }
         ]
       },
@@ -1213,14 +1403,14 @@
             "pass": "preItemRoll",
             "name": "ignite",
             "priority": 0,
-            "macro": "return game.modules.get(\"fvtt-automation-repair\").api.embedded.run(\"itemkhyber0a0yu1.midi-item.preItemRoll.ignite\", {workflow, trigger});"
+            "macro": "return game.modules.get(\"fvtt-automation-repair\").api.embedded.run(\"itemkhyber0a0yu1.midi-item.preItemRoll.ignite\", {workflow:typeof workflow!==\"undefined\"?workflow:undefined,trigger,ditem:typeof ditem!==\"undefined\"?ditem:undefined});"
           },
           {
             "type": "midi-item",
             "pass": "preItemRoll",
             "name": "douse",
             "priority": 1,
-            "macro": "return game.modules.get(\"fvtt-automation-repair\").api.embedded.run(\"itemkhyber0a0yu1.midi-item.preItemRoll.douse\", {workflow, trigger});"
+            "macro": "return game.modules.get(\"fvtt-automation-repair\").api.embedded.run(\"itemkhyber0a0yu1.midi-item.preItemRoll.douse\", {workflow:typeof workflow!==\"undefined\"?workflow:undefined,trigger,ditem:typeof ditem!==\"undefined\"?ditem:undefined});"
           }
         ]
       },
@@ -1428,7 +1618,7 @@
             "pass": "preItemRoll",
             "name": "acToggle",
             "priority": 0,
-            "macro": "return game.modules.get(\"fvtt-automation-repair\").api.embedded.run(\"itemarmor1xv7l0j.midi-item.preItemRoll.acToggle\", {workflow, trigger});"
+            "macro": "return game.modules.get(\"fvtt-automation-repair\").api.embedded.run(\"itemarmor1xv7l0j.midi-item.preItemRoll.acToggle\", {workflow:typeof workflow!==\"undefined\"?workflow:undefined,trigger,ditem:typeof ditem!==\"undefined\"?ditem:undefined});"
           }
         ]
       },
@@ -1445,7 +1635,7 @@
     "img": "modules/mystic-weapon-pack/assets/jedi/awareness.webp",
     "system": {
       "description": {
-        "value": "<p>七级特性。</p><p><strong>原力预知</strong>：保持清醒时获得 10 尺盲视，先攻检定加感知调整值。</p><p><strong>心灵暗示</strong>：消耗 2 枚原力骰，以魔法动作施展暗示术或安定心神（仅姿势，感知为施法属性）。</p><p><strong>进阶剑式</strong>：剑式列表新增第二型马卡希、第六型尼曼。</p>",
+        "value": "<p>七级特性。</p><p><strong>原力预知</strong>：保持清醒时获得半径十尺盲视，先攻检定加感知调整值。</p><p><strong>心灵暗示</strong>：消耗两枚原力骰，以魔法动作施展暗示术或安定心神；仅需姿势成分，感知为施法属性。</p><p><strong>第二型·马卡希</strong>：光剑额外获得侵扰精通。单手持光剑且另一手空闲时 AC +1；每回合一次，光剑命中五尺内且仅与你相邻的生物时，额外掷一枚原力骰加入武器基础伤害，无需消耗。</p><p><strong>第六型·尼曼</strong>：光剑额外获得缓速精通。在自己的回合执行攻击动作时，可以用其中一次攻击替换为原力推斥、牵引，或心灵暗示中的法术；仍消耗相应原力骰。</p>",
         "chat": ""
       },
       "type": {
@@ -1459,7 +1649,394 @@
         "revision": 1,
         "rules": "2024"
       },
-      "activities": {},
+      "activities": {
+        "JediSuggestCast7": {
+          "_id": "JediSuggestCast7",
+          "type": "cast",
+          "name": "心灵暗示·暗示术",
+          "activation": {
+            "type": "action",
+            "value": 1,
+            "override": true,
+            "condition": "消耗两枚原力骰"
+          },
+          "range": {
+            "override": true,
+            "value": "30",
+            "units": "ft"
+          },
+          "target": {
+            "override": true,
+            "prompt": false,
+            "affects": {
+              "type": "creature",
+              "count": "1"
+            },
+            "template": {
+              "type": ""
+            }
+          },
+          "consumption": {
+            "spellSlot": false,
+            "targets": [
+              {
+                "type": "itemUses",
+                "target": "",
+                "value": "2",
+                "scaling": {
+                  "mode": "",
+                  "formula": ""
+                }
+              }
+            ]
+          },
+          "spell": {
+            "uuid": "Compendium.dnd5e.spells24.Item.phbsplSuggestion",
+            "ability": "wis",
+            "level": 2,
+            "properties": [
+              "vocal",
+              "material"
+            ],
+            "spellbook": false
+          }
+        },
+        "JediCalmCast0007": {
+          "_id": "JediCalmCast0007",
+          "type": "cast",
+          "name": "心灵暗示·安定心神",
+          "activation": {
+            "type": "action",
+            "value": 1,
+            "override": true,
+            "condition": "消耗两枚原力骰"
+          },
+          "range": {
+            "override": true,
+            "value": "60",
+            "units": "ft"
+          },
+          "target": {
+            "override": true,
+            "prompt": true,
+            "affects": {
+              "type": "",
+              "count": ""
+            },
+            "template": {
+              "type": "sphere",
+              "size": "20",
+              "units": "ft"
+            }
+          },
+          "consumption": {
+            "spellSlot": false,
+            "targets": [
+              {
+                "type": "itemUses",
+                "target": "",
+                "value": "2",
+                "scaling": {
+                  "mode": "",
+                  "formula": ""
+                }
+              }
+            ]
+          },
+          "spell": {
+            "uuid": "Compendium.chris-premades.CPRSpells2024.Item.f5dneWsWWR6YfbCI",
+            "ability": "wis",
+            "level": 2,
+            "properties": [
+              "vocal",
+              "material"
+            ],
+            "spellbook": false
+          }
+        },
+        "JediNimanSug0007": {
+          "_id": "JediNimanSug0007",
+          "type": "cast",
+          "name": "尼曼·暗示术（替换一次攻击）",
+          "activation": {
+            "type": "special",
+            "value": 1,
+            "override": true,
+            "condition": "尼曼：替换攻击动作中的一次攻击"
+          },
+          "range": {
+            "override": true,
+            "value": "30",
+            "units": "ft"
+          },
+          "target": {
+            "override": true,
+            "prompt": false,
+            "affects": {
+              "type": "creature",
+              "count": "1"
+            },
+            "template": {
+              "type": ""
+            }
+          },
+          "consumption": {
+            "spellSlot": false,
+            "targets": [
+              {
+                "type": "itemUses",
+                "target": "",
+                "value": "2",
+                "scaling": {
+                  "mode": "",
+                  "formula": ""
+                }
+              }
+            ]
+          },
+          "spell": {
+            "uuid": "Compendium.dnd5e.spells24.Item.phbsplSuggestion",
+            "ability": "wis",
+            "level": 2,
+            "properties": [
+              "vocal",
+              "material"
+            ],
+            "spellbook": false
+          }
+        },
+        "JediNimanCal0007": {
+          "_id": "JediNimanCal0007",
+          "type": "cast",
+          "name": "尼曼·安定心神（替换一次攻击）",
+          "activation": {
+            "type": "special",
+            "value": 1,
+            "override": true,
+            "condition": "尼曼：替换攻击动作中的一次攻击"
+          },
+          "range": {
+            "override": true,
+            "value": "60",
+            "units": "ft"
+          },
+          "target": {
+            "override": true,
+            "prompt": true,
+            "affects": {
+              "type": "",
+              "count": ""
+            },
+            "template": {
+              "type": "sphere",
+              "size": "20",
+              "units": "ft"
+            }
+          },
+          "consumption": {
+            "spellSlot": false,
+            "targets": [
+              {
+                "type": "itemUses",
+                "target": "",
+                "value": "2",
+                "scaling": {
+                  "mode": "",
+                  "formula": ""
+                }
+              }
+            ]
+          },
+          "spell": {
+            "uuid": "Compendium.chris-premades.CPRSpells2024.Item.f5dneWsWWR6YfbCI",
+            "ability": "wis",
+            "level": 2,
+            "properties": [
+              "vocal",
+              "material"
+            ],
+            "spellbook": false
+          }
+        },
+        "JediNimanPush007": {
+          "_id": "JediNimanPush007",
+          "type": "save",
+          "name": "尼曼·推斥（替换一次攻击）",
+          "activation": {
+            "type": "special",
+            "value": 1,
+            "override": true,
+            "condition": "尼曼：替换攻击动作中的一次攻击"
+          },
+          "consumption": {
+            "spellSlot": false,
+            "targets": [
+              {
+                "type": "itemUses",
+                "target": "",
+                "value": "1",
+                "scaling": {
+                  "mode": "",
+                  "formula": ""
+                }
+              }
+            ]
+          },
+          "range": {
+            "override": true,
+            "value": "30",
+            "units": "ft"
+          },
+          "target": {
+            "override": true,
+            "prompt": false,
+            "affects": {
+              "type": "creature",
+              "count": "1"
+            },
+            "template": {
+              "type": ""
+            }
+          },
+          "save": {
+            "ability": [
+              "str"
+            ],
+            "dc": {
+              "calculation": "wis",
+              "formula": ""
+            }
+          },
+          "damage": {
+            "onSave": "none",
+            "parts": [
+              {
+                "number": 1,
+                "denomination": 8,
+                "bonus": "@abilities.wis.mod",
+                "types": [
+                  "force"
+                ],
+                "custom": {
+                  "enabled": false
+                }
+              }
+            ]
+          },
+          "otherActivityId": "none"
+        },
+        "JediNimanPull007": {
+          "_id": "JediNimanPull007",
+          "type": "save",
+          "name": "尼曼·牵引（替换一次攻击）",
+          "activation": {
+            "type": "special",
+            "value": 1,
+            "override": true,
+            "condition": "尼曼：替换攻击动作中的一次攻击"
+          },
+          "consumption": {
+            "spellSlot": false,
+            "targets": [
+              {
+                "type": "itemUses",
+                "target": "",
+                "value": "1",
+                "scaling": {
+                  "mode": "",
+                  "formula": ""
+                }
+              }
+            ]
+          },
+          "range": {
+            "override": true,
+            "value": "30",
+            "units": "ft"
+          },
+          "target": {
+            "override": true,
+            "prompt": false,
+            "affects": {
+              "type": "creature",
+              "count": "1"
+            },
+            "template": {
+              "type": ""
+            }
+          },
+          "save": {
+            "ability": [
+              "str"
+            ],
+            "dc": {
+              "calculation": "wis",
+              "formula": ""
+            }
+          },
+          "damage": {
+            "onSave": "none",
+            "parts": [
+              {
+                "number": 1,
+                "denomination": 8,
+                "bonus": "@abilities.wis.mod",
+                "types": [
+                  "force"
+                ],
+                "custom": {
+                  "enabled": false
+                }
+              }
+            ]
+          },
+          "otherActivityId": "none"
+        },
+        "JediMakashi00007": {
+          "_id": "JediMakashi00007",
+          "type": "utility",
+          "name": "第二型·马卡希",
+          "activation": {
+            "type": "special",
+            "value": null
+          },
+          "consumption": {
+            "spellSlot": false,
+            "targets": []
+          },
+          "target": {
+            "prompt": false,
+            "affects": {
+              "type": "self"
+            },
+            "template": {
+              "type": ""
+            }
+          }
+        },
+        "JediNiman0000007": {
+          "_id": "JediNiman0000007",
+          "type": "utility",
+          "name": "第六型·尼曼",
+          "activation": {
+            "type": "special",
+            "value": null
+          },
+          "consumption": {
+            "spellSlot": false,
+            "targets": []
+          },
+          "target": {
+            "prompt": false,
+            "affects": {
+              "type": "self"
+            },
+            "template": {
+              "type": ""
+            }
+          }
+        }
+      },
       "uses": {
         "spent": 0,
         "recovery": []
@@ -1476,9 +2053,92 @@
     "flags": {
       "fvtt-automation-repair": {
         "pack": "mvp"
+      },
+      "chris-premades": {
+        "embeddedMacros": [
+          {
+            "type": "midi-item",
+            "pass": "preItemRoll",
+            "name": "stance",
+            "priority": 0,
+            "macro": "return game.modules.get(\"fvtt-automation-repair\").api.embedded.run(\"itemforms1u6fzeb.midi-item.preItemRoll.stance\", {workflow:typeof workflow!==\"undefined\"?workflow:undefined,trigger,ditem:typeof ditem!==\"undefined\"?ditem:undefined});"
+          },
+          {
+            "type": "midi-item",
+            "pass": "rollFinished",
+            "name": "forceUse",
+            "priority": 0,
+            "macro": "return game.modules.get(\"fvtt-automation-repair\").api.embedded.run(\"itemforce04l4q07.midi-item.rollFinished.forceUse\", {workflow:typeof workflow!==\"undefined\"?workflow:undefined,trigger,ditem:typeof ditem!==\"undefined\"?ditem:undefined});"
+          }
+        ]
       }
     },
-    "effects": []
+    "effects": [
+      {
+        "_id": "JediForesight007",
+        "name": "原力预知",
+        "img": "modules/mystic-weapon-pack/assets/jedi/awareness.webp",
+        "transfer": true,
+        "disabled": false,
+        "flags": {
+          "fvtt-automation-repair": {
+            "jediLevel7": "foresight"
+          }
+        },
+        "changes": [
+          {
+            "key": "system.attributes.senses.blindsight",
+            "mode": 4,
+            "value": "10",
+            "priority": 20
+          },
+          {
+            "key": "system.attributes.init.bonus",
+            "mode": 2,
+            "value": "@abilities.wis.mod",
+            "priority": 20
+          }
+        ]
+      },
+      {
+        "_id": "JediMakashiForm7",
+        "name": "剑式·第二型 马卡希",
+        "transfer": false,
+        "disabled": true,
+        "flags": {
+          "fvtt-automation-repair": {
+            "stance": "II"
+          }
+        },
+        "changes": [
+          {
+            "key": "system.traits.weaponProf.mastery.bonus",
+            "mode": 2,
+            "value": "vex",
+            "priority": 20
+          }
+        ]
+      },
+      {
+        "_id": "JediNimanForm007",
+        "name": "剑式·第六型 尼曼",
+        "transfer": false,
+        "disabled": true,
+        "flags": {
+          "fvtt-automation-repair": {
+            "stance": "VI"
+          }
+        },
+        "changes": [
+          {
+            "key": "system.traits.weaponProf.mastery.bonus",
+            "mode": 2,
+            "value": "slow",
+            "priority": 20
+          }
+        ]
+      }
+    ]
   },
   {
     "_id": "itemforce04l4q07",
@@ -1487,7 +2147,7 @@
     "img": "modules/mystic-weapon-pack/assets/jedi/force.webp",
     "system": {
       "description": {
-        "value": "<p>三级特性。你拥有 4 枚原力骰（d8），短休恢复 1 枚，长休恢复全部；使用回气时恢复 1 枚。</p><p>原力豁免 DC = 8 + 熟练加值 + 感知调整值。</p><p>原力技艺：原力控物（推斥/牵引）、隔空御剑、原力共情。</p><p><strong>原力共情</strong>：获得该特性时选择洞悉或游说，永久获得其熟练（常效被动，无需使用）；进行洞悉/察觉/游说检定时可消耗 1 枚原力骰，额外加 1d8。</p>",
+        "value": "<p>三级特性。你在三级拥有 4 枚原力骰（d8）；战士五／九／十三／十七级增至 6／8／10／12 枚，短休恢复 1 枚，长休恢复全部；使用回气时恢复 1 枚。</p><p>原力豁免 DC = 8 + 熟练加值 + 感知调整值。</p><p>原力技艺：原力控物（推斥/牵引）、隔空御剑、原力共情。</p><p><strong>原力共情</strong>：获得该特性时选择洞悉或游说，永久获得其熟练（常效被动，无需使用）；进行洞悉/察觉/游说检定时可消耗 1 枚原力骰，额外加 1d8。</p>",
         "chat": ""
       },
       "type": {
@@ -1529,7 +2189,17 @@
             "override": false
           },
           "consumption": {
-            "targets": [],
+            "targets": [
+              {
+                "type": "itemUses",
+                "target": "",
+                "value": "1",
+                "scaling": {
+                  "mode": "",
+                  "formula": ""
+                }
+              }
+            ],
             "scaling": {
               "allowed": false,
               "max": ""
@@ -1669,7 +2339,17 @@
             "override": false
           },
           "consumption": {
-            "targets": [],
+            "targets": [
+              {
+                "type": "itemUses",
+                "target": "",
+                "value": "1",
+                "scaling": {
+                  "mode": "",
+                  "formula": ""
+                }
+              }
+            ],
             "scaling": {
               "allowed": false,
               "max": ""
@@ -1809,7 +2489,17 @@
             "override": false
           },
           "consumption": {
-            "targets": [],
+            "targets": [
+              {
+                "type": "itemUses",
+                "target": "",
+                "value": "1",
+                "scaling": {
+                  "mode": "",
+                  "formula": ""
+                }
+              }
+            ],
             "scaling": {
               "allowed": false,
               "max": ""
@@ -1830,14 +2520,14 @@
               "count": "",
               "type": "creature",
               "choice": false,
-              "special": ""
+              "special": "-self"
             },
             "prompt": true,
             "override": true
           },
           "range": {
-            "value": "30",
-            "units": "ft",
+            "value": "",
+            "units": "self",
             "special": "",
             "override": true
           },
@@ -2081,21 +2771,21 @@
             "pass": "preItemRoll",
             "name": "empathy",
             "priority": 0,
-            "macro": "return game.modules.get(\"fvtt-automation-repair\").api.embedded.run(\"itemforce04l4q07.midi-item.preItemRoll.empathy\", {workflow, trigger});"
+            "macro": "return game.modules.get(\"fvtt-automation-repair\").api.embedded.run(\"itemforce04l4q07.midi-item.preItemRoll.empathy\", {workflow:typeof workflow!==\"undefined\"?workflow:undefined,trigger,ditem:typeof ditem!==\"undefined\"?ditem:undefined});"
           },
           {
             "type": "midi-item",
             "pass": "rollFinished",
             "name": "forceUse",
             "priority": 0,
-            "macro": "return game.modules.get(\"fvtt-automation-repair\").api.embedded.run(\"itemforce04l4q07.midi-item.rollFinished.forceUse\", {workflow, trigger});"
+            "macro": "return game.modules.get(\"fvtt-automation-repair\").api.embedded.run(\"itemforce04l4q07.midi-item.rollFinished.forceUse\", {workflow:typeof workflow!==\"undefined\"?workflow:undefined,trigger,ditem:typeof ditem!==\"undefined\"?ditem:undefined});"
           },
           {
             "type": "skill",
             "pass": "bonus",
             "name": "empathySkill",
             "priority": 0,
-            "macro": "return game.modules.get(\"fvtt-automation-repair\").api.embedded.run(\"itemforce04l4q07.skill.bonus.empathySkill\", {workflow, trigger});"
+            "macro": "return game.modules.get(\"fvtt-automation-repair\").api.embedded.run(\"itemforce04l4q07.skill.bonus.empathySkill\", {workflow:typeof workflow!==\"undefined\"?workflow:undefined,trigger,ditem:typeof ditem!==\"undefined\"?ditem:undefined});"
           }
         ]
       },

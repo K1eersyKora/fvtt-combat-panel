@@ -1,0 +1,43 @@
+{
+  "id": "fvtt-mc-builder",
+  "title": "方块建造 · MC Builder",
+  "description": "在 3D Canvas 场景中编辑方块、门、桥和阶梯构件，支持分层放置、场景保存及玩家通行。",
+  "version": "0.6.8",
+  "authors": [
+    {
+      "name": "Local FVTT Workspace"
+    }
+  ],
+  "compatibility": {
+    "minimum": "13",
+    "verified": "13.351",
+    "maximum": "13"
+  },
+  "esmodules": [
+    "scripts/main-36.js"
+  ],
+  "socket": true,
+  "styles": [
+    "styles/builder-6.css",
+    "styles/spatial-3.css"
+  ],
+  "relationships": {
+    "requires": [
+      {
+        "id": "levels-3d-preview",
+        "type": "module",
+        "compatibility": {
+          "minimum": "8.0.0",
+          "maximum": "8.999"
+        }
+      },
+      {
+        "id": "lib-wrapper",
+        "type": "module"
+      }
+    ]
+  },
+  "url": "https://github.com/K1eersyKora/fvtt-combat-panel",
+  "manifest": "https://github.com/K1eersyKora/fvtt-combat-panel/releases/latest/download/fvtt-mc-builder.json",
+  "download": "https://github.com/K1eersyKora/fvtt-combat-panel/releases/download/v0.15.16/fvtt-mc-builder.zip"
+}

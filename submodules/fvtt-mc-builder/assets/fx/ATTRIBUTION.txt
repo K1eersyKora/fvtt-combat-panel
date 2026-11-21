@@ -1,0 +1,15 @@
+These WebM animations are from JB2A — Jules and Ben's Animated Assets, Free Content 0.9.4.
+They are distributed under Creative Commons Attribution-NonCommercial-ShareAlike 4.0.
+https://jb2a.com/
+https://creativecommons.org/licenses/by-nc-sa/4.0/
+The video content is unchanged. The local filenames are shortened.
+
+blade.webm          Shortsword01_01_Regular_White_800x600.webm
+arrow.webm          Arrow01_01_Regular_White_30ft_1600x400.webm
+firebolt.webm       FireBolt_01_Regular_Orange_30ft_1600x400.webm
+force.webm          EldritchBlast_01_Regular_Purple_30ft_1600x400.webm
+frost.webm          RayOfFrost_01_Regular_Blue_30ft_1600x400.webm
+fireball-flight.webm FireballBeam_01_Orange_30ft_1600x400.webm
+fireball-burst.webm FireballExplosion_01_Orange_800x800.webm
+arcane-burst.webm   Impact_02_Regular_Blue_400x400.webm
+frost-burst.webm    ImpactIceShard01_01_Regular_Blue_400x400.webm

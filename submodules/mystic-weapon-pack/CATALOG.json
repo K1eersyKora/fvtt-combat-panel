@@ -1,6 +1,20 @@
 [
   {
     "pack": "items",
+    "id": "resonanceBracer1",
+    "name": "魔音护臂",
+    "type": "weapon",
+    "rules": "2024"
+  },
+  {
+    "pack": "items",
+    "id": "soulResonance001",
+    "name": "夺魂魔音",
+    "type": "spell",
+    "rules": "2024"
+  },
+  {
+    "pack": "items",
     "id": "itemoneness1b2ob",
     "name": "与原力同在 One With The Force",
     "type": "feat",
