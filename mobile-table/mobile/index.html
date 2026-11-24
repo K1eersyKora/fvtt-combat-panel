@@ -1,0 +1,296 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#102723">
+<title>掌上跑团</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="gameShell">
+<main id="pageScroll">
+  <section id="pair" class="card">
+    <h1>连接玩家桌位</h1>
+    <p>在电脑的玩家窗口点「手机配对」，输入十位配对码。</p>
+    <label for="code">配对码</label>
+    <div class="codeRow">
+      <input id="code" form="pairForm" autocomplete="off" autocapitalize="characters" placeholder="输入配对码" required>
+      <button id="pasteCode" type="button">粘贴</button>
+    </div>
+    <form id="pairForm">
+      <button id="pairSubmit" type="submit" class="primary" disabled>正在加载…</button>
+    </form>
+    <div class="cardFoot">
+      <div class="cardFootLeft">
+        <button id="offlineCard" type="button" class="link" hidden>查看本机角色卡</button>
+        <button id="changeServer" type="button" class="link" hidden>更换桌面地址</button>
+      </div>
+      <span id="pairSettingsMount"><button id="settingsOpen" type="button" class="settingsOpen" aria-label="设置">设置</button></span>
+    </div>
+  </section>
+
+  <section id="lobby" class="card" hidden>
+    <div id="lobbyPlayer" class="kicker"></div>
+    <h1 id="lobbyWorld">世界准备</h1>
+    <p id="packStatus" role="status">可提前下载自己的角色卡、图片和特效，进入世界后从手机读取。</p>
+    <progress id="packProgress" max="1" value="0" hidden></progress>
+    <div id="enterSteps" class="enterSteps" role="status" hidden>
+      <span data-step="1">连接桌位</span>
+      <span data-step="2">同步状态与聊天</span>
+      <span data-step="3">载入地图视野</span>
+    </div>
+    <div class="actions">
+      <button id="preload" type="button">下载世界资源包</button>
+      <button id="enterWorld" type="button" class="primary">进入世界</button>
+      <button id="cancelEnter" type="button" hidden>取消进入</button>
+    </div>
+    <div class="cardFoot">
+      <div class="cardFootLeft">
+        <button id="lobbyCard" type="button" class="link" hidden>查看本机角色卡</button>
+        <button id="changeSeat" type="button" class="link">更换桌位</button>
+      </div>
+      <span id="lobbySettingsMount"></span>
+    </div>
+  </section>
+
+  <div id="stage" hidden>
+    <canvas id="localMap" hidden></canvas>
+    <canvas id="overlay"></canvas>
+    <div id="mapLoading" class="mapLoading" role="status" hidden>
+      <span class="spinner" aria-hidden="true"></span><span id="mapLoadingText">正在载入本地地图…</span>
+    </div>
+    <div class="mapHeading">
+      <div id="mapInfo" hidden>
+        <strong id="actionName"></strong>
+        <span id="summary"></span>
+        <span id="coveredList" hidden></span>
+        <span id="prediction"></span>
+      </div>
+      <div id="combatHud" hidden>
+        <button id="combatPill" type="button" aria-expanded="false"></button>
+        <div id="combatList" hidden></div>
+      </div>
+      <span id="mapTag" aria-label="当前场景" title="未连接" hidden><span id="connDot" class="connDot" data-state="offline" aria-hidden="true"></span><span id="mapTagText"></span></span>
+    </div>
+    <div id="mapFab" class="mapFab">
+      <button id="mapCenterBtn" type="button" aria-label="回到自己棋子" title="回到自己棋子">◎</button>
+      <button id="mapExpandBtn" type="button" aria-label="展开地图浏览" title="展开/还原地图" aria-pressed="false">⤢</button>
+    </div>
+    <aside id="tokenPeek" role="status" aria-live="polite" hidden>
+      <div class="peekHead"><strong class="peekName"></strong><span class="peekHealth"></span></div>
+      <div class="peekStates"></div>
+    </aside>
+  </div>
+
+  <section id="home" hidden>
+    <div id="displayNote" role="status" hidden></div>
+    <div class="chatHeading">
+      <h2 id="chatTitle">聊天记录</h2>
+      <button type="button" id="chatResize" class="chatResizeBtn" aria-controls="chatLog" aria-label="调节聊天记录高度" title="短按切换高度，按住上下拖动调节">高度 ⇅</button>
+    </div>
+    <div class="chatLogWrap">
+      <ol id="chatLog" role="log" aria-labelledby="chatTitle" aria-live="polite" tabindex="0"></ol>
+      <button id="chatJumpBottom" type="button" hidden>↓ 回到底部</button>
+    </div>
+    <button id="chatResizeBar" type="button" class="chatResizeBar" aria-controls="chatLog" aria-label="拖动调节聊天记录高度" title="上下拖动调节聊天高度"><span aria-hidden="true"></span></button>
+    <div id="chatEditor">
+      <form id="chatForm">
+        <textarea id="chatInput" rows="2" aria-label="聊天消息" autocomplete="off" maxlength="2000" enterkeyhint="send" placeholder="输入聊天消息（Enter 发送，Shift+Enter 换行）"></textarea>
+        <div class="sendStack">
+          <button id="sendChat" type="submit" class="primary" disabled>发送</button>
+          <button id="diceToggle" type="button" aria-controls="diceTray" aria-expanded="false">掷骰</button>
+        </div>
+      </form>
+      <section id="diceTray" aria-label="组合骰盘" hidden></section>
+    </div>
+    <div id="chatStatus" role="status"></div>
+    <footer class="homeFoot">
+      <button type="button" class="link" id="disconnect">断开桌位</button>
+      <span id="homeSettingsMount"></span>
+    </footer>
+  </section>
+
+  <section id="sheet" class="card" hidden>
+    <div class="inline spread">
+      <h2 id="actor">角色卡</h2>
+      <button id="backSheet" type="button">返回</button>
+    </div>
+    <div id="sheetStamp" class="kicker"></div>
+    <div class="vitalRow">
+      <p id="vitals"></p>
+      <div id="slotPips" role="group" aria-label="法术位"></div>
+    </div>
+    <div id="sheetConditions" class="sheetConditions" hidden></div>
+    <div id="sheetAbilities" class="sheetAbilities" aria-label="六项属性与豁免"></div>
+    <div id="sheetQuickRoll" class="sheetQuickRoll" hidden><button id="sheetQuickRollClose" type="button" aria-label="关闭快捷掷骰">关闭</button></div>
+    <div id="sheetTabs" class="sheetTabs"></div>
+    <div id="sheetTabPanel" class="sheetTabPanel"></div>
+  </section>
+</main>
+
+<div id="floatingLayer" class="floatingLayer">
+  <button id="bg3CheckResume" type="button" class="bg3ResumePill" hidden>待处理检定 · 点击恢复</button>
+  <button id="desktopPromptResume" type="button" class="promptResumePill" hidden>待处理桌面提示 · 点击恢复</button>
+  <p id="status" role="status" aria-live="polite"></p>
+</div>
+
+<aside id="charDock" aria-label="角色战斗面板" hidden>
+  <div class="dockBar">
+    <button id="dockHandle" type="button" class="dockHandle" aria-controls="dockContents" aria-expanded="true" aria-label="拖动调节能力栏行数或收起">
+      <span class="handlePill" aria-hidden="true"></span>
+      <span id="dockHandleLabel">能力栏 · 1 行</span>
+    </button>
+    <div id="tokenSwitcher" class="tokenSwitcher" hidden>
+      <button id="tokenSwitchBtn" type="button" aria-expanded="false"></button>
+      <div id="tokenSwitchMenu" hidden></div>
+    </div>
+    <button id="dockSettingsOpen" type="button" aria-label="能力栏设置" aria-haspopup="dialog" title="能力栏设置"><span aria-hidden="true">&#9881;&#65038;</span></button>
+    <button id="openMove" type="button" class="primary">移动</button>
+  </div>
+  <div id="dockContents" class="isOpen">
+    <div class="collapseInner">
+      <div class="dockRow">
+        <button id="openSheet" type="button" class="heroCard" aria-label="角色详情">
+          <span class="abilityIcon" id="dockPortrait" aria-hidden="true"></span>
+          <span class="heroText">
+            <strong id="dockActor">角色</strong>
+            <small id="dockHp"></small>
+            <i class="hpLine"><em class="hpTrail" aria-hidden="true"></em><b></b></i>
+            <small id="dockArmor"></small>
+            <small id="dockCond" class="dockCond" hidden></small>
+            <span class="heroSheetCue" aria-hidden="true">卡</span>
+          </span>
+        </button>
+        <div class="deck">
+          <div class="deckTools">
+            <div class="dockKindsWrap"><nav id="dockKinds" aria-label="能力分类"></nav></div>
+            <div class="dockPager">
+              <button id="dockPrevPage" type="button" class="dockPageBtn" aria-label="上一页" hidden>‹</button>
+              <output id="dockPage" class="dockPage" aria-live="polite"></output>
+              <button id="dockNextPage" type="button" class="dockPageBtn" aria-label="下一页" hidden>›</button>
+            </div>
+            <div id="filterWrap" class="filterWrap">
+              <input id="filter" type="search" aria-label="查找能力" placeholder="查找">
+              <button id="filterClear" type="button" class="filterClear" aria-label="清空查找" hidden>×</button>
+            </div>
+          </div>
+          <div id="dockSlots" aria-label="能力栏位"></div>
+        </div>
+      </div>
+      <section id="itemModes" hidden>
+        <div class="collapseInner">
+          <div class="itemModesHead"><div class="itemModesTitleWrap"><h2 id="itemModesTitle"></h2><small id="itemModesMeta"></small></div><button id="itemModesClose" type="button" aria-label="关闭使用方式">返回</button></div>
+          <div id="itemModesList" class="itemModesGrid" role="group" aria-label="选择使用方式"></div>
+        </div>
+      </section>
+      <section id="choice" hidden>
+        <div class="collapseInner">
+          <div class="choiceHead">
+            <h2 id="chosen"></h2>
+            <label id="slotBox"><span id="slotBoxLabel">施法环位</span><select id="slot"></select></label>
+          </div>
+          <p id="actionMeta"></p>
+          <div id="choiceOptions" class="choiceOptions" hidden>
+            <div id="damageTypeBox" class="choiceOptionGroup" hidden><span class="choiceOptionLabel">伤害属性</span><div id="damageChoices" class="damageChoices" role="group" aria-label="选择伤害属性"></div></div>
+            <div id="versatileBox" class="choiceOptionGroup" hidden><span class="choiceOptionLabel">握持方式</span><div id="versatileChoices" class="versatileChoices" role="group" aria-label="握持方式"></div></div>
+          </div>
+          <div class="choiceBody">
+            <p id="description"></p>
+          </div>
+          <div class="useRow">
+            <button id="backChoice" type="button">返回</button>
+            <button id="aim" type="button" class="primary">使用</button>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+</aside>
+
+<section id="mapControls" hidden>
+  <div class="toolbar">
+    <button id="cancelMap" type="button">返回</button>
+    <button id="undo" type="button">撤销上一点</button>
+    <button id="confirm" type="button" class="primary">确认</button>
+  </div>
+</section>
+</div>
+
+<dialog id="settings" aria-labelledby="settingsTitle">
+  <div class="appearanceHead"><h2 id="settingsTitle">设置</h2><button id="settingsClose" type="button">关闭</button></div>
+  <button id="openPalette" type="button" class="settingRow"><span>面板配色</span><small>预设与自定义颜色</small></button>
+  <fieldset id="chatThemeGroup">
+    <legend>聊天卡片外观</legend>
+    <button id="chatThemeDark" type="button" aria-pressed="true">跟随暗色</button>
+    <button id="chatThemePaper" type="button" aria-pressed="false">经典羊皮纸</button>
+  </fieldset>
+  <section class="cachePanel">
+    <h3>本机缓存</h3>
+    <label for="cacheRange">清理范围</label>
+    <select id="cacheRange"><option value="current">当前桌位</option><option value="all">全部桌位</option></select>
+    <div id="cacheUsage" role="status"></div>
+    <details><summary>存储位置</summary><p id="cacheLocation"></p></details>
+    <label class="checkRow"><input type="checkbox" id="clearCard">同时移除离线角色卡</label>
+    <button id="clearCache" type="button">清理缓存</button>
+    <button id="packFullCheck" type="button" hidden>完整复查源文件</button>
+    <div id="clearPrompt" hidden>
+      <p id="clearExplanation"></p>
+      <div class="actions"><button id="cancelClear" type="button">取消</button><button type="button" class="primary" id="confirmClear">确认清理</button></div>
+    </div>
+    <p id="cacheResult" role="status"></p>
+  </section>
+</dialog>
+
+<dialog id="dockVisibility" aria-labelledby="dockVisibilityTitle">
+  <div class="appearanceHead"><h2 id="dockVisibilityTitle">能力栏与顺序</h2><button id="dockSettingsClose" type="button">完成</button></div>
+  <div id="dockOptions"></div>
+  <section id="dockItems" aria-label="栏位与顺序">
+    <div class="dockItemTools">
+      <select id="dockItemsGroup" aria-label="筛选栏位类别"></select>
+      <input id="dockItemsSearch" type="search" aria-label="查找栏位" placeholder="查找栏位">
+    </div>
+    <ol id="dockItemsList" aria-label="能力栏项目"></ol>
+    <div class="appearanceHead dockItemFooter">
+      <small id="dockItemsStatus" role="status"></small>
+      <button id="dockItemsReset" type="button">恢复默认推荐</button>
+      <button id="dockItemsClose" type="button">完成</button>
+    </div>
+  </section>
+</dialog>
+
+<dialog id="desktopPrompt" aria-labelledby="desktopPromptTitle">
+  <div class="appearanceHead promptHead"><div class="promptTitleGroup"><span id="desktopPromptKind" class="promptKindBadge">提示</span><h2 id="desktopPromptTitle">玩家确认</h2></div><button id="desktopPromptDefer" type="button">稍后处理</button></div>
+  <p id="desktopPromptSubtitle" class="kicker" hidden></p><p id="desktopPromptBody" class="promptBody" hidden></p>
+  <div id="desktopPromptTimerWrap" class="promptTimerWrap" hidden><progress id="desktopPromptProgress" max="1" value="0"></progress><small id="desktopPromptTimer"></small></div>
+  <div id="desktopPromptControls" class="promptControls" hidden></div><div id="desktopPromptActions" class="promptActions"></div>
+  <p id="desktopPromptNotice" class="promptNotice" role="status"></p>
+  <div class="promptFooter"><button id="desktopPromptDismiss" type="button" hidden>关闭</button></div>
+</dialog>
+<dialog id="bg3CheckPrompt" aria-labelledby="bg3CheckTitle">
+  <div class="appearanceHead"><h2 id="bg3CheckTitle">BG3 检定</h2><button id="bg3CheckDefer" type="button">在电脑处理</button></div>
+  <div id="bg3CheckTabs" class="checkChoices" aria-label="检定项目"></div>
+  <p id="bg3CheckSummary"></p>
+  <div id="bg3CheckBonuses" class="checkChoices" aria-label="检定加值"></div>
+  <p id="bg3CheckNotice" role="status"></p>
+  <progress id="bg3CheckProgress" max="1" value="0" hidden></progress>
+  <div class="appearanceHead"><small id="bg3CheckTimer"></small><button id="bg3CheckRoll" class="primary" type="button">掷骰</button></div>
+</dialog>
+
+<dialog id="appearance" aria-labelledby="appearanceTitle">
+  <div class="appearanceHead"><div><div id="themeOrigin" class="kicker"></div><h2 id="appearanceTitle">面板外观</h2></div><button id="themeClose" type="button">关闭</button></div>
+  <div id="presets" aria-label="主题预设"></div>
+  <div id="channels" aria-label="选择要调整的颜色"></div>
+  <div class="pickerGrid">
+    <div id="sv" aria-label="调整饱和度与明度"><b></b></div>
+    <div class="colorFields">
+      <label for="hue">色相</label><input id="hue" type="range" min="0" max="359" step="1">
+      <label for="hex">HEX 色值</label><input id="hex" maxlength="7" spellcheck="false" autocapitalize="characters" aria-describedby="colorError">
+      <span id="colorError" role="status"></span>
+    </div>
+  </div>
+  <div class="themeFooter"><button id="followTheme" type="button">恢复跟随面板</button><button id="saveTheme" type="button" class="primary">保存到手机</button></div>
+</dialog>
+<script type="module" src="app.js"></script>
+</body>
+</html>

@@ -20,6 +20,14 @@ v0.15.16 包含七个战斗与自动化模块，以及两个独立的三维工�
 
 独立 ZIP 适合按需安装。手动完整安装可将整包中的九个模组文件夹解压至 `Data/modules/`，再按实际用途启用。三维工具依赖使用者已有的 3D Canvas 8.x 和 libWrapper，建造场景与普通三维跑团请分别配置。[下载 v0.15.16](https://github.com/K1eersyKora/fvtt-combat-panel/releases/tag/v0.15.16)
 
+## 掌上跑团 0.5.5
+
+DM 在 Windows 电脑运行桌面服务并登录普通玩家席位，玩家用 Android App 或手机浏览器配对，查看二维地图、角色卡和聊天，并通过桌面玩家会话执行游戏操作。
+
+- DM [Foundry 安装清单](https://github.com/K1eersyKora/fvtt-combat-panel/releases/download/mobile-v0.5.5/fvtt-mobile-table.json) · [Windows 桌面套件](https://github.com/K1eersyKora/fvtt-combat-panel/releases/download/mobile-v0.5.5/FVTT-DM-0.5.5.zip)
+- 玩家 [Android APK](https://github.com/K1eersyKora/fvtt-combat-panel/releases/download/mobile-v0.5.5/FVTT-Mobile-0.5.5.apk)
+- [中文使用说明](docs/MOBILE-TABLE.md) · [发行页](https://github.com/K1eersyKora/fvtt-combat-panel/releases/tag/mobile-v0.5.5) · [两端源码](mobile-table/)
+
 ## 文档
 
 - [更新说明](CHANGELOG.md) · [面板安装与使用](docs/USAGE.md) · [各模组功能与依赖](docs/MODULES.md)

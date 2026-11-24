@@ -1,0 +1,12 @@
+{
+  "id": "fvtt-mobile-table",
+  "title": "掌上跑团 · 2D 玩家端",
+  "description": "将普通玩家的聊天栏、二维地图、角色卡和战斗预测连接到手机。",
+  "version": "0.5.5",
+  "url": "https://github.com/K1eersyKora/fvtt-combat-panel/tree/main/mobile-table",
+  "manifest": "https://github.com/K1eersyKora/fvtt-combat-panel/releases/download/mobile-v0.5.5/fvtt-mobile-table.json",
+  "download": "https://github.com/K1eersyKora/fvtt-combat-panel/releases/download/mobile-v0.5.5/fvtt-mobile-table.zip",
+  "compatibility": { "minimum": "13", "verified": "13.351", "maximum": "13" },
+  "relationships": { "systems": [{"id":"dnd5e","type":"system","compatibility":{"minimum":"5.1","verified":"5.1.10"}}] },
+  "esmodules": ["main-14.mjs"]
+}
